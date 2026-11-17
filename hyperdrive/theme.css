@@ -1,0 +1,191 @@
+/* Hyperdrive. Load after Graupl. Remove this file to restore Graupl's defaults. */
+:root {
+  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  --graupl-primary: #6630bf;
+  --graupl-primary--100: #f4efff;
+  --graupl-primary--200: #e7d9ff;
+  --graupl-primary--300: #ceb3ff;
+  --graupl-primary--400: #ad84ff;
+  --graupl-primary--500: #8a53ee;
+  --graupl-primary--600: #6630bf;
+  --graupl-primary--700: #4c238f;
+  --graupl-primary--800: #331a61;
+  --graupl-primary--900: #20123c;
+  --graupl-secondary: #10778f;
+  --graupl-secondary--100: #eaffff;
+  --graupl-secondary--200: #c6f6fb;
+  --graupl-secondary--300: #8de2ed;
+  --graupl-secondary--400: #4fc6d9;
+  --graupl-secondary--500: #229eb6;
+  --graupl-secondary--600: #10778f;
+  --graupl-secondary--700: #12576c;
+  --graupl-secondary--800: #0c394b;
+  --graupl-secondary--900: #061e2b;
+  --graupl-tertiary: #ad197f;
+  --graupl-tertiary--100: #fff0fb;
+  --graupl-tertiary--200: #ffd6ef;
+  --graupl-tertiary--300: #f7a9dc;
+  --graupl-tertiary--400: #eb72c2;
+  --graupl-tertiary--500: #d63da5;
+  --graupl-tertiary--600: #ad197f;
+  --graupl-tertiary--700: #81155e;
+  --graupl-tertiary--800: #591343;
+  --graupl-tertiary--900: #350e29;
+  --graupl-root-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-root-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-root-font-family:
+    ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
+  --graupl-root-line-height: 1.6;
+  --graupl-heading-font-family: "Arial Black", impact, ui-monospace, monospace;
+  --graupl-heading-font-weight: 900;
+  --graupl-heading-line-height: 0.98;
+  --graupl-heading-letter-spacing: -0.055em;
+  --graupl-h1-font-size: clamp(3.1rem, 8vw, 6.7rem);
+  --graupl-h2-font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+  --graupl-h3-font-size: 1.7rem;
+  --graupl-card-title-font-family: var(--graupl-heading-font-family);
+  --graupl-card-title-font-weight: 900;
+  --graupl-card-title-font-size: 1.65rem;
+  --graupl-content-max-width: 76rem;
+  --graupl-container-content-max-width: 76rem;
+  --graupl-border-width: 3px;
+  --graupl-border-radius: 0;
+  --graupl-button-border-radius: 0;
+  --graupl-button-padding: 0.8rem 1.3rem;
+  --graupl-button-min-height: 48px;
+  --graupl-button-active-transform: none;
+  --graupl-link-text-decoration-thickness: 2px;
+  --graupl-card-background: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-card-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-card-border-top-left-radius: 2.5rem;
+  --graupl-card-border-top-right-radius: 0;
+  --graupl-card-border-bottom-right-radius: 2.5rem;
+  --graupl-card-border-bottom-left-radius: 0;
+  --graupl-card-content-padding: 1.75rem;
+  --graupl-card-content-gap: 1.15rem;
+  --graupl-card-header-padding: 0;
+  --graupl-card-body-padding: 0;
+  --graupl-card-footer-padding: 0;
+  --graupl-navigation-background: var(--graupl-root-background);
+  --graupl-navigation-branding-font-weight: 900;
+  --graupl-navigation-branding-font-size: 1.25rem;
+  --graupl-navigation-branding-padding: 0.75rem 0;
+  --graupl-menu-link-padding: 0.75rem 1rem;
+  --graupl-accordion-item-border-radius: 0;
+  --graupl-accordion-item-title-font-family: var(--graupl-heading-font-family);
+  --graupl-accordion-item-title-font-size: 1.15rem;
+  --graupl-accordion-item-toggle-padding: 1.25rem;
+  --graupl-accordion-item-body-padding: 0 1.25rem 1.25rem;
+  --graupl-tabs-border-radius: 0;
+  --graupl-tabs-tab-list-border-radius: 0;
+  --graupl-tabs-tab-content-border-radius: 0;
+  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-border-radius: 0;
+  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-alert-border-radius: 0;
+  --graupl-badge-border-radius: 0;
+  --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-menu-gap: 0.5rem;
+  --graupl-submenu-gap: 0.5rem;
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-offset: 3px;
+  --graupl-focus-outline-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}
+
+/* Keep the accordion header's lower edge flush with its expanded content. */
+.accordion-item-toggle {
+  --graupl-button-border-radius: 0;
+}
+
+/* Static arcade framing. No animation, flashing, or moving backgrounds. */
+.button.primary,
+.button.secondary,
+.button.tertiary {
+  --graupl-button-border-radius: 0.8rem 0 0.8rem 0;
+
+  box-shadow: 0.2rem 0.2rem 0
+    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300));
+  font-weight: 800;
+}
+
+.card {
+  box-shadow: 0.4rem 0.4rem 0
+    light-dark(var(--graupl-secondary--500), var(--graupl-secondary--700));
+}
+
+/* Segments stay in normal flow so text, focus, and tooltips remain unobscured. */
+main h1::before,
+main > section > h2::before {
+  content: "";
+  display: block;
+  width: min(12rem, 100%);
+  height: 0.55rem;
+  margin-block-end: 1.25rem;
+  background: linear-gradient(
+    90deg,
+    light-dark(var(--graupl-primary--600), var(--graupl-primary--300)) 0 48%,
+    transparent 48% 51%,
+    light-dark(var(--graupl-secondary--600), var(--graupl-secondary--300)) 51%
+      76%,
+    transparent 76% 79%,
+    light-dark(var(--graupl-tertiary--600), var(--graupl-tertiary--300)) 79%
+      100%
+  );
+  pointer-events: none;
+}
+
+.navigation {
+  border-block-end: 3px solid
+    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300));
+}
+
+.card-header {
+  padding-block-end: 1rem;
+  border-block-end: 2px dashed
+    light-dark(var(--graupl-primary--500), var(--graupl-primary--400));
+}
+
+.tabs-tab-toggle[aria-selected="true"] {
+  box-shadow: inset 0 0.3rem
+    light-dark(var(--graupl-tertiary--600), var(--graupl-tertiary--300));
+}
+
+.badge {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+main > section + section {
+  border-block-start: 2px dashed
+    light-dark(var(--graupl-secondary--500), var(--graupl-secondary--600));
+}
+
+@media (forced-colors: active) {
+  main h1::before,
+  main > section > h2::before {
+    border-block-start: 0.55rem solid CanvasText;
+    background: none;
+  }
+}

@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Gilt, a custom-property theme and component library built with Graupl."
+    />
+    <title>Gilt | Graupl component library</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Graupl/graupl@c7bff6f2012a9cf53bae5ccee377a4beb7f6404b/dist/css/graupl.css"
+    />
+    <link rel="stylesheet" href="theme.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/accessible-menu@5.0.0-beta.7/dist/disclosure-menu.iife.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/Graupl/graupl@c7bff6f2012a9cf53bae5ccee377a4beb7f6404b/dist/js/graupl.js"
+    ></script>
+    <script>
+      // Follow Graupl's demo: use its mode classes and remember the choice.
+      (() => {
+        const storageKey = "gilt-appearance";
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
+        let mode = "system";
+        try {
+          const saved = window.localStorage.getItem(storageKey);
+          if (["system", "light", "dark"].includes(saved)) mode = saved;
+        } catch {
+          // The switch still works when browser storage is unavailable.
+        }
+        let control;
+        const resolvedMode = () =>
+          mode === "system" ? (preference.matches ? "dark" : "light") : mode;
+        const applyMode = () => {
+          const resolved = resolvedMode();
+          document.documentElement.classList.remove("light-mode", "dark-mode");
+          document.documentElement.classList.add(`${resolved}-mode`);
+          if (control) {
+            control.textContent =
+              resolved === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode";
+          }
+        };
+        applyMode();
+        preference.addEventListener("change", applyMode);
+        document.addEventListener("DOMContentLoaded", () => {
+          control = document.getElementById("appearance");
+          applyMode();
+          control.addEventListener("click", () => {
+            mode = resolvedMode() === "light" ? "dark" : "light";
+            applyMode();
+            try {
+              window.localStorage.setItem(storageKey, mode);
+            } catch {
+              // A blocked save does not prevent changing the current mode.
+            }
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a
+        href="#main"
+        class="visually-hidden focusable display-inline-block my-3"
+        >Skip to content</a
+      >
+      <header class="pb-5 position-relative z-1">
+        <nav
+          class="navigation"
+          aria-label="Main navigation"
+          data-graupl-menu-type="DisclosureMenu"
+          data-graupl-menu-options='{"menuLinksSelector": ".menu-link"}'
+        >
+          <a class="navigation-branding" href="index.html">GILT / Graupl</a>
+          <button
+            type="button"
+            class="navigation-toggle"
+            aria-label="Toggle navigation"
+          ></button>
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#foundations">Foundations</a>
+            </li>
+            <li class="menu-item submenu-item">
+              <button
+                type="button"
+                class="menu-link button link submenu-toggle"
+              >
+                Components
+              </button>
+              <ul class="submenu">
+                <li class="menu-item">
+                  <a class="menu-link" href="#cards">Cards and lists</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#forms">Forms and tables</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#interactions"
+                    >Interactive components</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <button
+                id="appearance"
+                type="button"
+                class="menu-link button link"
+              >
+                Switch to dark mode
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <noscript
+          ><p>
+            Enable JavaScript to change appearance and use the interactive
+            components.
+          </p></noscript
+        >
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="py-8" aria-labelledby="intro-title">
+          <div class="flex-columns g-7 align-items-center">
+            <div class="col-12 md:col-8">
+              <p class="text-sm text-primary-700">AN ENTRANCE WORTH MAKING.</p>
+              <h1 id="intro-title">MAKE AN ENTRANCE.</h1>
+              <p class="text-lg">
+                Brass details, double-rule borders, and generous serif headings.
+                An Art Deco-inspired theme built entirely with Graupl.
+              </p>
+              <div class="display-flex flex-wrap g-3 mt-6">
+                <a class="button primary" href="#foundations"
+                  >Explore the library</a
+                ><a class="button secondary" href="theme.css" download
+                  >Download theme CSS</a
+                >
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="badge tertiary">THE GRAND / 01</span>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title">
+                      A grand entrance. A simple foundation.
+                    </h2>
+                    <p>
+                      One theme file. Existing custom properties. Remove it and
+                      every component keeps its base Graupl styling and
+                      behaviour.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#about-title">How to remove the theme</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="foundations"
+          class="py-8"
+          aria-labelledby="foundations-title"
+        >
+          <p class="text-sm text-primary-700">01 / FOUNDATIONS</p>
+          <h2 id="foundations-title">The house colours.</h2>
+          <p>
+            Champagne brass, midnight ink, and peacock teal. Each uses Graupl's
+            existing nine-shade palette.
+          </p>
+          <div class="flex-columns g-5 my-6">
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-primary-200 text-primary-900 border-radius">
+                <h3>Champagne brass</h3>
+                <p>The primary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div
+                class="p-6 bg-secondary-200 text-secondary-900 border-radius"
+              >
+                <h3>Midnight ink</h3>
+                <p>The secondary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-tertiary-200 text-tertiary-900 border-radius">
+                <h3>Peacock teal</h3>
+                <p>The tertiary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-columns g-7">
+            <div class="col-12 md:col-6">
+              <h3>Type with a clear hierarchy</h3>
+              <p class="text-h2">Follow the river.</p>
+              <p>
+                Body text stays readable through long field notes.
+                <strong>Strong text</strong> adds emphasis,
+                <em>italics</em> mark a change in voice, and
+                <a href="#cards">links stay underlined</a>.
+              </p>
+              <small
+                >Small text for supporting details. Essential instructions stay
+                in the body.</small
+              >
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Buttons and badges</h3>
+              <p>
+                These buttons link to working examples further down the page.
+              </p>
+              <div class="display-flex flex-wrap g-3 mb-5">
+                <a class="button primary" href="#forms">Primary</a
+                ><a class="button secondary" href="#cards">Secondary</a
+                ><a class="button tertiary" href="#interactions">Tertiary</a
+                ><button class="button" type="button" disabled>
+                  Unavailable
+                </button>
+              </div>
+              <div class="display-flex flex-wrap g-3">
+                <span class="badge primary">Trail open</span
+                ><span class="badge secondary">Updated today</span
+                ><span class="badge tertiary">New route</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="cards" class="py-8" aria-labelledby="cards-title">
+          <p class="text-sm text-primary-700">02 / CONTENT</p>
+          <h2 id="cards-title">A place for the finer details.</h2>
+          <p>Cards, lists, breadcrumbs, and messages share the same palette.</p>
+          <nav aria-label="Example breadcrumb" class="my-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#main">Gilt</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#cards">Field guides</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">River country</li>
+            </ol>
+          </nav>
+          <div class="flex-columns g-5">
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-primary-700">01</span>
+                    <p class="text-sm">FIELD GUIDE</p>
+                    <h3 class="card-title">The river path</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Take the long way home. A gentle route through the valley,
+                      with time to stop at the old mill.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the field notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-secondary-700">02</span>
+                    <p class="text-sm">FIELD GUIDE</p>
+                    <h3 class="card-title">Above the tree line</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Pack a warm layer for the ridge. Clear skies reveal the
+                      watchtower on the northern slope.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the field notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-tertiary-700">03</span>
+                    <p class="text-sm">FIELD GUIDE</p>
+                    <h3 class="card-title">A place to pause</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Find a sheltered clearing, put the kettle on, and compare
+                      the day's notes.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the field notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="flex-columns g-6 mt-7">
+            <div class="col-12 md:col-6">
+              <h3>Pack list</h3>
+              <ul class="list" role="list">
+                <li class="list-item">A map and compass</li>
+                <li class="list-item">A flask of water</li>
+                <li class="list-item">A notebook for the things you notice</li>
+              </ul>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Trail notice</h3>
+              <div class="alert tertiary">
+                <div class="alert-header">
+                  <p class="alert-title">The footbridge is closed</p>
+                </div>
+                <div class="alert-body">
+                  <p>
+                    Use the marked crossing beside the old mill. Allow ten extra
+                    minutes.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="alert-dismisser"
+                  aria-label="Dismiss footbridge notice"
+                >
+                  ×
+                </button>
+              </div>
+              <p>
+                <small
+                  >This is a dismissible example. Reload the page to restore
+                  it.</small
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="forms" class="py-8" aria-labelledby="forms-title">
+          <p class="text-sm text-primary-700">03 / INPUT AND DATA</p>
+          <h2 id="forms-title">Make the next step obvious.</h2>
+          <p>
+            A sample trip planner. These fields demonstrate Graupl's controls
+            and do not send or save your information.
+          </p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <div>
+                <div class="input-group mb-5">
+                  <label for="trip-name">Trip name</label
+                  ><input
+                    id="trip-name"
+                    type="text"
+                    placeholder="A day by the river"
+                    aria-describedby="trip-help"
+                  /><small id="trip-help" class="help-text"
+                    >Choose a name you will recognize in your notes.</small
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="route">Route</label
+                  ><select id="route">
+                    <option>River path</option>
+                    <option>North ridge</option>
+                    <option>Mill loop</option>
+                  </select>
+                </div>
+                <div class="input-group mb-5">
+                  <label for="notes">Field notes</label
+                  ><textarea
+                    id="notes"
+                    rows="3"
+                    placeholder="What would you like to see?"
+                  ></textarea>
+                </div>
+                <fieldset class="mb-5">
+                  <legend>Walking pace</legend>
+                  <div class="input-group left">
+                    <input
+                      type="radio"
+                      id="pace-easy"
+                      name="pace"
+                      checked
+                    /><label for="pace-easy">Easy going</label>
+                  </div>
+                  <div class="input-group left">
+                    <input type="radio" id="pace-steady" name="pace" /><label
+                      for="pace-steady"
+                      >Steady</label
+                    >
+                  </div>
+                </fieldset>
+                <div class="input-group left mb-5">
+                  <input type="checkbox" id="map-copy" /><label for="map-copy"
+                    >Bring a paper map</label
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="distance">Preferred distance</label
+                  ><input
+                    type="range"
+                    id="distance"
+                    min="1"
+                    max="15"
+                    value="6"
+                  /><small class="help-text"
+                    >Between 1 and 15 kilometres.</small
+                  >
+                </div>
+                <p>
+                  <small>Reload this page to reset the example fields.</small>
+                </p>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Route comparison</h3>
+              <div class="overflow-x-auto">
+                <table>
+                  <caption>
+                    Distances and walking times
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Route</th>
+                      <th scope="col">Distance</th>
+                      <th scope="col">Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">River path</th>
+                      <td>6 km</td>
+                      <td>2 hours</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">North ridge</th>
+                      <td>12 km</td>
+                      <td>4 hours</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mill loop</th>
+                      <td>3 km</td>
+                      <td>1 hour</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="input-group mt-7">
+                <label for="locked-field">Unavailable field</label
+                ><input
+                  type="text"
+                  id="locked-field"
+                  disabled
+                  value="No booking required"
+                /><small class="help-text">Disabled control appearance.</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="interactions"
+          class="py-8"
+          aria-labelledby="interactions-title"
+        >
+          <p class="text-sm text-primary-700">04 / INTERACTION</p>
+          <h2 id="interactions-title">Details, when you need them.</h2>
+          <p>Graupl's generators handle every interaction below.</p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <h3>Before you set out</h3>
+              <div
+                class="accordion"
+                data-graupl-accordion-options='{"optionalKeySupport":true}'
+              >
+                <div class="accordion-item show">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="true"
+                      >
+                        What should I bring?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        A map, water, and a layer for the wind. Carry out
+                        everything you carry in.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Where does the route begin?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Meet at the old mill. The river path starts beside the
+                        eastern gate.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Can I take a shorter route?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Yes. The mill loop returns to the starting point after
+                        three kilometres.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Notes by route</h3>
+              <div class="tabs">
+                <div class="tab-list" role="tablist" aria-label="Route notes">
+                  <button class="tab-toggle" type="button" aria-selected="true">
+                    River</button
+                  ><button class="tab-toggle" type="button">Ridge</button
+                  ><button class="tab-toggle" type="button">Mill</button>
+                </div>
+                <div class="tab-content show" tabindex="0">
+                  <h4>Follow the water</h4>
+                  <p>
+                    Keep to the marked path through the reeds. The first bench
+                    looks across the valley.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Take the high path</h4>
+                  <p>
+                    The final climb is steep. Stop at the stone shelter before
+                    heading back.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Back before lunch</h4>
+                  <p>
+                    A short circular walk past the orchard and the old
+                    waterwheel.
+                  </p>
+                </div>
+              </div>
+              <h3 class="mt-7">Extra details</h3>
+              <button
+                class="disclosure-toggle"
+                type="button"
+                data-graupl-disclosure-target="access-notes"
+                aria-controls="access-notes"
+                aria-expanded="false"
+              >
+                Show access notes
+              </button>
+              <div>
+                <div class="disclosure hide" id="access-notes">
+                  <div class="disclosure-content" inert>
+                    <p>
+                      The mill loop has a compacted gravel path. The ridge route
+                      includes steps and uneven ground.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="display-flex align-items-center g-3 mt-5">
+                <div
+                  class="tooltip"
+                  data-graupl-tooltip-options='{"expandOnFocus":true,"hoverType":"on"}'
+                >
+                  <span class="tooltip-description hide"
+                    >Paths may be muddy after rain.</span
+                  ><button
+                    class="tooltip-toggle"
+                    type="button"
+                    aria-label="More about route conditions"
+                  ></button>
+                </div>
+                <span>Route conditions</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-8">A few places worth stopping</h3>
+          <p>
+            The carousel starts paused. Use the next and previous buttons to
+            explore.
+          </p>
+          <section
+            class="carousel mt-5"
+            aria-label="Places along the route"
+            data-graupl-carousel-options='{"autoplay":false}'
+          >
+            <div class="carousel-control-container">
+              <button
+                type="button"
+                class="carousel-control autoplay play"
+                aria-label="Start slide rotation"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control previous"
+                aria-label="Previous slide"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control next"
+                aria-label="Next slide"
+              ></button>
+            </div>
+            <div class="carousel-item-container">
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-primary-100 text-primary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="The old mill"
+              >
+                <p class="text-sm">STOP 1 OF 3</p>
+                <h4 class="text-h2">The old mill</h4>
+                <p>
+                  A sheltered spot to unfold your map and plan the afternoon.
+                </p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-secondary-100 text-secondary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="The northern ridge"
+                inert
+              >
+                <p class="text-sm">STOP 2 OF 3</p>
+                <h4 class="text-h2">The northern ridge</h4>
+                <p>On a clear day, you can see the whole valley.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-tertiary-100 text-tertiary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="The river bend"
+                inert
+              >
+                <p class="text-sm">STOP 3 OF 3</p>
+                <h4 class="text-h2">The river bend</h4>
+                <p>Listen for the kingfishers in the reeds.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="py-8" aria-labelledby="about-title">
+          <h2 id="about-title">Your markup. Your theme.</h2>
+          <p>
+            Gilt uses all thirteen Graupl core components, plus its buttons,
+            links, forms, tables, typography, and layout utilities. Icons and
+            navigation shelf are not included.
+          </p>
+          <p>
+            Keep <code>theme.css</code> after Graupl's stylesheet. Most
+            declarations in the theme set an existing
+            <code>--graupl-*</code> property. Most declarations are on
+            <code>:root</code>. Scoped properties customize buttons and expanded
+            accordion headers. Small decorative rules add card corners and
+            navigation borders. The only custom script controls appearance, not
+            components.
+          </p>
+          <p>
+            Remove the theme stylesheet to use base Graupl with the same markup
+            and interactions.
+          </p>
+          <div class="display-flex flex-wrap g-3">
+            <a class="button primary" href="theme.css" download
+              >Download the theme</a
+            ><a class="button tertiary" href="https://graupl.dev"
+              >Read Graupl's docs</a
+            >
+          </div>
+        </section>
+      </main>
+      <footer class="py-7">
+        <p>Gilt · Built with Graupl 1.x and Accessible Menu.</p>
+        <a href="#main">Back to top</a>
+        <nav class="mt-5" aria-label="Other themes">
+          <h2 class="text-h3">Explore the other themes</h2>
+          <ul class="display-flex flex-wrap g-3 list-style-none">
+            <li><a href="../afterhours/index.html">After Hours</a></li>
+            <li><a href="../blueprint/index.html">Blueprint</a></li>
+            <li><a href="../campfire/index.html">Campfire</a></li>
+            <li><a href="../civic/index.html">Civic</a></li>
+            <li><a href="../commonplace/index.html">Commonplace</a></li>
+            <li><a href="../crt/index.html">CRT</a></li>
+            <li><a href="../default/index.html">Graupl defaults</a></li>
+            <li><a href="../fieldwork/index.html">Fieldwork</a></li>
+            <li><a href="../folio/index.html">Folio</a></li>
+            <li><a href="../forma/index.html">Forma</a></li>
+            <li><a href="../gilt/index.html" aria-current="page">Gilt</a></li>
+            <li><a href="../glasshouse/index.html">Glasshouse</a></li>
+            <li><a href="../helm/index.html">Helm</a></li>
+            <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
+            <li><a href="../kickstart/index.html">Kickstart</a></li>
+            <li><a href="../lumen/index.html">Lumen</a></li>
+            <li><a href="../signal/index.html">Signal</a></li>
+            <li><a href="../sugar/index.html">Sugar</a></li>
+            <li><a href="../tidepool/index.html">Tidepool</a></li>
+            <li><a href="../waymark/index.html">Waymark</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

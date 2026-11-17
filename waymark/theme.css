@@ -1,0 +1,413 @@
+/* Waymark. Load after Graupl. Remove this file to restore Graupl's defaults. */
+:root {
+  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  --graupl-primary: #3154d4;
+  --graupl-primary--100: #eef2ff;
+  --graupl-primary--200: #dce5ff;
+  --graupl-primary--300: #b4c8ff;
+  --graupl-primary--400: #829fff;
+  --graupl-primary--500: #5078f2;
+  --graupl-primary--600: #3154d4;
+  --graupl-primary--700: #253c9a;
+  --graupl-primary--800: #1b2a66;
+  --graupl-primary--900: #111b3c;
+  --graupl-secondary: #566272;
+  --graupl-secondary--100: #f5f5f2;
+  --graupl-secondary--200: #e4e5e3;
+  --graupl-secondary--300: #c5c9ce;
+  --graupl-secondary--400: #9da5b1;
+  --graupl-secondary--500: #737e8d;
+  --graupl-secondary--600: #566272;
+  --graupl-secondary--700: #3d4859;
+  --graupl-secondary--800: #263142;
+  --graupl-secondary--900: #111925;
+  --graupl-tertiary: #a75121;
+  --graupl-tertiary--100: #fff2e9;
+  --graupl-tertiary--200: #ffdfc8;
+  --graupl-tertiary--300: #f4ba91;
+  --graupl-tertiary--400: #e8945b;
+  --graupl-tertiary--500: #c86b31;
+  --graupl-tertiary--600: #a75121;
+  --graupl-tertiary--700: #7e3a19;
+  --graupl-tertiary--800: #562811;
+  --graupl-tertiary--900: #32180c;
+  --graupl-root-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-root-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-root-font-family:
+    ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
+  --graupl-root-line-height: 1.6;
+  --graupl-heading-font-family: var(--graupl-root-font-family);
+  --graupl-heading-font-weight: 800;
+  --graupl-heading-line-height: 1.02;
+  --graupl-heading-letter-spacing: -0.055em;
+  --graupl-h1-font-size: clamp(3.2rem, 7.5vw, 6rem);
+  --graupl-h2-font-size: clamp(2rem, 4vw, 3.2rem);
+  --graupl-h3-font-size: 1.5rem;
+  --graupl-card-title-font-family: var(--graupl-heading-font-family);
+  --graupl-card-title-font-weight: 750;
+  --graupl-card-title-font-size: 1.55rem;
+  --graupl-content-max-width: 76rem;
+  --graupl-container-content-max-width: 76rem;
+  --graupl-border-width: 1px;
+  --graupl-border-radius: 0.2rem;
+  --graupl-button-padding: 0.8rem 1.2rem;
+  --graupl-button-min-height: 48px;
+  --graupl-button-active-transform: none;
+  --graupl-link-text-decoration-thickness: 2px;
+  --graupl-card-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--800)
+  );
+  --graupl-card-border-top-right-radius: 0.25rem;
+  --graupl-card-border-bottom-right-radius: 0.25rem;
+  --graupl-card-content-gap: 1.1rem;
+  --graupl-card-header-padding: 0;
+  --graupl-card-body-padding: 0;
+  --graupl-card-footer-padding: 0;
+  --graupl-navigation-background: var(--graupl-root-background);
+  --graupl-navigation-branding-font-weight: 850;
+  --graupl-navigation-branding-font-size: 1.25rem;
+  --graupl-navigation-branding-padding: 0.75rem 0;
+  --graupl-menu-link-padding: 0.75rem 1rem;
+  --graupl-accordion-item-border-radius: 0.2rem;
+  --graupl-accordion-item-title-font-family: var(--graupl-root-font-family);
+  --graupl-accordion-item-title-font-size: 1.1rem;
+  --graupl-accordion-item-toggle-padding: 1.25rem;
+  --graupl-accordion-item-body-padding: 0 1.25rem 1.25rem;
+  --graupl-tabs-border-radius: 0.2rem;
+  --graupl-tabs-tab-list-border-radius: 0.2rem 0.2rem 0 0;
+  --graupl-tabs-tab-content-border-radius: 0 0 0.2rem 0.2rem;
+  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-border-radius: 0.2rem 0.2rem 0 0;
+  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-menu-gap: 0.5rem;
+  --graupl-submenu-gap: 0.5rem;
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-offset: 3px;
+  --graupl-focus-outline-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+
+  /* Component defaults share the theme’s existing palettes. */
+  --graupl-button-border-width: 2px;
+  --graupl-input-border-width: 2px;
+  --graupl-input-border-color: light-dark(
+    var(--graupl-secondary--500),
+    var(--graupl-secondary--500)
+  );
+  --graupl-input-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-menu-link-border-radius: 0.2rem;
+  --graupl-menu-link-hover-background: light-dark(
+    var(--graupl-primary--200),
+    var(--graupl-primary--800)
+  );
+  --graupl-menu-link-hover-color: light-dark(
+    var(--graupl-primary--900),
+    var(--graupl-primary--100)
+  );
+  --graupl-menu-link-focus-background: light-dark(
+    var(--graupl-primary--200),
+    var(--graupl-primary--800)
+  );
+  --graupl-menu-link-focus-color: light-dark(
+    var(--graupl-primary--900),
+    var(--graupl-primary--100)
+  );
+  --graupl-badge-padding: 0.35rem 0.75rem;
+  --graupl-accordion-item-toggle-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-accordion-item-toggle-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-accordion-item-toggle-hover-background: light-dark(
+    var(--graupl-primary--200),
+    var(--graupl-primary--800)
+  );
+  --graupl-accordion-item-toggle-hover-color: light-dark(
+    var(--graupl-primary--900),
+    var(--graupl-primary--100)
+  );
+  --graupl-accordion-item-toggle-focus-background: light-dark(
+    var(--graupl-primary--200),
+    var(--graupl-primary--800)
+  );
+  --graupl-accordion-item-toggle-focus-color: light-dark(
+    var(--graupl-primary--900),
+    var(--graupl-primary--100)
+  );
+  --graupl-tabs-tab-toggle-selected-background: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-tabs-tab-toggle-selected-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-tabs-tab-toggle-selected-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-card-border-left-width: 0.6rem;
+  --graupl-card-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-card-border-top-left-radius: 0;
+  --graupl-card-border-bottom-left-radius: 0;
+  --graupl-card-content-padding: 1.8rem;
+  --graupl-button-border-radius: 0.15rem;
+  --graupl-accordion-item-border-left-width: 0.4rem;
+  --graupl-accordion-item-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-alert-border-left-width: 0.6rem;
+  --graupl-alert-border-radius: 0;
+  --graupl-badge-border-radius: 0;
+  --graupl-tabs-tab-toggle-border-bottom-width: 0.3rem;
+  --graupl-tabs-tab-content-border-top-width: 0.3rem;
+  --graupl-tabs-tab-content-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}
+
+/* Keep the accordion header's lower edge flush with its expanded content. */
+.accordion-item-toggle {
+  --graupl-button-border-radius: 0;
+}
+
+/* Variant rules override Graupl’s component-local palette mappings. */
+.button.primary {
+  --graupl-button-background: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-button-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-button-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-button-visited-background: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-button-visited-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-button-hover-background: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-button-hover-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-button-hover-border-color: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-button-focus-background: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-button-focus-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-button-focus-border-color: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-button-active-background: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-button-active-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-button-active-border-color: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+}
+
+.button.secondary {
+  --graupl-button-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-button-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-button-border-color: light-dark(
+    var(--graupl-secondary--700),
+    var(--graupl-secondary--300)
+  );
+  --graupl-button-visited-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-button-visited-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-button-hover-background: light-dark(
+    var(--graupl-secondary--200),
+    var(--graupl-secondary--800)
+  );
+  --graupl-button-hover-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-button-hover-border-color: light-dark(
+    var(--graupl-secondary--800),
+    var(--graupl-secondary--200)
+  );
+  --graupl-button-focus-background: light-dark(
+    var(--graupl-secondary--200),
+    var(--graupl-secondary--800)
+  );
+  --graupl-button-focus-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-button-focus-border-color: light-dark(
+    var(--graupl-secondary--800),
+    var(--graupl-secondary--200)
+  );
+  --graupl-button-active-background: light-dark(
+    var(--graupl-secondary--200),
+    var(--graupl-secondary--800)
+  );
+  --graupl-button-active-color: light-dark(
+    var(--graupl-secondary--900),
+    var(--graupl-secondary--100)
+  );
+  --graupl-button-active-border-color: light-dark(
+    var(--graupl-secondary--800),
+    var(--graupl-secondary--200)
+  );
+}
+
+.button.tertiary {
+  --graupl-button-background: light-dark(
+    var(--graupl-tertiary--700),
+    var(--graupl-tertiary--300)
+  );
+  --graupl-button-color: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-button-border-color: light-dark(
+    var(--graupl-tertiary--700),
+    var(--graupl-tertiary--300)
+  );
+  --graupl-button-visited-background: light-dark(
+    var(--graupl-tertiary--700),
+    var(--graupl-tertiary--300)
+  );
+  --graupl-button-visited-color: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-button-hover-background: light-dark(
+    var(--graupl-tertiary--800),
+    var(--graupl-tertiary--200)
+  );
+  --graupl-button-hover-color: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-button-hover-border-color: light-dark(
+    var(--graupl-tertiary--800),
+    var(--graupl-tertiary--200)
+  );
+  --graupl-button-focus-background: light-dark(
+    var(--graupl-tertiary--800),
+    var(--graupl-tertiary--200)
+  );
+  --graupl-button-focus-color: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-button-focus-border-color: light-dark(
+    var(--graupl-tertiary--800),
+    var(--graupl-tertiary--200)
+  );
+  --graupl-button-active-background: light-dark(
+    var(--graupl-tertiary--800),
+    var(--graupl-tertiary--200)
+  );
+  --graupl-button-active-color: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-button-active-border-color: light-dark(
+    var(--graupl-tertiary--800),
+    var(--graupl-tertiary--200)
+  );
+}
+
+.flex-columns > :nth-child(2) .card.h-full {
+  --graupl-card-border-color: light-dark(
+    var(--graupl-secondary--600),
+    var(--graupl-secondary--400)
+  );
+  --graupl-card-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+}
+
+.flex-columns > :nth-child(3) .card.h-full {
+  --graupl-card-border-color: light-dark(
+    var(--graupl-tertiary--600),
+    var(--graupl-tertiary--400)
+  );
+  --graupl-card-background: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+}
+
+.badge.primary {
+  --graupl-badge-background: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --graupl-badge-color: light-dark(
+    var(--graupl-primary--100),
+    var(--graupl-primary--900)
+  );
+  --graupl-badge-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}

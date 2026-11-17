@@ -1,0 +1,206 @@
+/* Signal. Load after Graupl. Remove this file to restore Graupl's defaults. */
+:root {
+  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  --graupl-primary: #245bca;
+  --graupl-primary--100: #eff5ff;
+  --graupl-primary--200: #dbe8ff;
+  --graupl-primary--300: #b5d0ff;
+  --graupl-primary--400: #83adff;
+  --graupl-primary--500: #4e83ec;
+  --graupl-primary--600: #245bca;
+  --graupl-primary--700: #164298;
+  --graupl-primary--800: #102e69;
+  --graupl-primary--900: #0b1d40;
+  --graupl-secondary: #b5580a;
+  --graupl-secondary--100: #fff5e8;
+  --graupl-secondary--200: #ffe5bd;
+  --graupl-secondary--300: #ffcd87;
+  --graupl-secondary--400: #f6a94e;
+  --graupl-secondary--500: #dc7d1b;
+  --graupl-secondary--600: #b5580a;
+  --graupl-secondary--700: #8a3e09;
+  --graupl-secondary--800: #602b0b;
+  --graupl-secondary--900: #381c0c;
+  --graupl-tertiary: #65695f;
+  --graupl-tertiary--100: #f5f5f3;
+  --graupl-tertiary--200: #e4e4df;
+  --graupl-tertiary--300: #c8c9c2;
+  --graupl-tertiary--400: #a9aba3;
+  --graupl-tertiary--500: #878b80;
+  --graupl-tertiary--600: #65695f;
+  --graupl-tertiary--700: #494d44;
+  --graupl-tertiary--800: #30352c;
+  --graupl-tertiary--900: #1a2018;
+  --graupl-root-background: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-root-color: light-dark(
+    var(--graupl-tertiary--900),
+    var(--graupl-tertiary--100)
+  );
+  --graupl-root-font-family:
+    ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
+  --graupl-root-line-height: 1.6;
+  --graupl-heading-font-family: "Arial Narrow", impact, sans-serif;
+  --graupl-heading-font-weight: 900;
+  --graupl-heading-line-height: 1.05;
+  --graupl-heading-letter-spacing: -0.035em;
+  --graupl-h1-font-size: clamp(3.4rem, 8vw, 7rem);
+  --graupl-h2-font-size: clamp(2rem, 4vw, 3.5rem);
+  --graupl-h3-font-size: 1.7rem;
+  --graupl-card-title-font-family: var(--graupl-heading-font-family);
+  --graupl-card-title-font-weight: 900;
+  --graupl-card-title-font-size: 1.65rem;
+  --graupl-content-max-width: 76rem;
+  --graupl-container-content-max-width: 76rem;
+  --graupl-border-width: 2px;
+  --graupl-border-radius: 0;
+  --graupl-button-border-radius: 0;
+  --graupl-button-padding: 0.85rem 1.4rem;
+  --graupl-button-min-height: 48px;
+  --graupl-button-active-transform: none;
+  --graupl-link-text-decoration-thickness: 2px;
+  --graupl-card-background: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-card-border-color: light-dark(
+    var(--graupl-tertiary--700),
+    var(--graupl-tertiary--300)
+  );
+  --graupl-card-border-top-left-radius: 0;
+  --graupl-card-border-top-right-radius: 0;
+  --graupl-card-border-bottom-right-radius: 0;
+  --graupl-card-border-bottom-left-radius: 0;
+  --graupl-card-content-padding: 1.75rem;
+  --graupl-card-content-gap: 1.15rem;
+  --graupl-card-header-padding: 0;
+  --graupl-card-body-padding: 0;
+  --graupl-card-footer-padding: 0;
+  --graupl-navigation-background: var(--graupl-root-background);
+  --graupl-navigation-branding-font-weight: 900;
+  --graupl-navigation-branding-font-size: 1.35rem;
+  --graupl-navigation-branding-padding: 0.75rem 0;
+  --graupl-menu-link-padding: 0.75rem 1rem;
+  --graupl-accordion-item-border-radius: 0;
+  --graupl-accordion-item-title-font-family: var(--graupl-heading-font-family);
+  --graupl-accordion-item-title-font-size: 1.15rem;
+  --graupl-accordion-item-toggle-padding: 1.25rem;
+  --graupl-accordion-item-body-padding: 0 1.25rem 1.25rem;
+  --graupl-tabs-border-radius: 0;
+  --graupl-tabs-tab-list-border-radius: 0;
+  --graupl-tabs-tab-content-border-radius: 0;
+  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-border-radius: 0;
+  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-alert-border-radius: 0;
+  --graupl-badge-border-radius: 0;
+  --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-menu-gap: 0.5rem;
+  --graupl-submenu-gap: 0.5rem;
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-offset: 3px;
+  --graupl-focus-outline-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}
+
+/* Keep the accordion header's lower edge flush with its expanded content. */
+.accordion-item-toggle {
+  --graupl-button-border-radius: 0;
+}
+
+/* Labels and rules are decoration, not component behaviour. */
+.navigation {
+  border-block: 2px solid
+    light-dark(var(--graupl-tertiary--900), var(--graupl-tertiary--100));
+}
+
+.navigation-branding {
+  padding-inline: 0.75rem;
+  background: var(--graupl-tertiary--900);
+  color: var(--graupl-tertiary--100);
+  letter-spacing: 0.06em;
+}
+
+main h1 {
+  max-width: 10ch;
+  text-transform: uppercase;
+}
+
+main > section > h2 {
+  max-width: 23ch;
+  text-transform: uppercase;
+}
+
+main > section > .text-sm,
+.badge,
+.card-header > p {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* In-flow stripes leave text and focus rings clear. */
+main > section:first-child::after {
+  content: "";
+  display: block;
+  height: 1rem;
+  margin-block-start: 3rem;
+  background: repeating-linear-gradient(
+    135deg,
+    light-dark(var(--graupl-secondary--500), var(--graupl-secondary--300)) 0
+      0.6rem,
+    light-dark(var(--graupl-tertiary--900), var(--graupl-tertiary--100)) 0.6rem
+      1.2rem
+  );
+  pointer-events: none;
+}
+
+main > section + section {
+  border-block-start: 2px solid
+    light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300));
+}
+
+.card-header {
+  padding-block-end: 1rem;
+  border-block-end: 2px solid
+    light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300));
+}
+
+article.card {
+  --graupl-card-border-top-width: 0.6rem;
+}
+
+.button.primary,
+.button.secondary,
+.button.tertiary {
+  --graupl-button-border-bottom-width: 0.35rem;
+
+  font-weight: 750;
+  letter-spacing: 0.035em;
+}
+
+.tab-toggle[aria-selected="true"] {
+  box-shadow: inset 0 0.3rem
+    light-dark(var(--graupl-secondary--600), var(--graupl-secondary--300));
+}
+
+.alert {
+  --graupl-alert-border-left-width: 0.5rem;
+}
+
+@media (forced-colors: active) {
+  main > section:first-child::after {
+    border-block: 0.25rem solid CanvasText;
+    background: none;
+  }
+}

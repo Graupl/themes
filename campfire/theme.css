@@ -1,0 +1,189 @@
+/* Campfire. Load after Graupl. Remove this file to restore Graupl's defaults. */
+:root {
+  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  --graupl-primary: #4c7040;
+  --graupl-primary--100: #eff6ed;
+  --graupl-primary--200: #dce9d5;
+  --graupl-primary--300: #b8d0ae;
+  --graupl-primary--400: #92b282;
+  --graupl-primary--500: #6b915b;
+  --graupl-primary--600: #4c7040;
+  --graupl-primary--700: #35532d;
+  --graupl-primary--800: #253b20;
+  --graupl-primary--900: #182616;
+  --graupl-secondary: #984d2c;
+  --graupl-secondary--100: #fff2e8;
+  --graupl-secondary--200: #f6dcc6;
+  --graupl-secondary--300: #e8ba99;
+  --graupl-secondary--400: #d4936c;
+  --graupl-secondary--500: #bb6e46;
+  --graupl-secondary--600: #984d2c;
+  --graupl-secondary--700: #74361e;
+  --graupl-secondary--800: #512719;
+  --graupl-secondary--900: #341c13;
+  --graupl-tertiary: #786741;
+  --graupl-tertiary--100: #faf5e9;
+  --graupl-tertiary--200: #ece1c8;
+  --graupl-tertiary--300: #d6c5a0;
+  --graupl-tertiary--400: #bba678;
+  --graupl-tertiary--500: #9a855c;
+  --graupl-tertiary--600: #786741;
+  --graupl-tertiary--700: #5a4c31;
+  --graupl-tertiary--800: #3f3525;
+  --graupl-tertiary--900: #29231a;
+  --graupl-root-background: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-root-color: light-dark(
+    var(--graupl-tertiary--900),
+    var(--graupl-tertiary--100)
+  );
+  --graupl-root-font-family:
+    ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
+  --graupl-root-line-height: 1.65;
+  --graupl-heading-font-family: georgia, "Times New Roman", serif;
+  --graupl-heading-font-weight: 700;
+  --graupl-heading-line-height: 1.12;
+  --graupl-heading-letter-spacing: -0.025em;
+  --graupl-h1-font-size: clamp(3rem, 6vw, 5.4rem);
+  --graupl-h2-font-size: clamp(2rem, 3.5vw, 3rem);
+  --graupl-h3-font-size: 1.55rem;
+  --graupl-card-title-font-family: var(--graupl-heading-font-family);
+  --graupl-card-title-font-weight: 700;
+  --graupl-card-title-font-size: 1.55rem;
+  --graupl-content-max-width: 76rem;
+  --graupl-container-content-max-width: 76rem;
+  --graupl-border-width: 1px;
+  --graupl-border-radius: 1.1rem;
+  --graupl-button-border-radius: 999px;
+  --graupl-button-padding: 0.85rem 1.5rem;
+  --graupl-button-min-height: 48px;
+  --graupl-button-active-transform: none;
+  --graupl-link-text-decoration-thickness: 1px;
+  --graupl-card-background: light-dark(
+    var(--graupl-tertiary--100),
+    var(--graupl-tertiary--900)
+  );
+  --graupl-card-border-color: light-dark(
+    var(--graupl-primary--600),
+    var(--graupl-primary--300)
+  );
+  --graupl-card-border-top-left-radius: 1.75rem;
+  --graupl-card-border-top-right-radius: 1.75rem;
+  --graupl-card-border-bottom-right-radius: 0.5rem;
+  --graupl-card-border-bottom-left-radius: 0.5rem;
+  --graupl-card-content-padding: 1.75rem;
+  --graupl-card-content-gap: 1.15rem;
+  --graupl-card-header-padding: 0;
+  --graupl-card-body-padding: 0;
+  --graupl-card-footer-padding: 0;
+  --graupl-navigation-background: var(--graupl-root-background);
+  --graupl-navigation-branding-font-weight: 600;
+  --graupl-navigation-branding-font-size: 1.2rem;
+  --graupl-navigation-branding-padding: 0.75rem 0;
+  --graupl-menu-link-padding: 0.75rem 1rem;
+  --graupl-accordion-item-border-radius: 1rem;
+  --graupl-accordion-item-title-font-family: var(--graupl-root-font-family);
+  --graupl-accordion-item-title-font-size: 1.05rem;
+  --graupl-accordion-item-toggle-padding: 1.4rem;
+  --graupl-accordion-item-body-padding: 0 1.4rem 1.4rem;
+  --graupl-tabs-border-radius: 1rem;
+  --graupl-tabs-tab-list-border-radius: 1rem 1rem 0 0;
+  --graupl-tabs-tab-content-border-radius: 0 0 1rem 1rem;
+  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-border-radius: 1rem 1rem 0 0;
+  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-alert-border-radius: 1rem;
+  --graupl-badge-border-radius: 0.7rem;
+  --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-menu-gap: 0.5rem;
+  --graupl-submenu-gap: 0.5rem;
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-offset: 3px;
+  --graupl-focus-outline-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}
+
+/* Keep the accordion header's lower edge flush with its expanded content. */
+.accordion-item-toggle {
+  --graupl-button-border-radius: 0;
+}
+
+/* Trail-marker shapes stay in normal flow, outside the text and focus rings. */
+main h1 {
+  max-width: 12ch;
+  color: light-dark(var(--graupl-primary--700), var(--graupl-primary--200));
+  font-style: italic;
+}
+
+.navigation-branding {
+  padding: 0.5rem 0.85rem;
+  border: 3px double
+    light-dark(var(--graupl-primary--700), var(--graupl-primary--300));
+  border-radius: 0.7rem;
+}
+
+main > section + section {
+  border-block-start: 2px solid
+    light-dark(var(--graupl-tertiary--400), var(--graupl-tertiary--600));
+}
+
+main > section > h2::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 0.45rem;
+  margin-block-end: 1rem;
+  border-radius: 0 999px 999px 0;
+  background: light-dark(
+    var(--graupl-secondary--600),
+    var(--graupl-secondary--300)
+  );
+  pointer-events: none;
+}
+
+.card {
+  box-shadow: 0 0.4rem 0
+    light-dark(var(--graupl-tertiary--300), var(--graupl-tertiary--800));
+}
+
+.card-header {
+  padding-block-end: 1rem;
+  border-block-end: 1px dashed
+    light-dark(var(--graupl-primary--500), var(--graupl-primary--400));
+}
+
+.button.primary,
+.button.secondary,
+.button.tertiary {
+  --graupl-button-border-radius: 999px;
+
+  font-weight: 700;
+}
+
+.badge {
+  --graupl-badge-border-radius: 0.5rem 0.5rem 0.5rem 0;
+
+  font-weight: 700;
+}
+
+.tab-toggle[aria-selected="true"] {
+  box-shadow: inset 0 0.25rem
+    light-dark(var(--graupl-secondary--600), var(--graupl-secondary--300));
+}
+
+@media (forced-colors: active) {
+  main > section > h2::before {
+    border-block-start: 0.45rem solid CanvasText;
+    background: none;
+  }
+}

@@ -1,0 +1,178 @@
+/* Civic. Independent Canada.ca-inspired example, not a government site. Load after Graupl. Remove this file to restore Graupl's defaults. */
+:root {
+  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  --graupl-primary: #284162;
+  --graupl-primary--100: #edf3f9;
+  --graupl-primary--200: #d5e2ef;
+  --graupl-primary--300: #b1c8df;
+  --graupl-primary--400: #8aa9c8;
+  --graupl-primary--500: #6286aa;
+  --graupl-primary--600: #426788;
+  --graupl-primary--700: #284162;
+  --graupl-primary--800: #26374a;
+  --graupl-primary--900: #162537;
+  --graupl-secondary: #555;
+  --graupl-secondary--100: #fff;
+  --graupl-secondary--200: #f5f5f5;
+  --graupl-secondary--300: #d6d6d6;
+  --graupl-secondary--400: #b8b8b8;
+  --graupl-secondary--500: #949494;
+  --graupl-secondary--600: #6f6f6f;
+  --graupl-secondary--700: #555;
+  --graupl-secondary--800: #333;
+  --graupl-secondary--900: #1b1b1b;
+  --graupl-tertiary: #84251c;
+  --graupl-tertiary--100: #fff2f0;
+  --graupl-tertiary--200: #f8dcd7;
+  --graupl-tertiary--300: #eeb8b0;
+  --graupl-tertiary--400: #df9287;
+  --graupl-tertiary--500: #ca6656;
+  --graupl-tertiary--600: #a62a1e;
+  --graupl-tertiary--700: #84251c;
+  --graupl-tertiary--800: #5e201b;
+  --graupl-tertiary--900: #381815;
+  --graupl-root-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--900)
+  );
+  --graupl-root-color: light-dark(
+    var(--graupl-secondary--800),
+    var(--graupl-secondary--100)
+  );
+  --graupl-root-font-family: "Noto Sans", arial, sans-serif;
+  --graupl-root-font-size: clamp(18px, 1.7vw, 20px);
+  --graupl-root-line-height: 1.6;
+  --graupl-heading-font-family: lato, arial, sans-serif;
+  --graupl-heading-font-weight: 700;
+  --graupl-heading-line-height: 1.2;
+  --graupl-heading-letter-spacing: normal;
+  --graupl-h1-font-size: clamp(1.85rem, 3.5vw, 2.05rem);
+  --graupl-h2-font-size: clamp(1.75rem, 3.2vw, 1.95rem);
+  --graupl-h3-font-size: 1.45rem;
+  --graupl-card-title-font-family: var(--graupl-heading-font-family);
+  --graupl-card-title-font-weight: 700;
+  --graupl-card-title-font-size: 1.35rem;
+  --graupl-content-max-width: 57rem;
+  --graupl-container-content-max-width: 57rem;
+  --graupl-border-width: 1px;
+  --graupl-border-radius: 0.2rem;
+  --graupl-button-border-radius: 0.2rem;
+  --graupl-button-padding: 0.65rem 1.1rem;
+  --graupl-button-min-height: 48px;
+  --graupl-button-active-transform: none;
+  --graupl-link-text-decoration-thickness: 1px;
+  --graupl-card-background: light-dark(
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--800)
+  );
+  --graupl-card-border-color: light-dark(
+    var(--graupl-secondary--300),
+    var(--graupl-secondary--700)
+  );
+  --graupl-card-border-top-left-radius: 0;
+  --graupl-card-border-top-right-radius: 0;
+  --graupl-card-border-bottom-right-radius: 0;
+  --graupl-card-border-bottom-left-radius: 0;
+  --graupl-card-content-padding: 1.25rem;
+  --graupl-card-content-gap: 1rem;
+  --graupl-card-header-padding: 0;
+  --graupl-card-body-padding: 0;
+  --graupl-card-footer-padding: 0;
+  --graupl-navigation-background: var(--graupl-root-background);
+  --graupl-navigation-branding-color: light-dark(
+    var(--graupl-tertiary--600),
+    var(--graupl-tertiary--300)
+  );
+  --graupl-navigation-branding-font-weight: 700;
+  --graupl-navigation-branding-font-size: 1.2rem;
+  --graupl-navigation-branding-padding: 0.75rem 0;
+  --graupl-menu-link-padding: 0.75rem 1rem;
+  --graupl-accordion-item-border-radius: 0.15rem;
+  --graupl-accordion-item-title-font-family: var(--graupl-root-font-family);
+  --graupl-accordion-item-title-font-size: 1.1rem;
+  --graupl-accordion-item-toggle-padding: 1.25rem;
+  --graupl-accordion-item-body-padding: 0 1.25rem 1.25rem;
+  --graupl-tabs-border-radius: 0.2rem;
+  --graupl-tabs-tab-list-border-radius: 0.2rem 0.2rem 0 0;
+  --graupl-tabs-tab-content-border-radius: 0 0 0.2rem 0.2rem;
+  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-border-radius: 0.2rem 0.2rem 0 0;
+  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-alert-border-radius: 0;
+  --graupl-badge-border-radius: 0.15rem;
+  --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-menu-gap: 0.5rem;
+  --graupl-submenu-gap: 0.5rem;
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-offset: 3px;
+  --graupl-focus-outline-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}
+
+/* Keep the accordion header's lower edge flush with its expanded content. */
+.accordion-item-toggle {
+  --graupl-button-border-radius: 0;
+}
+
+/* Short red rules echo the editorial treatment, without official branding. */
+main h1::after,
+main > section > h2::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 0.25rem;
+  margin-block-start: 1rem;
+  background: light-dark(
+    var(--graupl-tertiary--600),
+    var(--graupl-tertiary--300)
+  );
+  pointer-events: none;
+}
+
+.navigation {
+  border-block-end: 0.35rem solid
+    light-dark(var(--graupl-primary--800), var(--graupl-primary--300));
+}
+
+article.card {
+  --graupl-card-border-top-width: 0.4rem;
+  --graupl-card-border-color: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+}
+
+.card-footer {
+  padding-block-start: 1rem;
+  border-block-start: 1px solid
+    light-dark(var(--graupl-secondary--300), var(--graupl-secondary--600));
+}
+
+.button.primary,
+.button.secondary,
+.button.tertiary {
+  --graupl-button-border-bottom-width: 0.25rem;
+
+  font-weight: 700;
+}
+
+main > section + section {
+  border-block-start: 1px solid
+    light-dark(var(--graupl-secondary--300), var(--graupl-secondary--600));
+}
+
+.tabs-tab-toggle[aria-selected="true"] {
+  box-shadow: inset 0 0.3rem
+    light-dark(var(--graupl-tertiary--600), var(--graupl-tertiary--300));
+}
+
+.accordion-item.show {
+  --graupl-accordion-item-border-left-width: 0.35rem;
+}

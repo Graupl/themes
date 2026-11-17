@@ -1,0 +1,196 @@
+/* CRT. Load after Graupl. */
+:root {
+  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  --graupl-primary: #2d8832;
+  --graupl-primary--100: #effff0;
+  --graupl-primary--200: #d6f9d7;
+  --graupl-primary--300: #adebad;
+  --graupl-primary--400: #7ed67f;
+  --graupl-primary--500: #50b552;
+  --graupl-primary--600: #2d8832;
+  --graupl-primary--700: #1c6422;
+  --graupl-primary--800: #17461c;
+  --graupl-primary--900: #102f15;
+  --graupl-secondary: #65705e;
+  --graupl-secondary--100: #f5f7f4;
+  --graupl-secondary--200: #e3e9df;
+  --graupl-secondary--300: #c8d1c3;
+  --graupl-secondary--400: #a9b4a2;
+  --graupl-secondary--500: #87937f;
+  --graupl-secondary--600: #65705e;
+  --graupl-secondary--700: #495244;
+  --graupl-secondary--800: #30382d;
+  --graupl-secondary--900: #1b2219;
+  --graupl-tertiary: #a37713;
+  --graupl-tertiary--100: #fff8e8;
+  --graupl-tertiary--200: #ffedc0;
+  --graupl-tertiary--300: #ffda88;
+  --graupl-tertiary--400: #edbd50;
+  --graupl-tertiary--500: #cf9b28;
+  --graupl-tertiary--600: #a37713;
+  --graupl-tertiary--700: #77560d;
+  --graupl-tertiary--800: #513b0b;
+  --graupl-tertiary--900: #332608;
+  --graupl-root-background: light-dark(var(--graupl-secondary--100),
+      var(--graupl-secondary--900));
+  --graupl-root-color: light-dark(var(--graupl-secondary--900),
+      var(--graupl-secondary--100));
+  --graupl-root-font-family: ui-monospace, "Courier New", monospace;
+  --graupl-root-line-height: 1.6;
+  --graupl-heading-color: light-dark(var(--graupl-primary--700),
+      var(--graupl-primary--300));
+
+  /* prettier-ignore */
+  --graupl-heading-font-family: var(--graupl-root-font-family);
+  --graupl-heading-font-weight: 700;
+  --graupl-heading-line-height: 1.1;
+  --graupl-heading-letter-spacing: -0.065em;
+  --graupl-h1-font-size: clamp(2.8rem, 7vw, 5.8rem);
+  --graupl-h2-font-size: clamp(2rem, 4vw, 3rem);
+  --graupl-h3-font-size: 1.6rem;
+  --graupl-card-title-font-family: var(--graupl-heading-font-family);
+  --graupl-card-title-font-weight: 700;
+  --graupl-card-title-font-size: 1.65rem;
+  --graupl-content-max-width: 76rem;
+  --graupl-container-content-max-width: 76rem;
+  --graupl-border-width: 1px;
+  --graupl-border-radius: 0.25rem;
+  --graupl-button-border-radius: 0.25rem;
+  --graupl-button-padding: 0.85rem 1.25rem;
+  --graupl-button-min-height: 48px;
+  --graupl-button-active-transform: none;
+  --graupl-link-text-decoration-thickness: 1px;
+  --graupl-card-background: light-dark(var(--graupl-primary--100),
+      var(--graupl-primary--900));
+  --graupl-card-border-color: light-dark(var(--graupl-primary--700),
+      var(--graupl-primary--300));
+  --graupl-card-border-top-left-radius: 0.5rem;
+  --graupl-card-border-top-right-radius: 0.5rem;
+  --graupl-card-border-bottom-right-radius: 0.5rem;
+  --graupl-card-border-bottom-left-radius: 0.5rem;
+  --graupl-card-border-left-width: 2px;
+  --graupl-card-border-top-width: 2px;
+  --graupl-card-border-right-width: 2px;
+  --graupl-card-border-bottom-width: 2px;
+  --graupl-card-content-padding: 1.65rem;
+  --graupl-card-content-gap: 1.1rem;
+  --graupl-card-header-padding: 0;
+  --graupl-card-body-padding: 0;
+  --graupl-card-footer-padding: 0;
+  --graupl-navigation-background: light-dark(var(--graupl-primary--300),
+      var(--graupl-primary--800));
+  --graupl-navigation-color: light-dark(var(--graupl-primary--900),
+      var(--graupl-primary--100));
+  --graupl-navigation-branding-color: light-dark(var(--graupl-primary--900),
+      var(--graupl-primary--100));
+  --graupl-menu-link-border-radius: 100vmax;
+  --graupl-navigation-branding-font-weight: 700;
+  --graupl-navigation-branding-font-size: 1.2rem;
+  --graupl-navigation-branding-padding: 0.85rem 1rem;
+  --graupl-menu-link-padding: 0.85rem 1rem;
+  --graupl-accordion-item-border-radius: 0.5rem;
+  --graupl-accordion-item-title-font-family: var(--graupl-heading-font-family);
+  --graupl-accordion-item-title-font-size: 1.25rem;
+  --graupl-accordion-item-toggle-padding: 1.25rem 1.65rem;
+  --graupl-accordion-item-body-padding: 0 1.65rem 1.25rem;
+  --graupl-tabs-border-radius: 0.5rem;
+  --graupl-tabs-tab-list-border-radius: 0.5rem 0.5rem 0 0;
+  --graupl-tabs-tab-content-border-radius: 0 0 0.5rem 0.5rem;
+  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-border-radius: 0.25rem;
+  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-alert-border-radius: 0.5rem;
+  --graupl-badge-border-radius: 0.25rem;
+  --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-menu-gap: 0.5rem;
+  --graupl-submenu-gap: 0.5rem;
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-offset: 3px;
+  --graupl-focus-outline-color: light-dark(var(--graupl-primary--700),
+      var(--graupl-primary--300));
+}
+
+/* Keep the accordion header's lower edge flush with its expanded content. */
+.accordion-item-toggle {
+  --graupl-button-border-radius: 0;
+}
+
+/* Static frames evoke a terminal without glow, flicker or animated scanlines. */
+.navigation {
+  padding: 0.5rem 1rem;
+  border: 2px solid light-dark(var(--graupl-primary--700), var(--graupl-primary--300));
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 0 4px light-dark(var(--graupl-secondary--100), var(--graupl-secondary--900));
+}
+
+.card {
+  box-shadow: 0 0.4rem 0 light-dark(var(--graupl-primary--700), var(--graupl-primary--300));
+}
+
+.card-header {
+  padding-block-end: 1rem;
+  border-block-end: 2px dashed light-dark(var(--graupl-primary--600), var(--graupl-primary--400));
+}
+
+main>section>h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.4rem;
+  margin-block: 1rem 1.5rem;
+  background: repeating-linear-gradient(to right,
+      light-dark(var(--graupl-primary--700), var(--graupl-primary--300)) 0 1rem,
+      transparent 1rem 1.25rem);
+  pointer-events: none;
+}
+
+.button.primary,
+.button.secondary,
+.button.tertiary {
+  box-shadow: 0 0.2rem 0 light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300));
+}
+
+@media (forced-colors: active) {
+  main>section>h2::after {
+    height: 0;
+    border-block-start: 2px solid CanvasText;
+    background: none;
+  }
+}
+
+/*
+ * Static scanlines adapted from NickDJM's CSS CRT Effect:
+ * https://gist.github.com/NickDJM/c3b0ae3523ff3b472327f8f6a513a879
+ * Use existing palette shades and a restrained intensity for readable content.
+ */
+.crt {
+  position: relative;
+}
+
+.crt::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 99;
+  opacity: 0.25;
+  background: linear-gradient(to top,
+      var(--graupl-secondary--900) 0 50%,
+      var(--graupl-secondary--700) 50% 100%);
+  background-size: 100% 0.125rem;
+  pointer-events: none;
+  inset: 0;
+}
+
+/* Keep system contrast rendering clean; this effect never animates. */
+@media (forced-colors: active),
+(prefers-reduced-motion: reduce),
+(prefers-reduced-transparency: reduce) {
+  .crt::before {
+    display: none;
+  }
+}

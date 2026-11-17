@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Signal, a custom-property theme and component library built with Graupl."
+    />
+    <title>Signal | Graupl component library</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Graupl/graupl@c7bff6f2012a9cf53bae5ccee377a4beb7f6404b/dist/css/graupl.css"
+    />
+    <link rel="stylesheet" href="theme.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/accessible-menu@5.0.0-beta.7/dist/disclosure-menu.iife.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/Graupl/graupl@c7bff6f2012a9cf53bae5ccee377a4beb7f6404b/dist/js/graupl.js"
+    ></script>
+    <script>
+      // Follow Graupl's demo: use its mode classes and remember the choice.
+      (() => {
+        const storageKey = "fieldwork-appearance";
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
+        let mode = "system";
+        try {
+          const saved = window.localStorage.getItem(storageKey);
+          if (["system", "light", "dark"].includes(saved)) mode = saved;
+        } catch {
+          // The switch still works when browser storage is unavailable.
+        }
+        let control;
+        const resolvedMode = () =>
+          mode === "system" ? (preference.matches ? "dark" : "light") : mode;
+        const applyMode = () => {
+          const resolved = resolvedMode();
+          document.documentElement.classList.remove("light-mode", "dark-mode");
+          document.documentElement.classList.add(`${resolved}-mode`);
+          if (control) {
+            control.textContent =
+              resolved === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode";
+          }
+        };
+        applyMode();
+        preference.addEventListener("change", applyMode);
+        document.addEventListener("DOMContentLoaded", () => {
+          control = document.getElementById("appearance");
+          applyMode();
+          control.addEventListener("click", () => {
+            mode = resolvedMode() === "light" ? "dark" : "light";
+            applyMode();
+            try {
+              window.localStorage.setItem(storageKey, mode);
+            } catch {
+              // A blocked save does not prevent changing the current mode.
+            }
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a
+        href="#main"
+        class="visually-hidden focusable display-inline-block my-3"
+        >Skip to content</a
+      >
+      <header class="pb-5 position-relative z-1">
+        <nav
+          class="navigation"
+          aria-label="Main navigation"
+          data-graupl-menu-type="DisclosureMenu"
+          data-graupl-menu-options='{"menuLinksSelector":".menu-link"}'
+        >
+          <a class="navigation-branding" href="index.html">SIGNAL / Graupl</a>
+          <button
+            type="button"
+            class="navigation-toggle"
+            aria-label="Toggle navigation"
+          ></button>
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#foundations">Foundations</a>
+            </li>
+            <li class="menu-item submenu-item">
+              <button
+                type="button"
+                class="menu-link button link submenu-toggle"
+              >
+                Components
+              </button>
+              <ul class="submenu">
+                <li class="menu-item">
+                  <a class="menu-link" href="#cards">Cards and lists</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#forms">Forms and tables</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#interactions"
+                    >Interactive components</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <button
+                id="appearance"
+                type="button"
+                class="menu-link button link"
+              >
+                Switch to dark mode
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <noscript
+          ><p>
+            Enable JavaScript to change appearance and use the interactive
+            components.
+          </p></noscript
+        >
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="py-8" aria-labelledby="intro-title">
+          <div class="flex-columns g-7 align-items-center">
+            <div class="col-12 md:col-8">
+              <p class="text-sm text-primary-700">
+                SIGNAL / FIELD EQUIPMENT / ISSUE 01
+              </p>
+              <h1 id="intro-title">Make some noise.</h1>
+              <p class="text-lg">
+                Cobalt ink, stamped labels, and the marks of a working studio.
+                Graupl components, printed with conviction.
+              </p>
+              <div class="display-flex flex-wrap g-3 mt-6">
+                <a class="button primary" href="#foundations"
+                  >Explore the library</a
+                ><a class="button secondary" href="theme.css" download
+                  >Download theme CSS</a
+                >
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="badge tertiary">TECHNICAL NOTE / 01</span>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title">Built for the workshop.</h2>
+                    <p>
+                      One theme file. Existing custom properties. Remove it and
+                      every component keeps its base Graupl styling and
+                      behaviour.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#about-title">How to remove the theme</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="foundations"
+          class="py-8"
+          aria-labelledby="foundations-title"
+        >
+          <p class="text-sm text-primary-700">01 / FOUNDATIONS</p>
+          <h2 id="foundations-title">Choose your inks.</h2>
+          <p>
+            Primary cobalt, secondary orange, and a graphite tertiary accent.
+            Each uses Graupl's existing nine-shade palette.
+          </p>
+          <div class="flex-columns g-5 my-6">
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-primary-200 text-primary-900 border-radius">
+                <h3>Blueprint</h3>
+                <p>The primary palette</p>
+                <div
+                  class="display-flex flex-wrap g-2"
+                  role="group"
+                  aria-label="Primary shades"
+                >
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-primary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div
+                class="p-6 bg-secondary-200 text-secondary-900 border-radius"
+              >
+                <h3>Hazard</h3>
+                <p>The secondary palette</p>
+                <div
+                  class="display-flex flex-wrap g-2"
+                  role="group"
+                  aria-label="Secondary shades"
+                >
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-secondary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-tertiary-200 text-tertiary-900 border-radius">
+                <h3>Graphite</h3>
+                <p>The tertiary palette</p>
+                <div
+                  class="display-flex flex-wrap g-2"
+                  role="group"
+                  aria-label="Tertiary shades"
+                >
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col align-items-center g-1">
+                    <span
+                      class="bg-tertiary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-columns g-7">
+            <div class="col-12 md:col-6">
+              <h3>Type with a clear hierarchy</h3>
+              <p class="text-h2">Follow the signal.</p>
+              <p>
+                Body text stays readable through long production notes.
+                <strong>Strong text</strong> adds emphasis,
+                <em>italics</em> mark a change in voice, and
+                <a href="#cards">links stay underlined</a>.
+              </p>
+              <small
+                >Small text for supporting details. Essential instructions stay
+                in the body.</small
+              >
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Buttons and badges</h3>
+              <p>
+                These buttons link to working examples further down the page.
+              </p>
+              <div class="display-flex flex-wrap g-3 mb-5">
+                <a class="button primary" href="#forms">Primary</a
+                ><a class="button secondary" href="#cards">Secondary</a
+                ><a class="button tertiary" href="#interactions">Tertiary</a
+                ><button class="button" type="button" disabled>
+                  Unavailable
+                </button>
+              </div>
+              <div class="display-flex flex-wrap g-3">
+                <span class="badge primary">Press ready</span
+                ><span class="badge secondary">Updated today</span
+                ><span class="badge tertiary">New edition</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="cards" class="py-8" aria-labelledby="cards-title">
+          <p class="text-sm text-primary-700">02 / CONTENT</p>
+          <h2 id="cards-title">Keep the useful things together.</h2>
+          <p>Cards, lists, breadcrumbs, and messages share the same palette.</p>
+          <nav aria-label="Example breadcrumb" class="my-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#main">Signal</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#cards">Workshop guide</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                Production floor
+              </li>
+            </ol>
+          </nav>
+          <div class="flex-columns g-5">
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-primary-700">01</span>
+                    <p class="text-sm">WORK STATION</p>
+                    <h3 class="card-title">The print room</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Set the type, check the registration, and pull the first
+                      proof. Every run begins with a sheet worth inspecting.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the bench notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-secondary-700">02</span>
+                    <p class="text-sm">WORK STATION</p>
+                    <h3 class="card-title">The cutting floor</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Measure twice before the blade moves. Leave enough stock
+                      for a generous margin and a clean final trim.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the bench notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-tertiary-700">03</span>
+                    <p class="text-sm">WORK STATION</p>
+                    <h3 class="card-title">The assembly bench</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Fold, bind, and number the finished edition. Keep one copy
+                      for the archive and send the rest into the world.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the bench notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="flex-columns g-6 mt-7">
+            <div class="col-12 md:col-6">
+              <h3>Bench supplies</h3>
+              <ul class="list" role="list">
+                <li class="list-item">A steel rule and cutting mat</li>
+                <li class="list-item">A stack of uncoated paper</li>
+                <li class="list-item">A proof sheet with your corrections</li>
+              </ul>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Workshop notice</h3>
+              <div class="alert tertiary">
+                <div class="alert-header">
+                  <p class="alert-title">The large press is offline</p>
+                </div>
+                <div class="alert-body">
+                  <p>
+                    Use the smaller proofing press for this demonstration. Check
+                    each sheet before the next pass.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="alert-dismisser"
+                  aria-label="Dismiss press notice"
+                >
+                  ×
+                </button>
+              </div>
+              <p>
+                <small
+                  >This is a dismissible example. Reload the page to restore
+                  it.</small
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="forms" class="py-8" aria-labelledby="forms-title">
+          <p class="text-sm text-primary-700">03 / INPUT AND DATA</p>
+          <h2 id="forms-title">Make the next step obvious.</h2>
+          <p>
+            A sample production planner. These fields demonstrate Graupl's
+            controls and do not send or save your information.
+          </p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <div>
+                <div class="input-group mb-5">
+                  <label for="trip-name">Job name</label
+                  ><input
+                    id="trip-name"
+                    type="text"
+                    placeholder="A two-colour poster"
+                    aria-describedby="trip-help"
+                  /><small id="trip-help" class="help-text"
+                    >Choose a name you will recognize in your notes.</small
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="route">Process</label
+                  ><select id="route">
+                    <option>Poster run</option>
+                    <option>Booklet run</option>
+                    <option>Proof run</option>
+                  </select>
+                </div>
+                <div class="input-group mb-5">
+                  <label for="notes">Production notes</label
+                  ><textarea
+                    id="notes"
+                    rows="3"
+                    placeholder="Paper stock, inks, and finishing notes"
+                  ></textarea>
+                </div>
+                <fieldset class="mb-5">
+                  <legend>Production pace</legend>
+                  <div class="input-group left">
+                    <input
+                      type="radio"
+                      id="pace-easy"
+                      name="pace"
+                      checked
+                    /><label for="pace-easy">Proof first</label>
+                  </div>
+                  <div class="input-group left">
+                    <input type="radio" id="pace-steady" name="pace" /><label
+                      for="pace-steady"
+                      >Full run</label
+                    >
+                  </div>
+                </fieldset>
+                <div class="input-group left mb-5">
+                  <input type="checkbox" id="map-copy" /><label for="map-copy"
+                    >Include a printed proof</label
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="distance">Proof quantity</label
+                  ><input
+                    type="range"
+                    id="distance"
+                    min="1"
+                    max="15"
+                    value="6"
+                  /><small class="help-text">Between 1 and 15 sheets.</small>
+                </div>
+                <p>
+                  <small>Reload this page to reset the example fields.</small>
+                </p>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Run comparison</h3>
+              <div class="overflow-x-auto">
+                <table>
+                  <caption>
+                    Sample quantities and press times
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Process</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Poster run</th>
+                      <td>60 sheets</td>
+                      <td>2 hours</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Booklet run</th>
+                      <td>120 sheets</td>
+                      <td>4 hours</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Proof run</th>
+                      <td>30 sheets</td>
+                      <td>1 hour</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="input-group mt-7">
+                <label for="locked-field">Unavailable field</label
+                ><input
+                  type="text"
+                  id="locked-field"
+                  disabled
+                  value="No booking required"
+                /><small class="help-text">Disabled control appearance.</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="interactions"
+          class="py-8"
+          aria-labelledby="interactions-title"
+        >
+          <p class="text-sm text-primary-700">04 / INTERACTION</p>
+          <h2 id="interactions-title">Details, when you need them.</h2>
+          <p>Graupl's generators handle every interaction below.</p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <h3>Before you start</h3>
+              <div
+                class="accordion"
+                data-graupl-accordion-options='{"optionalKeySupport":true}'
+              >
+                <div class="accordion-item show">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="true"
+                      >
+                        What should I prepare?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Bring the approved artwork and a paper sample. Check the
+                        proof before committing to the full print run.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Where does the job begin?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Start at the proofing bench. Compare the first sheet
+                        with your approved artwork.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Can I make a smaller run?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Yes. A short proof run lets you compare paper and ink
+                        before setting the final quantity.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Notes by process</h3>
+              <div class="tabs">
+                <div class="tab-list" role="tablist" aria-label="Process notes">
+                  <button class="tab-toggle" type="button" aria-selected="true">
+                    Print</button
+                  ><button class="tab-toggle" type="button">Trim</button
+                  ><button class="tab-toggle" type="button">Bind</button>
+                </div>
+                <div class="tab-content show" tabindex="0">
+                  <h4>Check registration</h4>
+                  <p>
+                    Align the colour passes with the registration marks. Check
+                    the first sheet before printing the rest.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Leave a margin</h4>
+                  <p>
+                    Keep the live artwork clear of the trim line. A generous
+                    margin gives the type room to breathe.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Finish the edition</h4>
+                  <p>
+                    Fold and bind the sheets in order. Number each copy before
+                    it leaves the workshop.
+                  </p>
+                </div>
+              </div>
+              <h3 class="mt-7">Extra details</h3>
+              <button
+                class="disclosure-toggle"
+                type="button"
+                data-graupl-disclosure-target="access-notes"
+                aria-controls="access-notes"
+                aria-expanded="false"
+              >
+                Show access notes
+              </button>
+              <div>
+                <div class="disclosure hide" id="access-notes">
+                  <div class="disclosure-content" inert>
+                    <p>
+                      The proofing bench has a seated work position. Ask for
+                      help with the upper storage shelves.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="display-flex align-items-center g-3 mt-5">
+                <div
+                  class="tooltip"
+                  data-graupl-tooltip-options='{"expandOnFocus":true,"hoverType":"on"}'
+                >
+                  <span class="tooltip-description hide"
+                    >Allow each ink layer to dry before the next pass.</span
+                  ><button
+                    class="tooltip-toggle"
+                    type="button"
+                    aria-label="More about ink drying"
+                  ></button>
+                </div>
+                <span>Ink drying</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-8">Three stations. One edition.</h3>
+          <p>
+            The carousel starts paused. Use the next and previous buttons to
+            explore.
+          </p>
+          <section
+            class="carousel mt-5"
+            aria-label="Stations in the workshop"
+            data-graupl-carousel-options='{"autoplay":false}'
+          >
+            <div class="carousel-control-container">
+              <button
+                type="button"
+                class="carousel-control autoplay play"
+                aria-label="Start slide rotation"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control previous"
+                aria-label="Previous slide"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control next"
+                aria-label="Next slide"
+              ></button>
+            </div>
+            <div class="carousel-item-container">
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-primary-100 text-primary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="The print room"
+              >
+                <p class="text-sm">STOP 1 OF 3</p>
+                <h4 class="text-h2">The print room</h4>
+                <p>Where the artwork becomes ink on paper.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-secondary-100 text-secondary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="The cutting floor"
+                inert
+              >
+                <p class="text-sm">STOP 2 OF 3</p>
+                <h4 class="text-h2">The cutting floor</h4>
+                <p>Where every sheet finds its final dimensions.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-tertiary-100 text-tertiary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="The assembly bench"
+                inert
+              >
+                <p class="text-sm">STOP 3 OF 3</p>
+                <h4 class="text-h2">The assembly bench</h4>
+                <p>Where separate pages become a finished edition.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="py-8" aria-labelledby="about-title">
+          <h2 id="about-title">Your markup. Your theme.</h2>
+          <p>
+            Signal uses all thirteen Graupl core components, plus its buttons,
+            links, forms, tables, typography, and layout utilities. Icons and
+            navigation shelf are not included.
+          </p>
+          <p>
+            Keep <code>theme.css</code> after Graupl's stylesheet. Existing
+            <code>--graupl-*</code> properties still define the theme, mostly on
+            <code>:root</code>. Scoped styles and decorative pseudo-elements add
+            component details. The only custom script controls appearance, not
+            components.
+          </p>
+          <p>
+            Remove the theme stylesheet to use base Graupl with the same markup
+            and interactions.
+          </p>
+          <div class="display-flex flex-wrap g-3">
+            <a class="button primary" href="theme.css" download
+              >Download the theme</a
+            ><a class="button tertiary" href="https://graupl.dev"
+              >Read Graupl's docs</a
+            >
+          </div>
+        </section>
+      </main>
+      <footer class="py-7">
+        <p>Signal · Built with Graupl 1.x and Accessible Menu.</p>
+        <a href="#main">Back to top</a>
+        <nav class="mt-5" aria-label="Other themes">
+          <h2 class="text-h3">Explore the other themes</h2>
+          <ul class="display-flex flex-wrap g-3 list-style-none">
+            <li><a href="../afterhours/index.html">After Hours</a></li>
+            <li><a href="../blueprint/index.html">Blueprint</a></li>
+            <li><a href="../campfire/index.html">Campfire</a></li>
+            <li><a href="../civic/index.html">Civic</a></li>
+            <li><a href="../commonplace/index.html">Commonplace</a></li>
+            <li><a href="../crt/index.html">CRT</a></li>
+            <li><a href="../default/index.html">Graupl defaults</a></li>
+            <li><a href="../fieldwork/index.html">Fieldwork</a></li>
+            <li><a href="../folio/index.html">Folio</a></li>
+            <li><a href="../forma/index.html">Forma</a></li>
+            <li><a href="../gilt/index.html">Gilt</a></li>
+            <li><a href="../glasshouse/index.html">Glasshouse</a></li>
+            <li><a href="../helm/index.html">Helm</a></li>
+            <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
+            <li><a href="../kickstart/index.html">Kickstart</a></li>
+            <li><a href="../lumen/index.html">Lumen</a></li>
+            <li><a href="../signal/index.html" aria-current="page">Signal</a></li>
+            <li><a href="../sugar/index.html">Sugar</a></li>
+            <li><a href="../tidepool/index.html">Tidepool</a></li>
+            <li><a href="../waymark/index.html">Waymark</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
