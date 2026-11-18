@@ -1,171 +1,172 @@
 /* Forma. Load after Graupl. Remove this file to restore its base styles. */
 :root {
-    /* Base values remain available for direct references throughout the theme. */
-    --graupl-spacer: 1rem;
-    --graupl-spacer-0: calc(0 * var(--graupl-spacer));
-    --graupl-spacer-1: calc(0.125 * var(--graupl-spacer));
-    --graupl-spacer-2: calc(0.25 * var(--graupl-spacer));
-    --graupl-spacer-3: calc(0.5 * var(--graupl-spacer));
-    --graupl-spacer-4: calc(0.75 * var(--graupl-spacer));
-    --graupl-spacer-5: calc(1 * var(--graupl-spacer));
-    --graupl-spacer-6: calc(1.5 * var(--graupl-spacer));
-    --graupl-spacer-7: calc(2 * var(--graupl-spacer));
-    --graupl-spacer-8: calc(3 * var(--graupl-spacer));
-    --graupl-spacer-9: calc(5 * var(--graupl-spacer));
-    --graupl-spacer-10: calc(10 * var(--graupl-spacer));
-    --graupl-base-font-size: 1rem;
-    --graupl-font-size-xs: calc(0.694 * var(--graupl-base-font-size));
-    --graupl-font-size-sm: calc(0.833 * var(--graupl-base-font-size));
-    --graupl-font-size-base: calc(1 * var(--graupl-base-font-size));
-    --graupl-font-size-lg: calc(1.2 * var(--graupl-base-font-size));
-    --graupl-font-size-xl: calc(1.44 * var(--graupl-base-font-size));
-    --graupl-font-size-2xl: calc(1.728 * var(--graupl-base-font-size));
-    --graupl-font-size-3xl: calc(2.074 * var(--graupl-base-font-size));
-    --graupl-font-size-4xl: calc(2.488 * var(--graupl-base-font-size));
-    --graupl-font-size-5xl: calc(2.986 * var(--graupl-base-font-size));
-    --graupl-font-weight-light: 300;
-    --graupl-font-weight-normal: 400;
-    --graupl-font-weight-bold: 750;
-    --graupl-transition-duration-fast: 150ms;
-    --graupl-transition-duration-default: 250ms;
-    --graupl-transition-duration-slow: 300ms;
-    --graupl-transition-timing-function: ease;
-    --graupl-primary: #2063df;
-    --graupl-primary--100: #e6eeff;
-    --graupl-primary--200: #9ebefa;
-    --graupl-primary--300: #5e90ed;
-    --graupl-primary--400: #3672e2;
-    --graupl-primary--500: #2063df;
-    --graupl-primary--600: #1d59c9;
-    --graupl-primary--700: #1244a1;
-    --graupl-primary--800: #052561;
-    --graupl-primary--900: #001233;
-    --graupl-secondary: #6c7093;
-    --graupl-secondary--100: #edeef7;
-    --graupl-secondary--200: #bdbfdb;
-    --graupl-secondary--300: #9497b8;
-    --graupl-secondary--400: #7b7e9d;
-    --graupl-secondary--500: #6c7093;
-    --graupl-secondary--600: #626484;
-    --graupl-secondary--700: #474a6b;
-    --graupl-secondary--800: #242642;
-    --graupl-secondary--900: #0f1124;
-    --graupl-tertiary: #c36;
-    --graupl-tertiary--100: #fde7ef;
-    --graupl-tertiary--200: #f2a6bf;
-    --graupl-tertiary--300: #e06c92;
-    --graupl-tertiary--400: #d14775;
-    --graupl-tertiary--500: #c36;
-    --graupl-tertiary--600: #b82e5c;
-    --graupl-tertiary--700: #931f46;
-    --graupl-tertiary--800: #590d26;
-    --graupl-tertiary--900: #2f0412;
-    --graupl-root-background: light-dark(var(--graupl-secondary--100),
-            var(--graupl-secondary--900));
-    --graupl-root-color: light-dark(var(--graupl-secondary--900),
-            var(--graupl-secondary--100));
-    --graupl-root-font-family:
-        ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
-        sans-serif;
-    --graupl-root-line-height: 1.65;
-    --graupl-heading-font-family: var(--graupl-root-font-family);
-    --graupl-heading-font-weight: var(--graupl-font-weight-bold);
-    --graupl-heading-line-height: 1.04;
-    --graupl-heading-letter-spacing: -0.04em;
-    --graupl-h1-font-size: clamp(var(--graupl-font-size-4xl),
-            7.5vw,
-            calc(6 * var(--graupl-base-font-size)));
-    --graupl-h2-font-size: clamp(var(--graupl-font-size-3xl),
-            4vw,
-            var(--graupl-font-size-5xl));
-    --graupl-h3-font-size: var(--graupl-font-size-xl);
-    --graupl-card-title-font-family: var(--graupl-heading-font-family);
-    --graupl-card-title-font-weight: var(--graupl-font-weight-bold);
-    --graupl-card-title-font-size: var(--graupl-font-size-2xl);
-    --graupl-content-max-width: 76rem;
-    --graupl-container-content-max-width: 76rem;
-    --graupl-border-width: 1px;
-    --graupl-border-radius: 0.85rem;
-    --forma-control-radius: 0.65rem;
-    --forma-panel-radius: 1.1rem;
-    --graupl-button-border-radius: 100vmax;
-    --graupl-button-padding: var(--graupl-spacer-4) var(--graupl-spacer-6);
-    --graupl-button-min-height: 48px;
-    --graupl-button-active-transform: none;
-    --graupl-link-text-decoration-thickness: 1px;
-    --graupl-card-background: light-dark(var(--graupl-primary--100),
-            var(--graupl-secondary--800));
-    --graupl-card-border-color: light-dark(var(--graupl-secondary--300),
-            var(--graupl-secondary--700));
-    --graupl-card-border-top-left-radius: 1.4rem;
-    --graupl-card-border-top-right-radius: 1.4rem;
-    --graupl-card-border-bottom-right-radius: 1.4rem;
-    --graupl-card-border-bottom-left-radius: 1.4rem;
-    --graupl-card-content-padding: var(--graupl-spacer-6);
-    --graupl-card-content-gap: var(--graupl-spacer-5);
-    --graupl-card-header-padding: var(--graupl-spacer-0);
-    --graupl-card-body-padding: var(--graupl-spacer-0);
-    --graupl-card-footer-padding: var(--graupl-spacer-5) var(--graupl-spacer-0) var(--graupl-spacer-0);
-    --graupl-navigation-background: var(--graupl-root-background);
-    --graupl-navigation-toggle-border-width: 0;
-    --graupl-navigation-toggle-border-radius: var(--forma-control-radius);
-    --graupl-navigation-toggle-min-width: 48px;
-    --graupl-navigation-toggle-min-height: 48px;
-    --graupl-navigation-toggle-hover-background: light-dark(var(--graupl-secondary--200),
-            var(--graupl-secondary--700));
-    --graupl-navigation-toggle-hover-color: var(--graupl-root-color);
-    --graupl-navigation-toggle-active-background: var(--graupl-navigation-toggle-hover-background);
-    --graupl-navigation-toggle-active-color: var(--graupl-root-color);
-    --graupl-navigation-branding-font-weight: var(--graupl-font-weight-bold);
-    --graupl-navigation-branding-font-size: var(--graupl-font-size-lg);
-    --graupl-navigation-branding-padding: var(--graupl-spacer-4) var(--graupl-spacer-0);
-    --graupl-menu-link-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
-    --graupl-accordion-item-border-radius: 1.15rem;
-    --graupl-accordion-item-title-font-family: var(--graupl-root-font-family);
-    --graupl-accordion-item-title-font-size: var(--graupl-font-size-base);
-    --graupl-accordion-item-toggle-padding: var(--graupl-spacer-6);
-    --graupl-accordion-item-body-padding: var(--graupl-spacer-0) var(--graupl-spacer-6) var(--graupl-spacer-6);
-    --graupl-tabs-border-radius: var(--forma-panel-radius);
-    --graupl-tabs-tab-list-border-radius: var(--forma-control-radius);
-    --graupl-tabs-tab-content-border-radius: var(--forma-control-radius);
-    --graupl-tabs-tab-toggle-padding: var(--graupl-spacer-5) var(--graupl-spacer-6);
-    --graupl-tabs-tab-toggle-border-radius: var(--forma-control-radius);
-    --graupl-tabs-tab-content-padding: var(--graupl-spacer-6);
-    --graupl-disclosure-content-border-width: 0 0 0 3px;
-    --graupl-disclosure-content-border-radius: 0;
-    --graupl-disclosure-content-border-color: var(--graupl-focus-outline-color);
-    --graupl-disclosure-content-padding: var(--graupl-spacer-3) var(--graupl-spacer-5);
-    --graupl-alert-border-radius: 1rem;
-    --graupl-badge-border-radius: 100vmax;
-    --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
-    --graupl-tooltip-description-width: min(17rem, 65vw);
-    --graupl-tooltip-description-font-size: var(--graupl-font-size-sm);
-    --graupl-carousel-item-container-aspect-ratio: auto;
-    --graupl-menu-gap: var(--graupl-spacer-3);
-    --graupl-submenu-gap: var(--graupl-spacer-3);
-    --graupl-input-border-radius: var(--forma-control-radius);
-    --graupl-input-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
-    --graupl-input-border-color: light-dark(var(--graupl-secondary--600),
-            var(--graupl-secondary--400));
-    --graupl-card-hover-transform: none;
-    --graupl-accordion-item-border-color: light-dark(var(--graupl-secondary--300),
-            var(--graupl-secondary--700));
-    --graupl-tabs-tab-list-padding: var(--graupl-spacer-0);
-    --graupl-tabs-tab-list-margin: var(--graupl-spacer-0) var(--graupl-spacer-0) var(--graupl-spacer-3);
-    --graupl-tabs-tab-list-gap: var(--graupl-spacer-2);
-    --graupl-tabs-tab-list-border-width: 0;
-    --graupl-tabs-tab-toggle-border-width: 0;
-    --graupl-tabs-tab-toggle-selected-background: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-tabs-tab-toggle-selected-color: light-dark(var(--graupl-primary--100),
-            var(--graupl-primary--900));
-    --forma-focus-z-index: 3;
-    --graupl-focus-width: 3px;
-    --graupl-focus-outline-style: solid;
-    --graupl-focus-outline-width: 3px;
-    --graupl-focus-outline-offset: 0;
-    --graupl-focus-outline-color: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--300));
+        /* Base values remain available for direct references throughout the theme. */
+        --graupl-spacer: 1rem;
+        /* stylelint-disable-next-line length-zero-no-unit -- Keep the base scale consistently typed as lengths. */
+        --graupl-spacer-0: 0rem;
+        --graupl-spacer-1: 0.125rem;
+        --graupl-spacer-2: 0.25rem;
+        --graupl-spacer-3: 0.5rem;
+        --graupl-spacer-4: 0.75rem;
+        --graupl-spacer-5: 1rem;
+        --graupl-spacer-6: 1.5rem;
+        --graupl-spacer-7: 2rem;
+        --graupl-spacer-8: 3rem;
+        --graupl-spacer-9: 5rem;
+        --graupl-spacer-10: 10rem;
+        --graupl-base-font-size: 1rem;
+        --graupl-font-size-xs: 0.694rem;
+        --graupl-font-size-sm: 0.833rem;
+        --graupl-font-size-base: 1rem;
+        --graupl-font-size-lg: 1.2rem;
+        --graupl-font-size-xl: 1.44rem;
+        --graupl-font-size-2xl: 1.728rem;
+        --graupl-font-size-3xl: 2.074rem;
+        --graupl-font-size-4xl: 2.488rem;
+        --graupl-font-size-5xl: 2.986rem;
+        --graupl-font-weight-light: 300;
+        --graupl-font-weight-normal: 400;
+        --graupl-font-weight-bold: 750;
+        --graupl-transition-duration-fast: 150ms;
+        --graupl-transition-duration-default: 250ms;
+        --graupl-transition-duration-slow: 300ms;
+        --graupl-transition-timing-function: ease;
+        --graupl-primary: #2063df;
+        --graupl-primary--100: #e6eeff;
+        --graupl-primary--200: #9ebefa;
+        --graupl-primary--300: #5e90ed;
+        --graupl-primary--400: #3672e2;
+        --graupl-primary--500: #2063df;
+        --graupl-primary--600: #1d59c9;
+        --graupl-primary--700: #1244a1;
+        --graupl-primary--800: #052561;
+        --graupl-primary--900: #001233;
+        --graupl-secondary: #6c7093;
+        --graupl-secondary--100: #edeef7;
+        --graupl-secondary--200: #bdbfdb;
+        --graupl-secondary--300: #9497b8;
+        --graupl-secondary--400: #7b7e9d;
+        --graupl-secondary--500: #6c7093;
+        --graupl-secondary--600: #626484;
+        --graupl-secondary--700: #474a6b;
+        --graupl-secondary--800: #242642;
+        --graupl-secondary--900: #0f1124;
+        --graupl-tertiary: #c36;
+        --graupl-tertiary--100: #fde7ef;
+        --graupl-tertiary--200: #f2a6bf;
+        --graupl-tertiary--300: #e06c92;
+        --graupl-tertiary--400: #d14775;
+        --graupl-tertiary--500: #c36;
+        --graupl-tertiary--600: #b82e5c;
+        --graupl-tertiary--700: #931f46;
+        --graupl-tertiary--800: #590d26;
+        --graupl-tertiary--900: #2f0412;
+        --graupl-root-background: light-dark(var(--graupl-secondary--100),
+                        var(--graupl-secondary--900));
+        --graupl-root-color: light-dark(var(--graupl-secondary--900),
+                        var(--graupl-secondary--100));
+        --graupl-root-font-family:
+                ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+                sans-serif;
+        --graupl-root-line-height: 1.65;
+        --graupl-heading-font-family: var(--graupl-root-font-family);
+        --graupl-heading-font-weight: var(--graupl-font-weight-bold);
+        --graupl-heading-line-height: 1.04;
+        --graupl-heading-letter-spacing: -0.04em;
+        --graupl-h1-font-size: clamp(var(--graupl-font-size-4xl),
+                        7.5vw,
+                        calc(6 * var(--graupl-base-font-size)));
+        --graupl-h2-font-size: clamp(var(--graupl-font-size-3xl),
+                        4vw,
+                        var(--graupl-font-size-5xl));
+        --graupl-h3-font-size: var(--graupl-font-size-xl);
+        --graupl-card-title-font-family: var(--graupl-heading-font-family);
+        --graupl-card-title-font-weight: var(--graupl-font-weight-bold);
+        --graupl-card-title-font-size: var(--graupl-font-size-2xl);
+        --graupl-content-max-width: 76rem;
+        --graupl-container-content-max-width: 76rem;
+        --graupl-border-width: 1px;
+        --graupl-border-radius: 0.85rem;
+        --forma-control-radius: 0.65rem;
+        --forma-panel-radius: 1.1rem;
+        --graupl-button-border-radius: 100vmax;
+        --graupl-button-padding: var(--graupl-spacer-4) var(--graupl-spacer-6);
+        --graupl-button-min-height: 48px;
+        --graupl-button-active-transform: none;
+        --graupl-link-text-decoration-thickness: 1px;
+        --graupl-card-background: light-dark(var(--graupl-primary--100),
+                        var(--graupl-secondary--800));
+        --graupl-card-border-color: light-dark(var(--graupl-secondary--300),
+                        var(--graupl-secondary--700));
+        --graupl-card-border-top-left-radius: 1.4rem;
+        --graupl-card-border-top-right-radius: 1.4rem;
+        --graupl-card-border-bottom-right-radius: 1.4rem;
+        --graupl-card-border-bottom-left-radius: 1.4rem;
+        --graupl-card-content-padding: var(--graupl-spacer-6);
+        --graupl-card-content-gap: var(--graupl-spacer-5);
+        --graupl-card-header-padding: var(--graupl-spacer-0);
+        --graupl-card-body-padding: var(--graupl-spacer-0);
+        --graupl-card-footer-padding: var(--graupl-spacer-5) var(--graupl-spacer-0) var(--graupl-spacer-0);
+        --graupl-navigation-background: var(--graupl-root-background);
+        --graupl-navigation-toggle-border-width: 0;
+        --graupl-navigation-toggle-border-radius: var(--forma-control-radius);
+        --graupl-navigation-toggle-min-width: 48px;
+        --graupl-navigation-toggle-min-height: 48px;
+        --graupl-navigation-toggle-hover-background: light-dark(var(--graupl-secondary--200),
+                        var(--graupl-secondary--700));
+        --graupl-navigation-toggle-hover-color: var(--graupl-root-color);
+        --graupl-navigation-toggle-active-background: var(--graupl-navigation-toggle-hover-background);
+        --graupl-navigation-toggle-active-color: var(--graupl-root-color);
+        --graupl-navigation-branding-font-weight: var(--graupl-font-weight-bold);
+        --graupl-navigation-branding-font-size: var(--graupl-font-size-lg);
+        --graupl-navigation-branding-padding: var(--graupl-spacer-4) var(--graupl-spacer-0);
+        --graupl-menu-link-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
+        --graupl-accordion-item-border-radius: 1.15rem;
+        --graupl-accordion-item-title-font-family: var(--graupl-root-font-family);
+        --graupl-accordion-item-title-font-size: var(--graupl-font-size-base);
+        --graupl-accordion-item-toggle-padding: var(--graupl-spacer-6);
+        --graupl-accordion-item-body-padding: var(--graupl-spacer-0) var(--graupl-spacer-6) var(--graupl-spacer-6);
+        --graupl-tabs-border-radius: var(--forma-panel-radius);
+        --graupl-tabs-tab-list-border-radius: var(--forma-control-radius);
+        --graupl-tabs-tab-content-border-radius: var(--forma-control-radius);
+        --graupl-tabs-tab-toggle-padding: var(--graupl-spacer-5) var(--graupl-spacer-6);
+        --graupl-tabs-tab-toggle-border-radius: var(--forma-control-radius);
+        --graupl-tabs-tab-content-padding: var(--graupl-spacer-6);
+        --graupl-disclosure-content-border-width: 0 0 0 3px;
+        --graupl-disclosure-content-border-radius: 0;
+        --graupl-disclosure-content-border-color: var(--graupl-focus-outline-color);
+        --graupl-disclosure-content-padding: var(--graupl-spacer-3) var(--graupl-spacer-5);
+        --graupl-alert-border-radius: 1rem;
+        --graupl-badge-border-radius: 100vmax;
+        --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
+        --graupl-tooltip-description-width: min(17rem, 65vw);
+        --graupl-tooltip-description-font-size: var(--graupl-font-size-sm);
+        --graupl-carousel-item-container-aspect-ratio: auto;
+        --graupl-menu-gap: var(--graupl-spacer-3);
+        --graupl-submenu-gap: var(--graupl-spacer-3);
+        --graupl-input-border-radius: var(--forma-control-radius);
+        --graupl-input-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
+        --graupl-input-border-color: light-dark(var(--graupl-secondary--600),
+                        var(--graupl-secondary--400));
+        --graupl-card-hover-transform: none;
+        --graupl-accordion-item-border-color: light-dark(var(--graupl-secondary--300),
+                        var(--graupl-secondary--700));
+        --graupl-tabs-tab-list-padding: var(--graupl-spacer-0);
+        --graupl-tabs-tab-list-margin: var(--graupl-spacer-0) var(--graupl-spacer-0) var(--graupl-spacer-3);
+        --graupl-tabs-tab-list-gap: var(--graupl-spacer-2);
+        --graupl-tabs-tab-list-border-width: 0;
+        --graupl-tabs-tab-toggle-border-width: 0;
+        --graupl-tabs-tab-toggle-selected-background: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-tabs-tab-toggle-selected-color: light-dark(var(--graupl-primary--100),
+                        var(--graupl-primary--900));
+        --forma-focus-z-index: 3;
+        --graupl-focus-width: 3px;
+        --graupl-focus-outline-style: solid;
+        --graupl-focus-outline-width: 3px;
+        --graupl-focus-outline-offset: 0;
+        --graupl-focus-outline-color: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--300));
 }
 
 /* Lift keyboard focus above nearby siblings without changing positioning.
@@ -173,254 +174,254 @@
  * Ancestor stacking contexts and overflow clipping still apply. */
 :focus-visible,
 .focus {
-    z-index: var(--forma-focus-z-index);
-    isolation: isolate;
+        z-index: var(--forma-focus-z-index);
+        isolation: isolate;
 }
 
 /* The focus outline follows the toggle, so its corners must follow the item. */
 .accordion-item-header {
-    --graupl-button-border-radius: var(--graupl-accordion-item-border-radius);
+        --graupl-button-border-radius: var(--graupl-accordion-item-border-radius);
 }
 
 /* Keep the open header's lower edge flush with its content. */
 .accordion-item-toggle[aria-expanded="true"] {
-    --graupl-button-border-radius: var(--graupl-accordion-item-border-radius) var(--graupl-accordion-item-border-radius) 0 0;
+        --graupl-button-border-radius: var(--graupl-accordion-item-border-radius) var(--graupl-accordion-item-border-radius) 0 0;
 }
 
 /* A quiet reveal, rather than a pill followed by a second rounded box. */
 .disclosure-toggle {
-    --graupl-button-border-radius: var(--forma-control-radius);
+        --graupl-button-border-radius: var(--forma-control-radius);
 
-    gap: var(--graupl-spacer-3);
+        gap: var(--graupl-spacer-3);
 }
 
 .disclosure {
-    margin-block-start: var(--graupl-spacer-3);
+        margin-block-start: var(--graupl-spacer-3);
 }
 
 /* Primary buttons use Graupl's existing state properties. */
 .button.primary {
-    --graupl-button-background: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-color: light-dark(var(--graupl-primary--100),
-            var(--graupl-primary--900));
-    --graupl-button-border-color: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-visited-background: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-visited-color: light-dark(var(--graupl-primary--100),
-            var(--graupl-primary--900));
-    --graupl-button-visited-border-color: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-focus-background: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-focus-color: light-dark(var(--graupl-primary--100),
-            var(--graupl-primary--900));
-    --graupl-button-focus-border-color: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-hover-background: light-dark(var(--graupl-primary--800),
-            var(--graupl-primary--100));
-    --graupl-button-hover-color: light-dark(var(--graupl-primary--100),
-            var(--graupl-primary--900));
-    --graupl-button-hover-border-color: light-dark(var(--graupl-primary--800),
-            var(--graupl-primary--100));
-    --graupl-button-active-background: light-dark(var(--graupl-primary--800),
-            var(--graupl-primary--100));
-    --graupl-button-active-color: light-dark(var(--graupl-primary--100),
-            var(--graupl-primary--900));
-    --graupl-button-active-border-color: light-dark(var(--graupl-primary--800),
-            var(--graupl-primary--100));
-    --graupl-button-disabled-background: light-dark(var(--graupl-primary--200),
-            var(--graupl-primary--800));
-    --graupl-button-disabled-color: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--200));
-    --graupl-button-disabled-border-color: light-dark(var(--graupl-primary--300),
-            var(--graupl-primary--700));
+        --graupl-button-background: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-color: light-dark(var(--graupl-primary--100),
+                        var(--graupl-primary--900));
+        --graupl-button-border-color: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-visited-background: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-visited-color: light-dark(var(--graupl-primary--100),
+                        var(--graupl-primary--900));
+        --graupl-button-visited-border-color: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-focus-background: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-focus-color: light-dark(var(--graupl-primary--100),
+                        var(--graupl-primary--900));
+        --graupl-button-focus-border-color: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-hover-background: light-dark(var(--graupl-primary--800),
+                        var(--graupl-primary--100));
+        --graupl-button-hover-color: light-dark(var(--graupl-primary--100),
+                        var(--graupl-primary--900));
+        --graupl-button-hover-border-color: light-dark(var(--graupl-primary--800),
+                        var(--graupl-primary--100));
+        --graupl-button-active-background: light-dark(var(--graupl-primary--800),
+                        var(--graupl-primary--100));
+        --graupl-button-active-color: light-dark(var(--graupl-primary--100),
+                        var(--graupl-primary--900));
+        --graupl-button-active-border-color: light-dark(var(--graupl-primary--800),
+                        var(--graupl-primary--100));
+        --graupl-button-disabled-background: light-dark(var(--graupl-primary--200),
+                        var(--graupl-primary--800));
+        --graupl-button-disabled-color: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--200));
+        --graupl-button-disabled-border-color: light-dark(var(--graupl-primary--300),
+                        var(--graupl-primary--700));
 }
 
 /* Secondary buttons use Graupl's existing state properties. */
 .button.secondary {
-    --graupl-button-background: light-dark(var(--graupl-secondary--100),
-            var(--graupl-secondary--800));
-    --graupl-button-color: light-dark(var(--graupl-secondary--800),
-            var(--graupl-secondary--100));
-    --graupl-button-border-color: light-dark(var(--graupl-secondary--600),
-            var(--graupl-secondary--400));
-    --graupl-button-visited-background: light-dark(var(--graupl-secondary--100),
-            var(--graupl-secondary--800));
-    --graupl-button-visited-color: light-dark(var(--graupl-secondary--800),
-            var(--graupl-secondary--100));
-    --graupl-button-visited-border-color: light-dark(var(--graupl-secondary--600),
-            var(--graupl-secondary--400));
-    --graupl-button-focus-background: light-dark(var(--graupl-secondary--100),
-            var(--graupl-secondary--800));
-    --graupl-button-focus-color: light-dark(var(--graupl-secondary--800),
-            var(--graupl-secondary--100));
-    --graupl-button-focus-border-color: light-dark(var(--graupl-secondary--600),
-            var(--graupl-secondary--400));
-    --graupl-button-hover-background: light-dark(var(--graupl-secondary--200),
-            var(--graupl-secondary--700));
-    --graupl-button-hover-color: light-dark(var(--graupl-secondary--900),
-            var(--graupl-secondary--100));
-    --graupl-button-hover-border-color: light-dark(var(--graupl-secondary--700),
-            var(--graupl-secondary--300));
-    --graupl-button-active-background: light-dark(var(--graupl-secondary--200),
-            var(--graupl-secondary--700));
-    --graupl-button-active-color: light-dark(var(--graupl-secondary--900),
-            var(--graupl-secondary--100));
-    --graupl-button-active-border-color: light-dark(var(--graupl-secondary--700),
-            var(--graupl-secondary--300));
-    --graupl-button-disabled-background: light-dark(var(--graupl-secondary--200),
-            var(--graupl-secondary--800));
-    --graupl-button-disabled-color: light-dark(var(--graupl-secondary--700),
-            var(--graupl-secondary--200));
-    --graupl-button-disabled-border-color: light-dark(var(--graupl-secondary--300),
-            var(--graupl-secondary--700));
+        --graupl-button-background: light-dark(var(--graupl-secondary--100),
+                        var(--graupl-secondary--800));
+        --graupl-button-color: light-dark(var(--graupl-secondary--800),
+                        var(--graupl-secondary--100));
+        --graupl-button-border-color: light-dark(var(--graupl-secondary--600),
+                        var(--graupl-secondary--400));
+        --graupl-button-visited-background: light-dark(var(--graupl-secondary--100),
+                        var(--graupl-secondary--800));
+        --graupl-button-visited-color: light-dark(var(--graupl-secondary--800),
+                        var(--graupl-secondary--100));
+        --graupl-button-visited-border-color: light-dark(var(--graupl-secondary--600),
+                        var(--graupl-secondary--400));
+        --graupl-button-focus-background: light-dark(var(--graupl-secondary--100),
+                        var(--graupl-secondary--800));
+        --graupl-button-focus-color: light-dark(var(--graupl-secondary--800),
+                        var(--graupl-secondary--100));
+        --graupl-button-focus-border-color: light-dark(var(--graupl-secondary--600),
+                        var(--graupl-secondary--400));
+        --graupl-button-hover-background: light-dark(var(--graupl-secondary--200),
+                        var(--graupl-secondary--700));
+        --graupl-button-hover-color: light-dark(var(--graupl-secondary--900),
+                        var(--graupl-secondary--100));
+        --graupl-button-hover-border-color: light-dark(var(--graupl-secondary--700),
+                        var(--graupl-secondary--300));
+        --graupl-button-active-background: light-dark(var(--graupl-secondary--200),
+                        var(--graupl-secondary--700));
+        --graupl-button-active-color: light-dark(var(--graupl-secondary--900),
+                        var(--graupl-secondary--100));
+        --graupl-button-active-border-color: light-dark(var(--graupl-secondary--700),
+                        var(--graupl-secondary--300));
+        --graupl-button-disabled-background: light-dark(var(--graupl-secondary--200),
+                        var(--graupl-secondary--800));
+        --graupl-button-disabled-color: light-dark(var(--graupl-secondary--700),
+                        var(--graupl-secondary--200));
+        --graupl-button-disabled-border-color: light-dark(var(--graupl-secondary--300),
+                        var(--graupl-secondary--700));
 }
 
 /* Tertiary buttons use Graupl's existing state properties. */
 .button.tertiary {
-    --graupl-button-background: light-dark(var(--graupl-tertiary--100),
-            var(--graupl-tertiary--800));
-    --graupl-button-color: light-dark(var(--graupl-tertiary--800),
-            var(--graupl-tertiary--100));
-    --graupl-button-border-color: light-dark(var(--graupl-tertiary--600),
-            var(--graupl-tertiary--400));
-    --graupl-button-visited-background: light-dark(var(--graupl-tertiary--100),
-            var(--graupl-tertiary--800));
-    --graupl-button-visited-color: light-dark(var(--graupl-tertiary--800),
-            var(--graupl-tertiary--100));
-    --graupl-button-visited-border-color: light-dark(var(--graupl-tertiary--600),
-            var(--graupl-tertiary--400));
-    --graupl-button-focus-background: light-dark(var(--graupl-tertiary--100),
-            var(--graupl-tertiary--800));
-    --graupl-button-focus-color: light-dark(var(--graupl-tertiary--800),
-            var(--graupl-tertiary--100));
-    --graupl-button-focus-border-color: light-dark(var(--graupl-tertiary--600),
-            var(--graupl-tertiary--400));
-    --graupl-button-hover-background: light-dark(var(--graupl-tertiary--200),
-            var(--graupl-tertiary--700));
-    --graupl-button-hover-color: light-dark(var(--graupl-tertiary--900),
-            var(--graupl-tertiary--100));
-    --graupl-button-hover-border-color: light-dark(var(--graupl-tertiary--700),
-            var(--graupl-tertiary--300));
-    --graupl-button-active-background: light-dark(var(--graupl-tertiary--200),
-            var(--graupl-tertiary--700));
-    --graupl-button-active-color: light-dark(var(--graupl-tertiary--900),
-            var(--graupl-tertiary--100));
-    --graupl-button-active-border-color: light-dark(var(--graupl-tertiary--700),
-            var(--graupl-tertiary--300));
-    --graupl-button-disabled-background: light-dark(var(--graupl-tertiary--200),
-            var(--graupl-tertiary--800));
-    --graupl-button-disabled-color: light-dark(var(--graupl-tertiary--700),
-            var(--graupl-tertiary--200));
-    --graupl-button-disabled-border-color: light-dark(var(--graupl-tertiary--300),
-            var(--graupl-tertiary--700));
+        --graupl-button-background: light-dark(var(--graupl-tertiary--100),
+                        var(--graupl-tertiary--800));
+        --graupl-button-color: light-dark(var(--graupl-tertiary--800),
+                        var(--graupl-tertiary--100));
+        --graupl-button-border-color: light-dark(var(--graupl-tertiary--600),
+                        var(--graupl-tertiary--400));
+        --graupl-button-visited-background: light-dark(var(--graupl-tertiary--100),
+                        var(--graupl-tertiary--800));
+        --graupl-button-visited-color: light-dark(var(--graupl-tertiary--800),
+                        var(--graupl-tertiary--100));
+        --graupl-button-visited-border-color: light-dark(var(--graupl-tertiary--600),
+                        var(--graupl-tertiary--400));
+        --graupl-button-focus-background: light-dark(var(--graupl-tertiary--100),
+                        var(--graupl-tertiary--800));
+        --graupl-button-focus-color: light-dark(var(--graupl-tertiary--800),
+                        var(--graupl-tertiary--100));
+        --graupl-button-focus-border-color: light-dark(var(--graupl-tertiary--600),
+                        var(--graupl-tertiary--400));
+        --graupl-button-hover-background: light-dark(var(--graupl-tertiary--200),
+                        var(--graupl-tertiary--700));
+        --graupl-button-hover-color: light-dark(var(--graupl-tertiary--900),
+                        var(--graupl-tertiary--100));
+        --graupl-button-hover-border-color: light-dark(var(--graupl-tertiary--700),
+                        var(--graupl-tertiary--300));
+        --graupl-button-active-background: light-dark(var(--graupl-tertiary--200),
+                        var(--graupl-tertiary--700));
+        --graupl-button-active-color: light-dark(var(--graupl-tertiary--900),
+                        var(--graupl-tertiary--100));
+        --graupl-button-active-border-color: light-dark(var(--graupl-tertiary--700),
+                        var(--graupl-tertiary--300));
+        --graupl-button-disabled-background: light-dark(var(--graupl-tertiary--200),
+                        var(--graupl-tertiary--800));
+        --graupl-button-disabled-color: light-dark(var(--graupl-tertiary--700),
+                        var(--graupl-tertiary--200));
+        --graupl-button-disabled-border-color: light-dark(var(--graupl-tertiary--300),
+                        var(--graupl-tertiary--700));
 }
 
 /* Card variants use the original palette shades without redefining them. */
 .col-12:nth-child(2)>.card.h-full {
-    --graupl-card-background: light-dark(var(--graupl-secondary--100),
-            var(--graupl-secondary--800));
+        --graupl-card-background: light-dark(var(--graupl-secondary--100),
+                        var(--graupl-secondary--800));
 }
 
 .col-12:nth-child(3)>.card.h-full {
-    --graupl-card-background: light-dark(var(--graupl-tertiary--100),
-            var(--graupl-tertiary--900));
+        --graupl-card-background: light-dark(var(--graupl-tertiary--100),
+                        var(--graupl-tertiary--900));
 }
 
 /* Static elevation leaves focus outlines and component transitions intact. */
 .card {
-    box-shadow: 0 var(--graupl-spacer-2) 0 light-dark(var(--graupl-secondary--200), var(--graupl-secondary--800));
+        box-shadow: 0 var(--graupl-spacer-2) 0 light-dark(var(--graupl-secondary--200), var(--graupl-secondary--800));
 }
 
 .card-header::before {
-    content: "";
-    display: block;
-    width: var(--graupl-spacer-7);
-    height: var(--graupl-spacer-2);
-    margin-block-end: var(--graupl-spacer-5);
-    border-radius: 100vmax;
-    background: light-dark(var(--graupl-primary--700),
-            var(--graupl-primary--300));
-    pointer-events: none;
+        content: "";
+        display: block;
+        width: var(--graupl-spacer-7);
+        height: var(--graupl-spacer-2);
+        margin-block-end: var(--graupl-spacer-5);
+        border-radius: 100vmax;
+        background: light-dark(var(--graupl-primary--700),
+                        var(--graupl-primary--300));
+        pointer-events: none;
 }
 
 .col-12:nth-child(2)>.card.h-full .card-header::before {
-    background: light-dark(var(--graupl-secondary--700),
-            var(--graupl-secondary--300));
+        background: light-dark(var(--graupl-secondary--700),
+                        var(--graupl-secondary--300));
 }
 
 .col-12:nth-child(3)>.card.h-full .card-header::before {
-    background: light-dark(var(--graupl-tertiary--700),
-            var(--graupl-tertiary--300));
+        background: light-dark(var(--graupl-tertiary--700),
+                        var(--graupl-tertiary--300));
 }
 
 .navigation {
-    padding: var(--graupl-spacer-3) var(--graupl-spacer-5);
+        padding: var(--graupl-spacer-3) var(--graupl-spacer-5);
 }
 
 .card-footer {
-    border-block-start: 1px solid light-dark(var(--graupl-secondary--300), var(--graupl-secondary--700));
+        border-block-start: 1px solid light-dark(var(--graupl-secondary--300), var(--graupl-secondary--700));
 }
 
 main>section>h2::after {
-    content: "";
-    display: block;
-    width: var(--graupl-spacer-8);
-    height: var(--graupl-spacer-2);
-    margin-block: var(--graupl-spacer-5) var(--graupl-spacer-6);
-    border-radius: 100vmax;
-    background: light-dark(var(--graupl-tertiary--700),
-            var(--graupl-tertiary--300));
-    pointer-events: none;
+        content: "";
+        display: block;
+        width: var(--graupl-spacer-8);
+        height: var(--graupl-spacer-2);
+        margin-block: var(--graupl-spacer-5) var(--graupl-spacer-6);
+        border-radius: 100vmax;
+        background: light-dark(var(--graupl-tertiary--700),
+                        var(--graupl-tertiary--300));
+        pointer-events: none;
 }
 
 @media (forced-colors: active) {
 
-    .card-header::before,
-    main>section>h2::after {
-        height: 0;
-        border-block-start: 2px solid CanvasText;
-        background: none;
-    }
+        .card-header::before,
+        main>section>h2::after {
+                height: 0;
+                border-block-start: 2px solid CanvasText;
+                background: none;
+        }
 }
 
 /* The selected tab has a persistent shape cue as well as its fill colour. */
 .tab-toggle[aria-selected="true"] {
-    font-weight: var(--graupl-font-weight-bold);
-    text-decoration: underline;
-    text-underline-offset: var(--graupl-spacer-2);
-    text-decoration-thickness: var(--graupl-spacer-1);
+        font-weight: var(--graupl-font-weight-bold);
+        text-decoration: underline;
+        text-underline-offset: var(--graupl-spacer-2);
+        text-decoration-thickness: var(--graupl-spacer-1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    :root {
-        --graupl-transition-duration-fast: 0ms;
-        --graupl-transition-duration-default: 0ms;
-        --graupl-transition-duration-slow: 0ms;
-    }
+        :root {
+                --graupl-transition-duration-fast: 0ms;
+                --graupl-transition-duration-default: 0ms;
+                --graupl-transition-duration-slow: 0ms;
+        }
 }
 
 @media (prefers-contrast: more) {
-    :root {
-        --graupl-border-width: 2px;
-        --graupl-card-border-color: var(--graupl-root-color);
-        --graupl-accordion-item-border-color: var(--graupl-root-color);
-        --graupl-input-border-color: var(--graupl-root-color);
-    }
+        :root {
+                --graupl-border-width: 2px;
+                --graupl-card-border-color: var(--graupl-root-color);
+                --graupl-accordion-item-border-color: var(--graupl-root-color);
+                --graupl-input-border-color: var(--graupl-root-color);
+        }
 }
 
 @media (forced-colors: active) {
-    :root {
-        --graupl-focus-outline-color: Highlight;
-        --graupl-focus-border-color: CanvasText;
-    }
+        :root {
+                --graupl-focus-outline-color: Highlight;
+                --graupl-focus-border-color: CanvasText;
+        }
 
-    .tab-toggle[aria-selected="true"] {
-        --graupl-tabs-tab-toggle-border-width: 2px;
-        --graupl-tabs-tab-toggle-selected-border-color: Highlight;
+        .tab-toggle[aria-selected="true"] {
+                --graupl-tabs-tab-toggle-border-width: 2px;
+                --graupl-tabs-tab-toggle-selected-border-color: Highlight;
 
-        box-shadow: none;
-    }
+                box-shadow: none;
+        }
 }
