@@ -1,6 +1,38 @@
 /* Gilt. Load after Graupl. Remove this file to restore Graupl's defaults. */
 :root {
-  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  /* Base values remain available for direct references throughout the theme. */
+  --graupl-spacer: 1rem;
+  --graupl-spacer-0: calc(0 * var(--graupl-spacer));
+  --graupl-spacer-1: calc(0.125 * var(--graupl-spacer));
+  --graupl-spacer-2: calc(0.25 * var(--graupl-spacer));
+  --graupl-spacer-3: calc(0.5 * var(--graupl-spacer));
+  --graupl-spacer-4: calc(0.75 * var(--graupl-spacer));
+  --graupl-spacer-5: calc(1 * var(--graupl-spacer));
+  --graupl-spacer-6: calc(1.5 * var(--graupl-spacer));
+  --graupl-spacer-7: calc(2 * var(--graupl-spacer));
+  --graupl-spacer-8: calc(3 * var(--graupl-spacer));
+  --graupl-spacer-9: calc(5 * var(--graupl-spacer));
+  --graupl-spacer-10: calc(10 * var(--graupl-spacer));
+  --graupl-base-font-size: 1rem;
+  --graupl-font-size-xs: calc(0.694 * var(--graupl-base-font-size));
+  --graupl-font-size-sm: calc(0.833 * var(--graupl-base-font-size));
+  --graupl-font-size-base: calc(1 * var(--graupl-base-font-size));
+  --graupl-font-size-lg: calc(1.2 * var(--graupl-base-font-size));
+  --graupl-font-size-xl: calc(1.44 * var(--graupl-base-font-size));
+  --graupl-font-size-2xl: calc(1.728 * var(--graupl-base-font-size));
+  --graupl-font-size-3xl: calc(2.074 * var(--graupl-base-font-size));
+  --graupl-font-size-4xl: calc(2.488 * var(--graupl-base-font-size));
+  --graupl-font-size-5xl: calc(2.986 * var(--graupl-base-font-size));
+  --graupl-font-weight-light: 300;
+  --graupl-font-weight-normal: 400;
+  --graupl-font-weight-bold: 700;
+  --graupl-transition-duration-fast: 150ms;
+  --graupl-transition-duration-default: 250ms;
+  --graupl-transition-duration-slow: 300ms;
+  --graupl-transition-timing-function: ease;
+
+  /* Raw shades stay fixed; Graupl maps semantic shades for each mode. */
+  --gilt-font-weight-500: 500;
   --graupl-primary: #806024;
   --graupl-primary--100: #fff9e9;
   --graupl-primary--200: #f3e5be;
@@ -46,14 +78,17 @@
   --graupl-card-header-padding: 0;
   --graupl-card-body-padding: 0;
   --graupl-card-footer-padding: 0;
-  --graupl-navigation-branding-padding: 0.75rem 0;
-  --graupl-accordion-item-body-padding: 0 1.25rem 1.25rem;
+  --graupl-navigation-branding-padding: var(--graupl-spacer-4) 0;
+  --graupl-accordion-item-body-padding: 0 calc(1.25 * var(--graupl-spacer))
+    calc(1.25 * var(--graupl-spacer));
   --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
   --graupl-tooltip-description-width: min(17rem, 65vw);
-  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-tooltip-description-font-size: calc(
+    0.9 * var(--graupl-base-font-size)
+  );
   --graupl-carousel-item-container-aspect-ratio: auto;
-  --graupl-menu-gap: 0.5rem;
-  --graupl-submenu-gap: 0.5rem;
+  --graupl-menu-gap: var(--graupl-spacer-3);
+  --graupl-submenu-gap: var(--graupl-spacer-3);
   --graupl-focus-width: 3px;
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
@@ -64,12 +99,12 @@
   );
 
   /* Serif display type and double rules establish the Art Deco treatment. */
-  --graupl-h3-font-size: 1.5rem;
+  --graupl-h3-font-size: calc(1.5 * var(--graupl-base-font-size));
   --graupl-content-max-width: 72rem;
   --graupl-container-content-max-width: 72rem;
   --graupl-button-min-height: 44px;
-  --graupl-menu-link-padding: 0.75rem 1rem;
-  --graupl-accordion-gap: 0.5rem;
+  --graupl-menu-link-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
+  --graupl-accordion-gap: var(--graupl-spacer-3);
   --graupl-accordion-item-toggle-background: light-dark(
     var(--graupl-secondary--100),
     var(--graupl-secondary--900)
@@ -94,14 +129,17 @@
     var(--graupl-primary--900),
     var(--graupl-primary--100)
   );
-  --graupl-accordion-item-toggle-padding: 1.1rem 1.25rem;
-  --graupl-tabs-tab-toggle-padding: 0.75rem 1rem;
-  --graupl-tabs-tab-content-padding: 1.25rem;
+  --graupl-accordion-item-toggle-padding: calc(1.1 * var(--graupl-spacer))
+    calc(1.25 * var(--graupl-spacer));
+  --graupl-tabs-tab-toggle-padding: var(--graupl-spacer-4)
+    var(--graupl-spacer-5);
+  --graupl-tabs-tab-content-padding: calc(1.25 * var(--graupl-spacer));
   --graupl-tabs-tab-content-background: light-dark(
     var(--graupl-secondary--100),
     var(--graupl-secondary--900)
   );
-  --graupl-badge-padding: 0.35rem 0.65rem;
+  --graupl-badge-padding: calc(0.35 * var(--graupl-spacer))
+    calc(0.65 * var(--graupl-spacer));
   --graupl-input-border-color: light-dark(
     var(--graupl-secondary--600),
     var(--graupl-secondary--400)
@@ -117,18 +155,27 @@
   --graupl-root-font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   --graupl-root-line-height: 1.65;
   --graupl-heading-font-family: georgia, "Times New Roman", serif;
-  --graupl-heading-font-weight: 400;
+  --graupl-heading-font-weight: var(--graupl-font-weight-normal);
   --graupl-heading-line-height: 1.08;
   --graupl-heading-letter-spacing: 0.015em;
-  --graupl-h1-font-size: clamp(2.8rem, 6.5vw, 5.6rem);
-  --graupl-h1-font-weight: 400;
+  --graupl-h1-font-size: clamp(
+    calc(2.8 * var(--graupl-base-font-size)),
+    6.5vw,
+    calc(5.6 * var(--graupl-base-font-size))
+  );
+  --graupl-h1-font-weight: var(--graupl-font-weight-normal);
   --graupl-h1-letter-spacing: -0.035em;
-  --graupl-h2-font-size: clamp(1.9rem, 3.6vw, 3rem);
-  --graupl-card-title-font-weight: 400;
-  --graupl-card-title-font-size: 1.7rem;
+  --graupl-h2-font-size: clamp(
+    calc(1.9 * var(--graupl-base-font-size)),
+    3.6vw,
+    calc(3 * var(--graupl-base-font-size))
+  );
+  --graupl-card-title-font-weight: var(--graupl-font-weight-normal);
+  --graupl-card-title-font-size: calc(1.7 * var(--graupl-base-font-size));
   --graupl-border-radius: 0.15rem;
   --graupl-button-border-radius: 0.15rem;
-  --graupl-button-padding: 0.75rem 1.4rem;
+  --graupl-button-padding: var(--graupl-spacer-4)
+    calc(1.4 * var(--graupl-spacer));
   --graupl-button-border-width: 2px;
   --graupl-card-background: light-dark(
     var(--graupl-secondary--100),
@@ -140,11 +187,13 @@
   );
   --graupl-card-border-width: 4px;
   --graupl-card-border-style: double;
-  --graupl-card-content-padding: 1.85rem;
-  --graupl-card-content-gap: 1.2rem;
+  --graupl-card-content-padding: calc(1.85 * var(--graupl-spacer));
+  --graupl-card-content-gap: calc(1.2 * var(--graupl-spacer));
   --graupl-navigation-background: var(--graupl-root-background);
-  --graupl-navigation-branding-font-weight: 500;
-  --graupl-navigation-branding-font-size: 1.3rem;
+  --graupl-navigation-branding-font-weight: var(--gilt-font-weight-500);
+  --graupl-navigation-branding-font-size: calc(
+    1.3 * var(--graupl-base-font-size)
+  );
   --graupl-menu-link-border-radius: 0.15rem;
   --graupl-menu-link-hover-background: light-dark(
     var(--graupl-primary--200),
@@ -170,7 +219,9 @@
   --graupl-accordion-item-border-width: 3px;
   --graupl-accordion-item-border-style: double;
   --graupl-accordion-item-title-font-family: var(--graupl-heading-font-family);
-  --graupl-accordion-item-title-font-size: 1.2rem;
+  --graupl-accordion-item-title-font-size: calc(
+    1.2 * var(--graupl-base-font-size)
+  );
   --graupl-tabs-border-radius: 0.15rem;
   --graupl-tabs-tab-toggle-border-radius: 0.15rem 0.15rem 0 0;
   --graupl-tabs-tab-content-border-radius: 0 0 0.15rem 0.15rem;
@@ -396,8 +447,8 @@
 .card::before {
   content: "";
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: var(--graupl-spacer-3);
+  right: var(--graupl-spacer-3);
   width: 1rem;
   height: 1rem;
   border-top: 2px solid
@@ -411,4 +462,41 @@
 .navigation {
   border-block: 4px double
     light-dark(var(--graupl-primary--600), var(--graupl-primary--400));
+}
+
+/* The selected tab has a persistent shape cue as well as its fill colour. */
+.tab-toggle[aria-selected="true"] {
+  font-weight: var(--graupl-font-weight-bold);
+  text-decoration: underline;
+  text-underline-offset: var(--graupl-spacer-2);
+  text-decoration-thickness: var(--graupl-spacer-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --graupl-transition-duration-fast: 0ms;
+    --graupl-transition-duration-default: 0ms;
+    --graupl-transition-duration-slow: 0ms;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --graupl-border-width: 2px;
+    --graupl-card-border-color: var(--graupl-root-color);
+    --graupl-accordion-item-border-color: var(--graupl-root-color);
+    --graupl-input-border-color: var(--graupl-root-color);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --graupl-focus-outline-color: Highlight;
+    --graupl-focus-border-color: CanvasText;
+  }
+
+  .tab-toggle[aria-selected="true"] {
+    --graupl-tabs-tab-toggle-border-width: 2px;
+    --graupl-tabs-tab-toggle-selected-border-color: Highlight;
+  }
 }

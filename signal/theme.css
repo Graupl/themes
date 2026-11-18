@@ -1,6 +1,39 @@
 /* Signal. Load after Graupl. Remove this file to restore Graupl's defaults. */
 :root {
-  /* Existing palettes. Graupl reverses their numbered shades in dark mode. */
+  /* Base values remain available for direct references throughout the theme. */
+  --graupl-spacer: 1rem;
+  --graupl-spacer-0: calc(0 * var(--graupl-spacer));
+  --graupl-spacer-1: calc(0.125 * var(--graupl-spacer));
+  --graupl-spacer-2: calc(0.25 * var(--graupl-spacer));
+  --graupl-spacer-3: calc(0.5 * var(--graupl-spacer));
+  --graupl-spacer-4: calc(0.75 * var(--graupl-spacer));
+  --graupl-spacer-5: calc(1 * var(--graupl-spacer));
+  --graupl-spacer-6: calc(1.5 * var(--graupl-spacer));
+  --graupl-spacer-7: calc(2 * var(--graupl-spacer));
+  --graupl-spacer-8: calc(3 * var(--graupl-spacer));
+  --graupl-spacer-9: calc(5 * var(--graupl-spacer));
+  --graupl-spacer-10: calc(10 * var(--graupl-spacer));
+  --graupl-base-font-size: 1rem;
+  --graupl-font-size-xs: calc(0.694 * var(--graupl-base-font-size));
+  --graupl-font-size-sm: calc(0.833 * var(--graupl-base-font-size));
+  --graupl-font-size-base: calc(1 * var(--graupl-base-font-size));
+  --graupl-font-size-lg: calc(1.2 * var(--graupl-base-font-size));
+  --graupl-font-size-xl: calc(1.44 * var(--graupl-base-font-size));
+  --graupl-font-size-2xl: calc(1.728 * var(--graupl-base-font-size));
+  --graupl-font-size-3xl: calc(2.074 * var(--graupl-base-font-size));
+  --graupl-font-size-4xl: calc(2.488 * var(--graupl-base-font-size));
+  --graupl-font-size-5xl: calc(2.986 * var(--graupl-base-font-size));
+  --graupl-font-weight-light: 300;
+  --graupl-font-weight-normal: 400;
+  --graupl-font-weight-bold: 700;
+  --graupl-transition-duration-fast: 150ms;
+  --graupl-transition-duration-default: 250ms;
+  --graupl-transition-duration-slow: 300ms;
+  --graupl-transition-timing-function: ease;
+
+  /* Raw shades stay fixed; Graupl maps semantic shades for each mode. */
+  --signal-font-weight-750: 750;
+  --signal-font-weight-900: 900;
   --graupl-primary: #245bca;
   --graupl-primary--100: #eff5ff;
   --graupl-primary--200: #dbe8ff;
@@ -44,21 +77,30 @@
     sans-serif;
   --graupl-root-line-height: 1.6;
   --graupl-heading-font-family: "Arial Narrow", impact, sans-serif;
-  --graupl-heading-font-weight: 900;
+  --graupl-heading-font-weight: var(--signal-font-weight-900);
   --graupl-heading-line-height: 1.05;
   --graupl-heading-letter-spacing: -0.035em;
-  --graupl-h1-font-size: clamp(3.4rem, 8vw, 7rem);
-  --graupl-h2-font-size: clamp(2rem, 4vw, 3.5rem);
-  --graupl-h3-font-size: 1.7rem;
+  --graupl-h1-font-size: clamp(
+    calc(3.4 * var(--graupl-base-font-size)),
+    8vw,
+    calc(7 * var(--graupl-base-font-size))
+  );
+  --graupl-h2-font-size: clamp(
+    calc(2 * var(--graupl-base-font-size)),
+    4vw,
+    calc(3.5 * var(--graupl-base-font-size))
+  );
+  --graupl-h3-font-size: calc(1.7 * var(--graupl-base-font-size));
   --graupl-card-title-font-family: var(--graupl-heading-font-family);
-  --graupl-card-title-font-weight: 900;
-  --graupl-card-title-font-size: 1.65rem;
+  --graupl-card-title-font-weight: var(--signal-font-weight-900);
+  --graupl-card-title-font-size: calc(1.65 * var(--graupl-base-font-size));
   --graupl-content-max-width: 76rem;
   --graupl-container-content-max-width: 76rem;
   --graupl-border-width: 2px;
   --graupl-border-radius: 0;
   --graupl-button-border-radius: 0;
-  --graupl-button-padding: 0.85rem 1.4rem;
+  --graupl-button-padding: calc(0.85 * var(--graupl-spacer))
+    calc(1.4 * var(--graupl-spacer));
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 2px;
@@ -74,35 +116,49 @@
   --graupl-card-border-top-right-radius: 0;
   --graupl-card-border-bottom-right-radius: 0;
   --graupl-card-border-bottom-left-radius: 0;
-  --graupl-card-content-padding: 1.75rem;
-  --graupl-card-content-gap: 1.15rem;
-  --graupl-card-header-padding: 0;
+  --graupl-card-content-padding: calc(1.75 * var(--graupl-spacer));
+  --graupl-card-content-gap: calc(1.15 * var(--graupl-spacer));
+  --graupl-card-header-padding: 0 0 var(--graupl-spacer-5);
   --graupl-card-body-padding: 0;
   --graupl-card-footer-padding: 0;
   --graupl-navigation-background: var(--graupl-root-background);
-  --graupl-navigation-branding-font-weight: 900;
-  --graupl-navigation-branding-font-size: 1.35rem;
-  --graupl-navigation-branding-padding: 0.75rem 0;
-  --graupl-menu-link-padding: 0.75rem 1rem;
+  --graupl-navigation-branding-font-weight: var(--signal-font-weight-900);
+  --graupl-navigation-branding-font-size: calc(
+    1.35 * var(--graupl-base-font-size)
+  );
+  --graupl-navigation-branding-padding: var(--graupl-spacer-4);
+  --graupl-navigation-branding-color: var(--graupl-tertiary--100);
+  --graupl-navigation-branding-visited-color: var(--graupl-tertiary--100);
+  --graupl-navigation-branding-hover-color: var(--graupl-tertiary--100);
+  --graupl-navigation-branding-focus-color: var(--graupl-tertiary--100);
+  --graupl-navigation-branding-active-color: var(--graupl-tertiary--100);
+  --graupl-navigation-branding-disabled-color: var(--graupl-tertiary--100);
+  --graupl-menu-link-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
   --graupl-accordion-item-border-radius: 0;
   --graupl-accordion-item-title-font-family: var(--graupl-heading-font-family);
-  --graupl-accordion-item-title-font-size: 1.15rem;
-  --graupl-accordion-item-toggle-padding: 1.25rem;
-  --graupl-accordion-item-body-padding: 0 1.25rem 1.25rem;
+  --graupl-accordion-item-title-font-size: calc(
+    1.15 * var(--graupl-base-font-size)
+  );
+  --graupl-accordion-item-toggle-padding: calc(1.25 * var(--graupl-spacer));
+  --graupl-accordion-item-body-padding: 0 calc(1.25 * var(--graupl-spacer))
+    calc(1.25 * var(--graupl-spacer));
   --graupl-tabs-border-radius: 0;
   --graupl-tabs-tab-list-border-radius: 0;
   --graupl-tabs-tab-content-border-radius: 0;
-  --graupl-tabs-tab-toggle-padding: 1rem 1.3rem;
+  --graupl-tabs-tab-toggle-padding: var(--graupl-spacer-5)
+    calc(1.3 * var(--graupl-spacer));
   --graupl-tabs-tab-toggle-border-radius: 0;
-  --graupl-tabs-tab-content-padding: 1.5rem;
+  --graupl-tabs-tab-content-padding: var(--graupl-spacer-6);
   --graupl-alert-border-radius: 0;
   --graupl-badge-border-radius: 0;
   --graupl-tooltip-description-font-family: var(--graupl-root-font-family);
   --graupl-tooltip-description-width: min(17rem, 65vw);
-  --graupl-tooltip-description-font-size: 0.9rem;
+  --graupl-tooltip-description-font-size: calc(
+    0.9 * var(--graupl-base-font-size)
+  );
   --graupl-carousel-item-container-aspect-ratio: auto;
-  --graupl-menu-gap: 0.5rem;
-  --graupl-submenu-gap: 0.5rem;
+  --graupl-menu-gap: var(--graupl-spacer-3);
+  --graupl-submenu-gap: var(--graupl-spacer-3);
   --graupl-focus-width: 3px;
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
@@ -125,9 +181,7 @@
 }
 
 .navigation-branding {
-  padding-inline: 0.75rem;
   background: var(--graupl-tertiary--900);
-  color: var(--graupl-tertiary--100);
   letter-spacing: 0.06em;
 }
 
@@ -145,7 +199,7 @@ main > section > .text-sm,
 .badge,
 .card-header > p {
   font-family: ui-monospace, monospace;
-  font-weight: 700;
+  font-weight: var(--graupl-font-weight-bold);
   letter-spacing: 0.05em;
 }
 
@@ -154,7 +208,7 @@ main > section:first-child::after {
   content: "";
   display: block;
   height: 1rem;
-  margin-block-start: 3rem;
+  margin-block-start: var(--graupl-spacer-8);
   background: repeating-linear-gradient(
     135deg,
     light-dark(var(--graupl-secondary--500), var(--graupl-secondary--300)) 0
@@ -171,7 +225,6 @@ main > section + section {
 }
 
 .card-header {
-  padding-block-end: 1rem;
   border-block-end: 2px solid
     light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300));
 }
@@ -185,13 +238,8 @@ article.card {
 .button.tertiary {
   --graupl-button-border-bottom-width: 0.35rem;
 
-  font-weight: 750;
+  font-weight: var(--signal-font-weight-750);
   letter-spacing: 0.035em;
-}
-
-.tab-toggle[aria-selected="true"] {
-  box-shadow: inset 0 0.3rem
-    light-dark(var(--graupl-secondary--600), var(--graupl-secondary--300));
 }
 
 .alert {
@@ -202,5 +250,42 @@ article.card {
   main > section:first-child::after {
     border-block: 0.25rem solid CanvasText;
     background: none;
+  }
+}
+
+/* The selected tab has a persistent shape cue as well as its fill colour. */
+.tab-toggle[aria-selected="true"] {
+  font-weight: var(--graupl-font-weight-bold);
+  text-decoration: underline;
+  text-underline-offset: var(--graupl-spacer-2);
+  text-decoration-thickness: var(--graupl-spacer-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --graupl-transition-duration-fast: 0ms;
+    --graupl-transition-duration-default: 0ms;
+    --graupl-transition-duration-slow: 0ms;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --graupl-border-width: 2px;
+    --graupl-card-border-color: var(--graupl-root-color);
+    --graupl-accordion-item-border-color: var(--graupl-root-color);
+    --graupl-input-border-color: var(--graupl-root-color);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --graupl-focus-outline-color: Highlight;
+    --graupl-focus-border-color: CanvasText;
+  }
+
+  .tab-toggle[aria-selected="true"] {
+    --graupl-tabs-tab-toggle-border-width: 2px;
+    --graupl-tabs-tab-toggle-selected-border-color: Highlight;
   }
 }

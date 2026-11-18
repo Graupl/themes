@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Reference, a custom-property theme and component library built with Graupl."
+    />
+    <title>Reference | Graupl component library</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Graupl/graupl@c7bff6f2012a9cf53bae5ccee377a4beb7f6404b/dist/css/graupl.css"
+    />
+    <link rel="stylesheet" href="theme.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/accessible-menu@5.0.0-beta.7/dist/disclosure-menu.iife.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/Graupl/graupl@c7bff6f2012a9cf53bae5ccee377a4beb7f6404b/dist/js/graupl.js"
+    ></script>
+    <script>
+      // Follow Graupl's demo: use its mode classes and remember the choice.
+      (() => {
+        const storageKey = "reference-appearance";
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
+        let mode = "system";
+        try {
+          const saved = window.localStorage.getItem(storageKey);
+          if (["system", "light", "dark"].includes(saved)) mode = saved;
+        } catch {
+          // The switch still works when browser storage is unavailable.
+        }
+        let control;
+        const resolvedMode = () =>
+          mode === "system" ? (preference.matches ? "dark" : "light") : mode;
+        const applyMode = () => {
+          const resolved = resolvedMode();
+          document.documentElement.classList.remove("light-mode", "dark-mode");
+          document.documentElement.classList.add(`${resolved}-mode`);
+          if (control) {
+            control.textContent =
+              resolved === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode";
+          }
+        };
+        applyMode();
+        preference.addEventListener("change", applyMode);
+        document.addEventListener("DOMContentLoaded", () => {
+          control = document.getElementById("appearance");
+          applyMode();
+          control.addEventListener("click", () => {
+            mode = resolvedMode() === "light" ? "dark" : "light";
+            applyMode();
+            try {
+              window.localStorage.setItem(storageKey, mode);
+            } catch {
+              // A blocked save does not prevent changing the current mode.
+            }
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a
+        href="#main"
+        class="visually-hidden focusable display-inline-block my-3"
+        >Skip to content</a
+      >
+      <header class="pb-5 position-relative z-1">
+        <nav
+          class="navigation"
+          aria-label="Main navigation"
+          data-graupl-menu-type="DisclosureMenu"
+          data-graupl-menu-options='{"menuLinksSelector": ".menu-link"}'
+        >
+          <a class="navigation-branding" href="index.html"
+            >reference_ / Graupl</a
+          >
+          <button
+            type="button"
+            class="navigation-toggle"
+            aria-label="Toggle navigation"
+          ></button>
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#foundations">Foundations</a>
+            </li>
+            <li class="menu-item submenu-item">
+              <button
+                type="button"
+                class="menu-link button link submenu-toggle"
+              >
+                Components
+              </button>
+              <ul class="submenu">
+                <li class="menu-item">
+                  <a class="menu-link" href="#cards">Cards and lists</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#forms">Forms and tables</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#interactions"
+                    >Interactive components</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <button
+                id="appearance"
+                type="button"
+                class="menu-link button link"
+              >
+                Switch to dark mode
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <noscript
+          ><p>
+            Enable JavaScript to change appearance and use the interactive
+            components.
+          </p></noscript
+        >
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="py-8" aria-labelledby="intro-title">
+          <div class="flex-columns g-7 align-items-center">
+            <div class="col-12 md:col-8">
+              <p class="text-sm text-primary-700">
+                MDN-INSPIRED. GRAUPL-POWERED.
+              </p>
+              <h1 id="intro-title">A reference for what you build.</h1>
+              <p class="text-lg">
+                Readable type, blue links, and quiet panels. An MDN-inspired
+                component library built with Graupl.
+              </p>
+              <div class="display-flex flex-wrap g-3 mt-6">
+                <a class="button primary" href="#foundations"
+                  >Explore the library</a
+                ><a class="button secondary" href="theme.css" download
+                  >Download theme CSS</a
+                >
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="badge tertiary">REFERENCE / 01</span>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title">Read. Inspect. Build.</h2>
+                    <p>
+                      One theme file. Existing custom properties. Remove it and
+                      every component keeps its base Graupl styling and
+                      behaviour.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#about-title">How to remove the theme</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="foundations"
+          class="py-8"
+          aria-labelledby="foundations-title"
+        >
+          <p class="text-sm text-primary-700">01 / FOUNDATIONS</p>
+          <h2 id="foundations-title">Colour with a purpose.</h2>
+          <p>
+            Reference blue, Graphite, and Syntax purple. Each uses Graupl's
+            existing nine-shade palette.
+          </p>
+          <div class="flex-columns g-5 my-6">
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-primary-200 text-primary-900 border-radius">
+                <h3>Reference blue</h3>
+                <p>The primary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div
+                class="p-6 bg-secondary-200 text-secondary-900 border-radius"
+              >
+                <h3>Graphite</h3>
+                <p>The secondary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-tertiary-200 text-tertiary-900 border-radius">
+                <h3>Syntax purple</h3>
+                <p>The tertiary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-columns g-7">
+            <div class="col-12 md:col-6">
+              <h3>Type with a clear hierarchy</h3>
+              <p class="text-h2">Start with the platform.</p>
+              <p>
+                Body text stays readable through long reference pages.
+                <strong>Strong text</strong> adds emphasis,
+                <em>italics</em> mark a change in voice, and
+                <a href="#cards">links stay underlined</a>.
+              </p>
+              <small
+                >Small text for supporting details. Essential instructions stay
+                in the body.</small
+              >
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Buttons and badges</h3>
+              <p>
+                These buttons link to working examples further down the page.
+              </p>
+              <div class="display-flex flex-wrap g-3 mb-5">
+                <a class="button primary" href="#forms">Primary</a
+                ><a class="button secondary" href="#cards">Secondary</a
+                ><a class="button tertiary" href="#interactions">Tertiary</a
+                ><button class="button" type="button" disabled>
+                  Unavailable
+                </button>
+              </div>
+              <div class="display-flex flex-wrap g-3">
+                <span class="badge primary">Available</span
+                ><span class="badge secondary">Updated today</span
+                ><span class="badge tertiary">New example</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="cards" class="py-8" aria-labelledby="cards-title">
+          <p class="text-sm text-primary-700">02 / CONTENT</p>
+          <h2 id="cards-title">Examples worth keeping open.</h2>
+          <p>Cards, lists, breadcrumbs, and messages share the same palette.</p>
+          <nav aria-label="Example breadcrumb" class="my-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#main">Reference</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#cards">Examples</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                Web fundamentals
+              </li>
+            </ol>
+          </nav>
+          <div class="flex-columns g-5">
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-primary-700">01</span>
+                    <p class="text-sm">WEB REFERENCE</p>
+                    <h3 class="card-title">HTML structure</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Use headings, landmarks, and native controls to describe a
+                      document before adding presentation.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Explore the examples</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-secondary-700">02</span>
+                    <p class="text-sm">WEB REFERENCE</p>
+                    <h3 class="card-title">CSS presentation</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Choose spacing, typography, and colour through Graupl's
+                      existing custom properties.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Explore the examples</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-tertiary-700">03</span>
+                    <p class="text-sm">WEB REFERENCE</p>
+                    <h3 class="card-title">JavaScript behaviour</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Let Graupl initialize its components. Keep keyboard
+                      behaviour with the library that implements it.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Explore the examples</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="flex-columns g-6 mt-7">
+            <div class="col-12 md:col-6">
+              <h3>Review checklist</h3>
+              <ul class="list" role="list">
+                <li class="list-item">Meaningful headings and labels</li>
+                <li class="list-item">Visible keyboard focus</li>
+                <li class="list-item">Light and dark contrast checks</li>
+              </ul>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Reference note</h3>
+              <div class="alert tertiary">
+                <div class="alert-header">
+                  <p class="alert-title">This is an interactive example</p>
+                </div>
+                <div class="alert-body">
+                  <p>
+                    Dismiss this note with its close button. Reload the page to
+                    bring the example back.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="alert-dismisser"
+                  aria-label="Dismiss reference note"
+                >
+                  ×
+                </button>
+              </div>
+              <p>
+                <small
+                  >This is a dismissible example. Reload the page to restore
+                  it.</small
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="forms" class="py-8" aria-labelledby="forms-title">
+          <p class="text-sm text-primary-700">03 / INPUT AND DATA</p>
+          <h2 id="forms-title">Make the next step obvious.</h2>
+          <p>
+            A sample documentation request. These fields demonstrate Graupl's
+            controls and do not send or save your information.
+          </p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <div>
+                <div class="input-group mb-5">
+                  <label for="trip-name">Example title</label
+                  ><input
+                    id="trip-name"
+                    type="text"
+                    placeholder="A responsive card layout"
+                    aria-describedby="trip-help"
+                  /><small id="trip-help" class="help-text"
+                    >Choose a short title for the example.</small
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="route">Topic</label
+                  ><select id="route">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>JavaScript</option>
+                  </select>
+                </div>
+                <div class="input-group mb-5">
+                  <label for="notes">Implementation notes</label
+                  ><textarea
+                    id="notes"
+                    rows="3"
+                    placeholder="What should the example demonstrate?"
+                  ></textarea>
+                </div>
+                <fieldset class="mb-5">
+                  <legend>Detail level</legend>
+                  <div class="input-group left">
+                    <input
+                      type="radio"
+                      id="pace-easy"
+                      name="pace"
+                      checked
+                    /><label for="pace-easy">Introduction</label>
+                  </div>
+                  <div class="input-group left">
+                    <input type="radio" id="pace-steady" name="pace" /><label
+                      for="pace-steady"
+                      >Reference</label
+                    >
+                  </div>
+                </fieldset>
+                <div class="input-group left mb-5">
+                  <input type="checkbox" id="map-copy" /><label for="map-copy"
+                    >Include keyboard instructions</label
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="distance">Examples per page</label
+                  ><input
+                    type="range"
+                    id="distance"
+                    min="1"
+                    max="15"
+                    value="6"
+                  /><small class="help-text">Between 1 and 15 examples.</small>
+                </div>
+                <p>
+                  <small>Reload this page to reset the example fields.</small>
+                </p>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Example reading times</h3>
+              <div class="overflow-x-auto">
+                <table>
+                  <caption>
+                    Sample documentation lengths
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Topic</th>
+                      <th scope="col">Examples</th>
+                      <th scope="col">Reading time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">HTML</th>
+                      <td>6 examples</td>
+                      <td>12 minutes</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">CSS</th>
+                      <td>12 examples</td>
+                      <td>24 minutes</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">JavaScript</th>
+                      <td>3 examples</td>
+                      <td>6 minutes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="input-group mt-7">
+                <label for="locked-field">Unavailable field</label
+                ><input
+                  type="text"
+                  id="locked-field"
+                  disabled
+                  value="Preview only"
+                /><small class="help-text">Disabled control appearance.</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="interactions"
+          class="py-8"
+          aria-labelledby="interactions-title"
+        >
+          <p class="text-sm text-primary-700">04 / INTERACTION</p>
+          <h2 id="interactions-title">Details, when you need them.</h2>
+          <p>Graupl's generators handle every interaction below.</p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <h3>Implementation questions</h3>
+              <div
+                class="accordion"
+                data-graupl-accordion-options='{"optionalKeySupport":true}'
+              >
+                <div class="accordion-item show">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="true"
+                      >
+                        What does this theme change?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Typography, colours, and component styling. Existing
+                        Graupl custom properties do most of the work.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        How do components initialize?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Graupl's generators find the component markup. Data
+                        attributes pass options to the existing components.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Can I remove the theme?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Yes. Remove the theme stylesheet and keep the same HTML.
+                        Graupl supplies the base styles and interactions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Reference sections</h3>
+              <div class="tabs">
+                <div
+                  class="tab-list"
+                  role="tablist"
+                  aria-label="Web technology notes"
+                >
+                  <button class="tab-toggle" type="button" aria-selected="true">
+                    HTML</button
+                  ><button class="tab-toggle" type="button">CSS</button
+                  ><button class="tab-toggle" type="button">JS</button>
+                </div>
+                <div class="tab-content show" tabindex="0">
+                  <h4>Describe the document</h4>
+                  <p>
+                    Start with meaningful elements. Give controls visible labels
+                    and organize content with headings.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Style the document</h4>
+                  <p>
+                    Use the cascade and custom properties to set component
+                    defaults without replacing their markup.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Add the behaviour</h4>
+                  <p>
+                    Use Graupl's generators for component interactions. The
+                    custom script here only changes appearance.
+                  </p>
+                </div>
+              </div>
+              <h3 class="mt-7">Extra details</h3>
+              <button
+                class="disclosure-toggle"
+                type="button"
+                data-graupl-disclosure-target="access-notes"
+                aria-controls="access-notes"
+                aria-expanded="false"
+              >
+                Show accessibility notes
+              </button>
+              <div>
+                <div class="disclosure hide" id="access-notes">
+                  <div class="disclosure-content" inert>
+                    <p>
+                      Check keyboard focus, zoom, and both colour modes.
+                      Automated checks do not replace assistive technology
+                      testing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="display-flex align-items-center g-3 mt-5">
+                <div
+                  class="tooltip"
+                  data-graupl-tooltip-options='{"expandOnFocus":true,"hoverType":"on"}'
+                >
+                  <span class="tooltip-description hide"
+                    >The examples use the pinned Graupl 1.x build.</span
+                  ><button
+                    class="tooltip-toggle"
+                    type="button"
+                    aria-label="More about example versions"
+                  ></button>
+                </div>
+                <span>Example versions</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-8">A few things to remember</h3>
+          <p>
+            The carousel starts paused. Use the next and previous buttons to
+            explore.
+          </p>
+          <section
+            class="carousel mt-5"
+            aria-label="Web development reminders"
+            data-graupl-carousel-options='{"autoplay":false}'
+          >
+            <div class="carousel-control-container">
+              <button
+                type="button"
+                class="carousel-control autoplay play"
+                aria-label="Start slide rotation"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control previous"
+                aria-label="Previous slide"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control next"
+                aria-label="Next slide"
+              ></button>
+            </div>
+            <div class="carousel-item-container">
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-primary-100 text-primary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Use native elements"
+              >
+                <p class="text-sm">NOTE 1 OF 3</p>
+                <h4 class="text-h2">Use native elements</h4>
+                <p>Start with the browser's built-in semantics and controls.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-secondary-100 text-secondary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Check both modes"
+                inert
+              >
+                <p class="text-sm">NOTE 2 OF 3</p>
+                <h4 class="text-h2">Check both modes</h4>
+                <p>
+                  Review text, borders, and focus indicators in light and dark.
+                </p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-tertiary-100 text-tertiary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Test with a keyboard"
+                inert
+              >
+                <p class="text-sm">NOTE 3 OF 3</p>
+                <h4 class="text-h2">Test with a keyboard</h4>
+                <p>Follow the focus through every interactive example.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="py-8" aria-labelledby="about-title">
+          <h2 id="about-title">An independent Graupl theme.</h2>
+          <p>
+            Reference uses all thirteen Graupl core components, plus its
+            buttons, links, forms, tables, typography, and layout utilities.
+            Icons and navigation shelf are not included.
+          </p>
+          <p>
+            Keep <code>theme.css</code> after Graupl's stylesheet. Most
+            declarations in the theme set an existing
+            <code>--graupl-*</code> property. Most declarations are on
+            <code>:root</code>. Scoped properties customize component variants.
+            A static decorative underscore adds an MDN-inspired detail to the
+            heading. The only custom script controls appearance, not components.
+          </p>
+          <p>
+            Inspired by MDN Web Docs, without its branding or assets. This is an
+            independent example, not a Mozilla product. Remove the theme
+            stylesheet to restore base Graupl styling.
+          </p>
+          <div class="display-flex flex-wrap g-3">
+            <a class="button primary" href="theme.css" download
+              >Download the theme</a
+            ><a class="button tertiary" href="https://graupl.dev"
+              >Read Graupl's docs</a
+            >
+          </div>
+        </section>
+      </main>
+      <footer class="py-7">
+        <p>Reference · Built with Graupl 1.x and Accessible Menu.</p>
+        <a href="#main">Back to top</a>
+        <nav class="mt-5" aria-label="Other themes">
+          <h2 class="text-h3">Explore the other themes</h2>
+          <ul class="display-flex flex-wrap g-3 list-style-none">
+            <li><a href="../afterhours/index.html">After Hours</a></li>
+            <li><a href="../blueprint/index.html">Blueprint</a></li>
+            <li><a href="../campfire/index.html">Campfire</a></li>
+            <li><a href="../civic/index.html">Civic</a></li>
+            <li><a href="../commonplace/index.html">Commonplace</a></li>
+            <li><a href="../crt/index.html">CRT</a></li>
+            <li><a href="../default/index.html">Graupl defaults</a></li>
+            <li><a href="../fieldwork/index.html">Fieldwork</a></li>
+            <li><a href="../folio/index.html">Folio</a></li>
+            <li><a href="../forma/index.html">Forma</a></li>
+            <li><a href="../gilt/index.html">Gilt</a></li>
+            <li><a href="../glasshouse/index.html">Glasshouse</a></li>
+            <li><a href="../helm/index.html">Helm</a></li>
+            <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
+            <li><a href="../kickstart/index.html">Kickstart</a></li>
+            <li><a href="../lumen/index.html">Lumen</a></li>
+            <li><a href="../signal/index.html">Signal</a></li>
+            <li><a href="../sugar/index.html">Sugar</a></li>
+            <li><a href="../tidepool/index.html">Tidepool</a></li>
+            <li><a href="../waymark/index.html">Waymark</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
