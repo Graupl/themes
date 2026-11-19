@@ -619,9 +619,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Draft index</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="folio-table-title">Draft index</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="folio-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Working drafts
                   </caption>
@@ -630,6 +635,8 @@
                       <th scope="col">Draft</th>
                       <th scope="col">Pass</th>
                       <th scope="col">What to check</th>
+                      <th scope="col">Keep nearby</th>
+                      <th scope="col">Next step</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -637,16 +644,22 @@
                       <th scope="row">First draft</th>
                       <td>First pass</td>
                       <td>Scene order</td>
+                      <td>Notebook</td>
+                      <td>Read the scene aloud.</td>
                     </tr>
                     <tr>
                       <th scope="row">Margin notes</th>
                       <td>Second pass</td>
                       <td>Repeated details</td>
+                      <td>Pencil</td>
+                      <td>Mark questions for the next pass.</td>
                     </tr>
                     <tr>
                       <th scope="row">Reference index</th>
                       <td>Final pass</td>
                       <td>Source notes</td>
+                      <td>Reference cards</td>
+                      <td>Verify each quotation.</td>
                     </tr>
                   </tbody>
                 </table>

@@ -636,9 +636,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Simulation routes</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="hyperdrive-table-title">Simulation routes</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="hyperdrive-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Circuit lengths and estimated session times
                   </caption>
@@ -647,6 +652,8 @@
                       <th scope="col">Route</th>
                       <th scope="col">Distance</th>
                       <th scope="col">Time</th>
+                      <th scope="col">Entry gate</th>
+                      <th scope="col">Pilot notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -654,16 +661,22 @@
                       <th scope="row">Night Circuit</th>
                       <td>6 km</td>
                       <td>2 hours</td>
+                      <td>Gate 4</td>
+                      <td>Use Gate 2 while this gate reloads.</td>
                     </tr>
                     <tr>
                       <th scope="row">Signal Vault</th>
                       <td>12 km</td>
                       <td>4 hours</td>
+                      <td>Gate 3</td>
+                      <td>Save at the relay before you leave.</td>
                     </tr>
                     <tr>
                       <th scope="row">Pulse Arena</th>
                       <td>3 km</td>
                       <td>1 hour</td>
+                      <td>Gate 2</td>
+                      <td>Practice runs do not affect rank.</td>
                     </tr>
                   </tbody>
                 </table>

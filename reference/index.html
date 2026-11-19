@@ -624,9 +624,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Reference index</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="reference-table-title">Reference index</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="reference-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Reference entries
                   </caption>
@@ -635,6 +640,8 @@
                       <th scope="col">Technology</th>
                       <th scope="col">Examples</th>
                       <th scope="col">Reading time</th>
+                      <th scope="col">Related topic</th>
+                      <th scope="col">What to verify</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -642,16 +649,22 @@
                       <th scope="row">HTML structure</th>
                       <td>6 examples</td>
                       <td>12 minutes</td>
+                      <td>Forms</td>
+                      <td>Use native labels for controls.</td>
                     </tr>
                     <tr>
                       <th scope="row">CSS presentation</th>
                       <td>12 examples</td>
                       <td>24 minutes</td>
+                      <td>Custom properties</td>
+                      <td>Check styles in both colour modes.</td>
                     </tr>
                     <tr>
                       <th scope="row">JavaScript behaviour</th>
                       <td>3 examples</td>
                       <td>6 minutes</td>
+                      <td>Keyboard events</td>
+                      <td>Check focus order and accessible names.</td>
                     </tr>
                   </tbody>
                 </table>

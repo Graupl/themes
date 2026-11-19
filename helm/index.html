@@ -633,9 +633,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Watch roster</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="helm-table-title">Watch roster</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="helm-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Duty stations
                   </caption>
@@ -644,6 +649,8 @@
                       <th scope="col">Duty station</th>
                       <th scope="col">Check</th>
                       <th scope="col">Report to</th>
+                      <th scope="col">Station log</th>
+                      <th scope="col">Handover notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -651,16 +658,22 @@
                       <th scope="row">Flight deck</th>
                       <td>Approach clearance</td>
                       <td>Flight officer</td>
+                      <td>Approach log</td>
+                      <td>Confirm the assigned berth.</td>
                     </tr>
                     <tr>
                       <th scope="row">Sensor bay</th>
                       <td>Traffic sweep</td>
                       <td>Sensor officer</td>
+                      <td>Sensor log</td>
+                      <td>Record traffic from the last sweep.</td>
                     </tr>
                     <tr>
                       <th scope="row">Engineering</th>
                       <td>Relay repair</td>
                       <td>Chief engineer</td>
+                      <td>Repair log</td>
+                      <td>Use the primary channel.</td>
                     </tr>
                   </tbody>
                 </table>

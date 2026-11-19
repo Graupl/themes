@@ -623,9 +623,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Set list</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="afterhours-table-title">Set list</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="afterhours-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Tonight's programme
                   </caption>
@@ -634,6 +639,8 @@
                       <th scope="col">Performance</th>
                       <th scope="col">Music</th>
                       <th scope="col">Starts</th>
+                      <th scope="col">Seats</th>
+                      <th scope="col">Set notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -641,16 +648,22 @@
                       <th scope="row">Opening set</th>
                       <td>Main set</td>
                       <td>8 p.m.</td>
+                      <td>Main floor</td>
+                      <td>The house trio opens the evening.</td>
                     </tr>
                     <tr>
                       <th scope="row">Piano interlude</th>
                       <td>Piano solo</td>
                       <td>9:30 p.m.</td>
+                      <td>Bar stools</td>
+                      <td>Hear the piano from the bar.</td>
                     </tr>
                     <tr>
                       <th scope="row">Late encore</th>
                       <td>Quartet</td>
                       <td>11 p.m.</td>
+                      <td>Main floor</td>
+                      <td>The quartet closes the night.</td>
                     </tr>
                   </tbody>
                 </table>

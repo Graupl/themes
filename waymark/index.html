@@ -620,9 +620,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Station connections</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="waymark-table-title">Station connections</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="waymark-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Distances and travel times from the city centre
                   </caption>
@@ -631,6 +636,8 @@
                       <th scope="col">Route</th>
                       <th scope="col">Distance</th>
                       <th scope="col">Time</th>
+                      <th scope="col">Use this exit</th>
+                      <th scope="col">Transfer notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -638,16 +645,22 @@
                       <th scope="row">Central Station</th>
                       <td>6 km</td>
                       <td>2 hours</td>
+                      <td>Market Street</td>
+                      <td>Take the lift to the concourse.</td>
                     </tr>
                     <tr>
                       <th scope="row">Harbour Station</th>
                       <td>12 km</td>
                       <td>4 hours</td>
+                      <td>West exit</td>
+                      <td>Follow the signs for the ferry.</td>
                     </tr>
                     <tr>
                       <th scope="row">Museum Station</th>
                       <td>3 km</td>
                       <td>1 hour</td>
+                      <td>South exit</td>
+                      <td>Cross the square to the museum.</td>
                     </tr>
                   </tbody>
                 </table>

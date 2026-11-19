@@ -624,9 +624,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Route comparison</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="fieldwork-table-title">Route comparison</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="fieldwork-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Quest routes and travel times
                   </caption>
@@ -635,6 +640,8 @@
                       <th scope="col">Route</th>
                       <th scope="col">Distance</th>
                       <th scope="col">Time</th>
+                      <th scope="col">Trailhead</th>
+                      <th scope="col">Party notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -642,16 +649,22 @@
                       <th scope="row">Ogre bridge</th>
                       <td>6 km</td>
                       <td>2 hours</td>
+                      <td>Stone bridge</td>
+                      <td>Have a riddle ready for the ogre.</td>
                     </tr>
                     <tr>
                       <th scope="row">Wyvern Ridge</th>
                       <td>12 km</td>
                       <td>4 hours</td>
+                      <td>Watchtower</td>
+                      <td>Stay below the wyvern nests.</td>
                     </tr>
                     <tr>
                       <th scope="row">Old mill</th>
                       <td>3 km</td>
                       <td>1 hour</td>
+                      <td>Mill path</td>
+                      <td>Ask the ranger about campsites.</td>
                     </tr>
                   </tbody>
                 </table>

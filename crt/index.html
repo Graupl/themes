@@ -632,9 +632,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Lab directory</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="crt-table-title">Terminal service comparison</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="crt-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     System tools
                   </caption>
@@ -643,6 +648,8 @@
                       <th scope="col">Terminal service</th>
                       <th scope="col">Access</th>
                       <th scope="col">Purpose</th>
+                      <th scope="col">Open from</th>
+                      <th scope="col">Before you start</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -650,16 +657,22 @@
                       <th scope="row">File directory</th>
                       <td>Lab account</td>
                       <td>Find files</td>
+                      <td>Lab menu</td>
+                      <td>Check the file name first.</td>
                     </tr>
                     <tr>
                       <th scope="row">Bulletin board</th>
                       <td>Lab account</td>
                       <td>Read notices</td>
+                      <td>Main prompt</td>
+                      <td>Read the sysop&#x27;s notice.</td>
                     </tr>
                     <tr>
                       <th scope="row">Session log</th>
                       <td>Active session</td>
                       <td>Save your work</td>
+                      <td>Account menu</td>
+                      <td>Save a copy before signing out.</td>
                     </tr>
                   </tbody>
                 </table>

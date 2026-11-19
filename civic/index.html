@@ -633,9 +633,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Service directory</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="civic-table-title">Municipal service comparison</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="civic-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Service schedules
                   </caption>
@@ -644,6 +649,8 @@
                       <th scope="col">Service</th>
                       <th scope="col">When</th>
                       <th scope="col">Contact</th>
+                      <th scope="col">Submit via</th>
+                      <th scope="col">Details</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -651,16 +658,22 @@
                       <th scope="row">Building permits</th>
                       <td>Weekdays</td>
                       <td>Permit desk</td>
+                      <td>Online form</td>
+                      <td>Attach a site plan.</td>
                     </tr>
                     <tr>
                       <th scope="row">Waste collection</th>
                       <td>Collection day</td>
                       <td>Waste services</td>
+                      <td>By phone</td>
+                      <td>Give your street address.</td>
                     </tr>
                     <tr>
                       <th scope="row">Road maintenance</th>
                       <td>During repairs</td>
                       <td>Public works</td>
+                      <td>Web form</td>
+                      <td>Give a cross street.</td>
                     </tr>
                   </tbody>
                 </table>

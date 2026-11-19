@@ -631,9 +631,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Evening programme</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="lumen-table-title">Evening programme</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="lumen-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Tonight's programme
                   </caption>
@@ -642,6 +647,8 @@
                       <th scope="col">Session</th>
                       <th scope="col">When</th>
                       <th scope="col">What to see</th>
+                      <th scope="col">Meet at</th>
+                      <th scope="col">Viewing notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -649,16 +656,22 @@
                       <th scope="row">Star theatre</th>
                       <td>Early evening</td>
                       <td>Constellations</td>
+                      <td>Theatre doors</td>
+                      <td>Check the evening programme.</td>
                     </tr>
                     <tr>
                       <th scope="row">Telescope deck</th>
                       <td>After dark</td>
                       <td>Saturn</td>
+                      <td>Deck entrance</td>
+                      <td>Use a dim red light.</td>
                     </tr>
                     <tr>
                       <th scope="row">Sky gallery</th>
                       <td>During opening hours</td>
                       <td>Sky chart</td>
+                      <td>Gallery desk</td>
+                      <td>Ask for a sky chart.</td>
                     </tr>
                   </tbody>
                 </table>

@@ -625,9 +625,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Workshop schedule</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="kickstart-table-title">Workshop schedule</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="kickstart-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     First projects
                   </caption>
@@ -636,6 +641,8 @@
                       <th scope="col">Work area</th>
                       <th scope="col">Tool</th>
                       <th scope="col">First step</th>
+                      <th scope="col">Find supplies</th>
+                      <th scope="col">Before you leave</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -643,16 +650,22 @@
                       <th scope="row">Electronics bench</th>
                       <td>Soldering iron</td>
                       <td>Tool induction</td>
+                      <td>Kit shelf</td>
+                      <td>Switch off the soldering iron.</td>
                     </tr>
                     <tr>
                       <th scope="row">Assembly table</th>
                       <td>Clamps</td>
                       <td>Check the fit</td>
+                      <td>Parts rack</td>
+                      <td>Return the clamps.</td>
                     </tr>
                     <tr>
                       <th scope="row">Finishing bench</th>
                       <td>Sanding block</td>
                       <td>Put on eye protection</td>
+                      <td>Tool cabinet</td>
+                      <td>Clear dust from the bench.</td>
                     </tr>
                   </tbody>
                 </table>

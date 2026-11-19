@@ -621,9 +621,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Shore walk schedule</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="tidepool-table-title">Shore walk schedule</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="tidepool-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Explore at low tide
                   </caption>
@@ -632,6 +637,8 @@
                       <th scope="col">Shore walk</th>
                       <th scope="col">When to visit</th>
                       <th scope="col">What to look for</th>
+                      <th scope="col">Meet at</th>
+                      <th scope="col">Shore notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -639,16 +646,22 @@
                       <th scope="row">The shallows</th>
                       <td>Low tide</td>
                       <td>Small crabs</td>
+                      <td>Discovery centre</td>
+                      <td>Leave the rock-pool animals in place.</td>
                     </tr>
                     <tr>
                       <th scope="row">Beyond the headland</th>
                       <td>Daylight</td>
                       <td>Seabirds</td>
+                      <td>Headland sign</td>
+                      <td>Stay on the marked lookout path.</td>
                     </tr>
                     <tr>
                       <th scope="row">A sheltered cove</th>
                       <td>Low tide</td>
                       <td>Rock pools</td>
+                      <td>Cove path</td>
+                      <td>Check the tide before you set out.</td>
                     </tr>
                   </tbody>
                 </table>

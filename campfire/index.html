@@ -632,9 +632,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Campground routes</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="campfire-table-title">Campground routes</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="campfire-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Distances and walking times from camp
                   </caption>
@@ -643,6 +648,8 @@
                       <th scope="col">Route</th>
                       <th scope="col">Distance</th>
                       <th scope="col">Time</th>
+                      <th scope="col">Trailhead</th>
+                      <th scope="col">Camp notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -650,16 +657,22 @@
                       <th scope="row">Hemlock Loop</th>
                       <td>6 km</td>
                       <td>2 hours</td>
+                      <td>Camp office</td>
+                      <td>Refill bottles near site 12.</td>
                     </tr>
                     <tr>
                       <th scope="row">Lakeside Loop</th>
                       <td>12 km</td>
                       <td>4 hours</td>
+                      <td>Lakeside gate</td>
+                      <td>Keep the canoe launch clear.</td>
                     </tr>
                     <tr>
                       <th scope="row">Fern Loop</th>
                       <td>3 km</td>
                       <td>1 hour</td>
+                      <td>Fern Loop sign</td>
+                      <td>Return to the camp office.</td>
                     </tr>
                   </tbody>
                 </table>

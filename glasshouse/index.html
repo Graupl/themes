@@ -633,9 +633,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Glasshouse tour</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="glasshouse-table-title">Glasshouse tour</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="glasshouse-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Gardens under glass
                   </caption>
@@ -644,6 +649,8 @@
                       <th scope="col">Glasshouse room</th>
                       <th scope="col">What to see</th>
                       <th scope="col">Access</th>
+                      <th scope="col">Meet at</th>
+                      <th scope="col">Visitor notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -651,16 +658,22 @@
                       <th scope="row">Fern house</th>
                       <td>Tree ferns</td>
                       <td>Temporarily closed</td>
+                      <td>Visitor desk</td>
+                      <td>Wait for the misting repairs to finish.</td>
                     </tr>
                     <tr>
                       <th scope="row">Orchid room</th>
                       <td>Flower display</td>
                       <td>Step-free path</td>
+                      <td>East entrance</td>
+                      <td>Follow the step-free path.</td>
                     </tr>
                     <tr>
                       <th scope="row">Propagation bench</th>
                       <td>Cuttings</td>
                       <td>Workshop booking</td>
+                      <td>Potting bench</td>
+                      <td>Staff provide pots and cuttings.</td>
                     </tr>
                   </tbody>
                 </table>

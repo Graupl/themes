@@ -628,9 +628,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Branch programme</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="commonplace-table-title">Branch programme</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="commonplace-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     This week at the branch
                   </caption>
@@ -639,6 +644,8 @@
                       <th scope="col">Library service</th>
                       <th scope="col">When</th>
                       <th scope="col">Where</th>
+                      <th scope="col">Who to ask</th>
+                      <th scope="col">What to bring</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -646,16 +653,22 @@
                       <th scope="row">Book holds</th>
                       <td>Within five days</td>
                       <td>Library desk</td>
+                      <td>Desk staff</td>
+                      <td>Bring your library card.</td>
                     </tr>
                     <tr>
                       <th scope="row">Reading club</th>
                       <td>Saturday morning</td>
                       <td>Reading room</td>
+                      <td>Club host</td>
+                      <td>Bring a favourite passage.</td>
                     </tr>
                     <tr>
                       <th scope="row">Study rooms</th>
                       <td>By reservation</td>
                       <td>Study floor</td>
+                      <td>Room coordinator</td>
+                      <td>Bring your booking confirmation.</td>
                     </tr>
                   </tbody>
                 </table>

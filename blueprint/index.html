@@ -633,9 +633,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Drawing index</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="blueprint-table-title">Drawing index</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="blueprint-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Site plans
                   </caption>
@@ -644,6 +649,8 @@
                       <th scope="col">Drawing package</th>
                       <th scope="col">Scale</th>
                       <th scope="col">Review</th>
+                      <th scope="col">Drawing no.</th>
+                      <th scope="col">Revision notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -651,16 +658,22 @@
                       <th scope="row">Site plan</th>
                       <td>1:200</td>
                       <td>Boundary check</td>
+                      <td>A-001</td>
+                      <td>Check the north boundary.</td>
                     </tr>
                     <tr>
                       <th scope="row">Ground floor</th>
                       <td>1:100</td>
                       <td>Layout review</td>
+                      <td>A-101</td>
+                      <td>Confirm the stair layout.</td>
                     </tr>
                     <tr>
                       <th scope="row">Roof plan</th>
                       <td>1:100</td>
                       <td>Services review</td>
+                      <td>A-301</td>
+                      <td>Mark the duct openings.</td>
                     </tr>
                   </tbody>
                 </table>

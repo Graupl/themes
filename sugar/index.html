@@ -633,9 +633,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Box selection</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="sugar-table-title">Box selection</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="sugar-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     At the sweet counter
                   </caption>
@@ -644,6 +649,8 @@
                       <th scope="col">Box type</th>
                       <th scope="col">Selection</th>
                       <th scope="col">Pickup</th>
+                      <th scope="col">Order at</th>
+                      <th scope="col">Pickup notes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -651,16 +658,22 @@
                       <th scope="row">Pick-and-mix box</th>
                       <td>Choose your own</td>
                       <td>At the counter</td>
+                      <td>Sweet counter</td>
+                      <td>Ask for the ingredient list.</td>
                     </tr>
                     <tr>
                       <th scope="row">Seasonal selection</th>
                       <td>Seasonal flavours</td>
                       <td>By 5 p.m.</td>
+                      <td>Preorder desk</td>
+                      <td>Check this month&#x27;s flavours.</td>
                     </tr>
                     <tr>
                       <th scope="row">Gift box</th>
                       <td>Gift wrapping available</td>
                       <td>By preorder</td>
+                      <td>Shop counter</td>
+                      <td>Ask about gift wrapping.</td>
                     </tr>
                   </tbody>
                 </table>

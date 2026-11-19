@@ -635,9 +635,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Route comparison</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="winter-routes-title">Route comparison</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="winter-routes-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Winter routes and travel times
                   </caption>
@@ -646,6 +651,8 @@
                       <th scope="col">Route</th>
                       <th scope="col">Distance</th>
                       <th scope="col">Time</th>
+                      <th scope="col">Start point</th>
+                      <th scope="col">Winter access</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -653,16 +660,22 @@
                       <th scope="row">River trail</th>
                       <td>6 km</td>
                       <td>2 hours</td>
+                      <td>Stone bridge</td>
+                      <td>Use the marked trail.</td>
                     </tr>
                     <tr>
                       <th scope="row">North Park rink</th>
                       <td>12 km</td>
                       <td>4 hours</td>
+                      <td>North Park gate</td>
+                      <td>Check rink hours before leaving.</td>
                     </tr>
                     <tr>
                       <th scope="row">Lakeside warming centre</th>
                       <td>3 km</td>
                       <td>1 hour</td>
+                      <td>Lakeside Park</td>
+                      <td>Use the cleared path to the entrance.</td>
                     </tr>
                   </tbody>
                 </table>

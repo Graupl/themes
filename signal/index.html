@@ -634,9 +634,14 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Print run schedule</h3>
-              <div class="overflow-x-auto">
-                <table>
+              <h3 id="signal-table-title">Print run schedule</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="signal-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
                   <caption>
                     Studio stations
                   </caption>
@@ -645,6 +650,8 @@
                       <th scope="col">Studio station</th>
                       <th scope="col">Equipment</th>
                       <th scope="col">What to check</th>
+                      <th scope="col">Collect at</th>
+                      <th scope="col">Before pickup</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -652,16 +659,22 @@
                       <th scope="row">The print room</th>
                       <td>Press</td>
                       <td>Colour registration</td>
+                      <td>Print desk</td>
+                      <td>Approve the first proof.</td>
                     </tr>
                     <tr>
                       <th scope="row">The cutting floor</th>
                       <td>Cutter</td>
                       <td>Trim marks</td>
+                      <td>Cutting table</td>
+                      <td>Confirm the finished size.</td>
                     </tr>
                     <tr>
                       <th scope="row">The assembly bench</th>
                       <td>Collating table</td>
                       <td>Copy count</td>
+                      <td>Packing bench</td>
+                      <td>Count the copies in each stack.</td>
                     </tr>
                   </tbody>
                 </table>
