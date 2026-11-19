@@ -413,9 +413,9 @@
           <div class="flex-columns g-7">
             <div class="col-12 md:col-6">
               <h3>Type with a clear hierarchy</h3>
-              <p class="text-h2">CHART A COURSE.</p>
+              <p class="text-h2">A guide to shipboard operations</p>
               <p>
-                Body text stays readable through long field notes.
+                Request clearance from station control before leaving the holding position.
                 <strong>Strong text</strong> adds emphasis,
                 <em>italics</em> mark a change in voice, and
                 <a href="#cards">links stay underlined</a>.
@@ -439,16 +439,16 @@
                 </button>
               </div>
               <div class="display-flex flex-wrap g-3">
-                <span class="badge primary">Trail open</span
-                ><span class="badge secondary">Updated today</span
-                ><span class="badge tertiary">New route</span>
+                <span class="badge primary">Relay offline</span
+                ><span class="badge secondary">Duty stations</span
+                ><span class="badge tertiary">Watch roster</span>
               </div>
             </div>
           </div>
         </section>
         <section id="cards" class="py-8" aria-labelledby="cards-title">
           <p class="text-sm text-primary-700">02 / CONTENT</p>
-          <h2 id="cards-title">Keep the useful things together.</h2>
+          <h2 id="cards-title">Operations directory</h2>
           <p>Cards, lists, breadcrumbs, and messages share the same palette.</p>
           <nav aria-label="Example breadcrumb" class="my-5">
             <ol class="breadcrumb">
@@ -456,9 +456,9 @@
                 <a class="breadcrumb-link" href="#main">Helm</a>
               </li>
               <li class="breadcrumb-item">
-                <a class="breadcrumb-link" href="#cards">Field guides</a>
+                <a class="breadcrumb-link" href="#cards">Duty stations</a>
               </li>
-              <li class="breadcrumb-item" aria-current="page">River country</li>
+              <li class="breadcrumb-item" aria-current="page">Flight deck</li>
             </ol>
           </nav>
           <div class="flex-columns g-5">
@@ -467,17 +467,16 @@
                 <div class="card-content">
                   <div class="card-header">
                     <span class="text-h1 text-primary-700">01</span>
-                    <p class="text-sm">FIELD GUIDE</p>
-                    <h3 class="card-title">The river path</h3>
+                    <p class="text-sm">DUTY STATIONS</p>
+                    <h3 class="card-title">Flight deck</h3>
                   </div>
                   <div class="card-body">
                     <p>
-                      Take the long way home. A gentle route through the valley,
-                      with time to stop at the old mill.
+                      Confirm approach clearance before bringing the ship alongside.
                     </p>
                   </div>
                   <div class="card-footer">
-                    <a href="#interactions">Read the field notes</a>
+                    <a href="#interactions">Read the watch notes</a>
                   </div>
                 </div>
               </article>
@@ -487,17 +486,16 @@
                 <div class="card-content">
                   <div class="card-header">
                     <span class="text-h1 text-secondary-700">02</span>
-                    <p class="text-sm">FIELD GUIDE</p>
-                    <h3 class="card-title">Above the tree line</h3>
+                    <p class="text-sm">DUTY STATIONS</p>
+                    <h3 class="card-title">Sensor bay</h3>
                   </div>
                   <div class="card-body">
                     <p>
-                      Pack a warm layer for the ridge. Clear skies reveal the
-                      watchtower on the northern slope.
+                      Check the last sweep for traffic near the station.
                     </p>
                   </div>
                   <div class="card-footer">
-                    <a href="#interactions">Read the field notes</a>
+                    <a href="#interactions">Read the watch notes</a>
                   </div>
                 </div>
               </article>
@@ -507,17 +505,16 @@
                 <div class="card-content">
                   <div class="card-header">
                     <span class="text-h1 text-tertiary-700">03</span>
-                    <p class="text-sm">FIELD GUIDE</p>
-                    <h3 class="card-title">A place to pause</h3>
+                    <p class="text-sm">DUTY STATIONS</p>
+                    <h3 class="card-title">Engineering</h3>
                   </div>
                   <div class="card-body">
                     <p>
-                      Find a sheltered clearing, put the kettle on, and compare
-                      the day's notes.
+                      Log the repair before returning the auxiliary relay to service.
                     </p>
                   </div>
                   <div class="card-footer">
-                    <a href="#interactions">Read the field notes</a>
+                    <a href="#interactions">Read the watch notes</a>
                   </div>
                 </div>
               </article>
@@ -525,29 +522,28 @@
           </div>
           <div class="flex-columns g-6 mt-7">
             <div class="col-12 md:col-6">
-              <h3>Pack list</h3>
+              <h3>Watch checklist</h3>
               <ul class="list" role="list">
-                <li class="list-item">A map and compass</li>
-                <li class="list-item">A flask of water</li>
-                <li class="list-item">A notebook for the things you notice</li>
+                <li class="list-item">Duty roster</li>
+                <li class="list-item">Sensor report</li>
+                <li class="list-item">Clearance code</li>
               </ul>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Trail notice</h3>
+              <h3>Notice</h3>
               <div class="alert tertiary">
                 <div class="alert-header">
-                  <p class="alert-title">The footbridge is closed</p>
+                  <p class="alert-title">Auxiliary relay offline</p>
                 </div>
                 <div class="alert-body">
                   <p>
-                    Use the marked crossing beside the old mill. Allow ten extra
-                    minutes.
+                    Engineering is replacing the auxiliary relay. Use the primary channel until the repair is logged.
                   </p>
                 </div>
                 <button
                   type="button"
                   class="alert-dismisser"
-                  aria-label="Dismiss footbridge notice"
+                  aria-label="Dismiss relay outage notice"
                 >
                   ×
                 </button>
@@ -563,65 +559,64 @@
         </section>
         <section id="forms" class="py-8" aria-labelledby="forms-title">
           <p class="text-sm text-primary-700">03 / INPUT AND DATA</p>
-          <h2 id="forms-title">Make the next step obvious.</h2>
+          <h2 id="forms-title">Plan a watch</h2>
           <p>
-            A sample trip planner. These fields demonstrate Graupl's controls
-            and do not send or save your information.
+            These sample fields demonstrate Graupl's controls. They don't send or save your information.
           </p>
           <div class="flex-columns g-7 mt-6">
             <div class="col-12 md:col-6">
               <div>
                 <div class="input-group mb-5">
-                  <label for="trip-name">Trip name</label
+                  <label for="trip-name">Crew name</label
                   ><input
                     id="trip-name"
                     type="text"
-                    placeholder="A day by the river"
+                    placeholder="Engineering handover"
                     aria-describedby="trip-help"
                   /><small id="trip-help" class="help-text"
-                    >Choose a name you will recognize in your notes.</small
+                    >Enter a short name for this example.</small
                   >
                 </div>
                 <div class="input-group mb-5">
-                  <label for="route">Route</label
+                  <label for="route">Duty station</label
                   ><select id="route">
-                    <option>River path</option>
-                    <option>North ridge</option>
-                    <option>Mill loop</option>
+                    <option>Flight deck</option>
+                    <option>Sensor bay</option>
+                    <option>Engineering</option>
                   </select>
                 </div>
                 <div class="input-group mb-5">
-                  <label for="notes">Field notes</label
+                  <label for="notes">Watch notes</label
                   ><textarea
                     id="notes"
                     rows="3"
-                    placeholder="What would you like to see?"
+                    placeholder="What should the next watch know?"
                   ></textarea>
                 </div>
                 <fieldset class="mb-5">
-                  <legend>Walking pace</legend>
+                  <legend>Session</legend>
                   <div class="input-group left">
                     <input
                       type="radio"
                       id="pace-easy"
                       name="pace"
                       checked
-                    /><label for="pace-easy">Easy going</label>
+                    /><label for="pace-easy">First watch</label>
                   </div>
                   <div class="input-group left">
                     <input type="radio" id="pace-steady" name="pace" /><label
                       for="pace-steady"
-                      >Steady</label
+                      >Second watch</label
                     >
                   </div>
                 </fieldset>
                 <div class="input-group left mb-5">
                   <input type="checkbox" id="map-copy" /><label for="map-copy"
-                    >Bring a paper map</label
+                    >Log a handover note</label
                   >
                 </div>
                 <div class="input-group mb-5">
-                  <label for="distance">Preferred distance</label
+                  <label for="distance">Items to review</label
                   ><input
                     type="range"
                     id="distance"
@@ -629,7 +624,7 @@
                     max="15"
                     value="6"
                   /><small class="help-text"
-                    >Between 1 and 15 kilometres.</small
+                    >Choose a number from 1 to 15.</small
                   >
                 </div>
                 <p>
@@ -638,34 +633,34 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Route comparison</h3>
+              <h3>Watch roster</h3>
               <div class="overflow-x-auto">
                 <table>
                   <caption>
-                    Distances and walking times
+                    Duty stations
                   </caption>
                   <thead>
                     <tr>
-                      <th scope="col">Route</th>
-                      <th scope="col">Distance</th>
-                      <th scope="col">Time</th>
+                      <th scope="col">Duty station</th>
+                      <th scope="col">Check</th>
+                      <th scope="col">Report to</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">River path</th>
-                      <td>6 km</td>
-                      <td>2 hours</td>
+                      <th scope="row">Flight deck</th>
+                      <td>Approach clearance</td>
+                      <td>Flight officer</td>
                     </tr>
                     <tr>
-                      <th scope="row">North ridge</th>
-                      <td>12 km</td>
-                      <td>4 hours</td>
+                      <th scope="row">Sensor bay</th>
+                      <td>Traffic sweep</td>
+                      <td>Sensor officer</td>
                     </tr>
                     <tr>
-                      <th scope="row">Mill loop</th>
-                      <td>3 km</td>
-                      <td>1 hour</td>
+                      <th scope="row">Engineering</th>
+                      <td>Relay repair</td>
+                      <td>Chief engineer</td>
                     </tr>
                   </tbody>
                 </table>
@@ -676,7 +671,7 @@
                   type="text"
                   id="locked-field"
                   disabled
-                  value="No booking required"
+                  value="Preview only"
                 /><small class="help-text">Disabled control appearance.</small>
               </div>
             </div>
@@ -688,11 +683,11 @@
           aria-labelledby="interactions-title"
         >
           <p class="text-sm text-primary-700">04 / INTERACTION</p>
-          <h2 id="interactions-title">Details, when you need them.</h2>
+          <h2 id="interactions-title">Watch notes</h2>
           <p>Graupl's generators handle every interaction below.</p>
           <div class="flex-columns g-7 mt-6">
             <div class="col-12 md:col-6">
-              <h3>Before you set out</h3>
+              <h3>Common questions</h3>
               <div
                 class="accordion"
                 data-graupl-accordion-options='{"optionalKeySupport":true}'
@@ -705,15 +700,14 @@
                         class="accordion-item-toggle"
                         aria-expanded="true"
                       >
-                        What should I bring?
+                        Who clears the approach?
                       </button>
                     </h4>
                   </div>
                   <div class="accordion-item-content">
                     <div class="accordion-item-body">
                       <p>
-                        A map, water, and a layer for the wind. Carry out
-                        everything you carry in.
+                        Request clearance from station control before leaving the holding position.
                       </p>
                     </div>
                   </div>
@@ -726,15 +720,14 @@
                         class="accordion-item-toggle"
                         aria-expanded="false"
                       >
-                        Where does the route begin?
+                        Where are the sensor logs?
                       </button>
                     </h4>
                   </div>
                   <div class="accordion-item-content">
                     <div class="accordion-item-body">
                       <p>
-                        Meet at the old mill. The river path starts beside the
-                        eastern gate.
+                        Open the report from the latest sweep in the sensor bay.
                       </p>
                     </div>
                   </div>
@@ -747,15 +740,14 @@
                         class="accordion-item-toggle"
                         aria-expanded="false"
                       >
-                        Can I take a shorter route?
+                        How do I end my watch?
                       </button>
                     </h4>
                   </div>
                   <div class="accordion-item-content">
                     <div class="accordion-item-body">
                       <p>
-                        Yes. The mill loop returns to the starting point after
-                        three kilometres.
+                        Log the handover and confirm the next officer has checked in.
                       </p>
                     </div>
                   </div>
@@ -763,37 +755,34 @@
               </div>
             </div>
             <div class="col-12 md:col-6">
-              <h3>Notes by route</h3>
+              <h3>Watch roster</h3>
               <div class="tabs">
-                <div class="tab-list" role="tablist" aria-label="Route notes">
+                <div class="tab-list" role="tablist" aria-label="Watch roster">
                   <button class="tab-toggle" type="button" aria-selected="true">
-                    River</button
-                  ><button class="tab-toggle" type="button">Ridge</button
-                  ><button class="tab-toggle" type="button">Mill</button>
+                    Flight deck</button
+                  ><button class="tab-toggle" type="button">Sensor bay</button
+                  ><button class="tab-toggle" type="button">Engineering</button>
                 </div>
                 <div class="tab-content show" tabindex="0">
-                  <h4>Follow the water</h4>
+                  <h4>Flight deck</h4>
                   <p>
-                    Keep to the marked path through the reeds. The first bench
-                    looks across the valley.
+                    Confirm approach clearance before bringing the ship alongside.
                   </p>
                 </div>
                 <div class="tab-content" tabindex="0">
-                  <h4>Take the high path</h4>
+                  <h4>Sensor bay</h4>
                   <p>
-                    The final climb is steep. Stop at the stone shelter before
-                    heading back.
+                    Check the last sweep for traffic near the station.
                   </p>
                 </div>
                 <div class="tab-content" tabindex="0">
-                  <h4>Back before lunch</h4>
+                  <h4>Engineering</h4>
                   <p>
-                    A short circular walk past the orchard and the old
-                    waterwheel.
+                    Log the repair before returning the auxiliary relay to service.
                   </p>
                 </div>
               </div>
-              <h3 class="mt-7">Extra details</h3>
+              <h3 class="mt-7">Operations directory</h3>
               <button
                 class="disclosure-toggle"
                 type="button"
@@ -801,14 +790,13 @@
                 aria-controls="access-notes"
                 aria-expanded="false"
               >
-                Show access notes
+                Docking procedure
               </button>
               <div>
                 <div class="disclosure hide" id="access-notes">
                   <div class="disclosure-content" inert>
                     <p>
-                      The mill loop has a compacted gravel path. The ridge route
-                      includes steps and uneven ground.
+                      Hold position until station control assigns a berth. Confirm the assignment with the flight deck.
                     </p>
                   </div>
                 </div>
@@ -819,25 +807,25 @@
                   data-graupl-tooltip-options='{"expandOnFocus":true,"hoverType":"on"}'
                 >
                   <span class="tooltip-description hide"
-                    >Paths may be muddy after rain.</span
+                    >Report to your station before handover.</span
                   ><button
                     class="tooltip-toggle"
                     type="button"
-                    aria-label="More about route conditions"
+                    aria-label="Duty watch"
                   ></button>
                 </div>
-                <span>Route conditions</span>
+                <span>Duty watch</span>
               </div>
             </div>
           </div>
-          <h3 class="mt-8">DESTINATION SELECT</h3>
+          <h3 class="mt-8">Duty stations</h3>
           <p>
             The carousel starts paused. Use the next and previous buttons to
             explore.
           </p>
           <section
             class="carousel mt-5"
-            aria-label="Places along the route"
+            aria-label="Duty stations"
             data-graupl-carousel-options='{"autoplay":false}'
           >
             <div class="carousel-control-container">
@@ -862,35 +850,34 @@
                 class="carousel-item px-7 pt-9 pb-8 bg-primary-100 text-primary-900"
                 role="group"
                 aria-roledescription="slide"
-                aria-label="The old mill"
+                aria-label="Flight deck"
               >
-                <p class="text-sm">STOP 1 OF 3</p>
-                <h4 class="text-h2">The old mill</h4>
+                <p class="text-sm">ENTRY 1 OF 3</p>
+                <h4 class="text-h2">Flight deck</h4>
                 <p>
-                  A sheltered spot to unfold your map and plan the afternoon.
-                </p>
+                  Check the assigned berth before moving the ship.</p>
               </div>
               <div
                 class="carousel-item px-7 pt-9 pb-8 bg-secondary-100 text-secondary-900"
                 role="group"
                 aria-roledescription="slide"
-                aria-label="The northern ridge"
+                aria-label="Sensor bay"
                 inert
               >
-                <p class="text-sm">STOP 2 OF 3</p>
-                <h4 class="text-h2">The northern ridge</h4>
-                <p>On a clear day, you can see the whole valley.</p>
+                <p class="text-sm">ENTRY 2 OF 3</p>
+                <h4 class="text-h2">Sensor bay</h4>
+                <p>Read the latest sweep before clearing the approach.</p>
               </div>
               <div
                 class="carousel-item px-7 pt-9 pb-8 bg-tertiary-100 text-tertiary-900"
                 role="group"
                 aria-roledescription="slide"
-                aria-label="The river bend"
+                aria-label="Engineering"
                 inert
               >
-                <p class="text-sm">STOP 3 OF 3</p>
-                <h4 class="text-h2">The river bend</h4>
-                <p>Listen for the kingfishers in the reeds.</p>
+                <p class="text-sm">ENTRY 3 OF 3</p>
+                <h4 class="text-h2">Engineering</h4>
+                <p>Check the relay log before switching channels.</p>
               </div>
             </div>
           </section>
@@ -934,12 +921,12 @@
             <li><a href="../civic/index.html">Civic</a></li>
             <li><a href="../commonplace/index.html">Commonplace</a></li>
             <li><a href="../crt/index.html">CRT</a></li>
-            <li><a href="../default/index.html">Graupl defaults</a></li>
             <li><a href="../fieldwork/index.html">Fieldwork</a></li>
             <li><a href="../folio/index.html">Folio</a></li>
             <li><a href="../forma/index.html">Forma</a></li>
             <li><a href="../gilt/index.html">Gilt</a></li>
             <li><a href="../glasshouse/index.html">Glasshouse</a></li>
+            <li><a href="../default/index.html">Graupl defaults</a></li>
             <li><a href="../helm/index.html" aria-current="page">Helm</a></li>
             <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
             <li><a href="../kickstart/index.html">Kickstart</a></li>

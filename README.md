@@ -6,7 +6,7 @@ A collection of small CSS themes for [Graupl](https://github.com/Graupl/graupl).
 
 Load the theme's `theme.css` after the Graupl stylesheet. Start with the Graupl revision used by the theme's preview. Keep your existing Graupl markup and JavaScript. To restore Graupl's styles, remove the theme stylesheet.
 
-To compare themes locally, serve this repository with a static file server and open the theme's preview. The previews load Graupl from a CDN. The [default preview](default/index.html) shows Graupl without a theme.
+To compare themes locally, serve this repository with a static file server and open the theme's preview. The previews load Graupl from a CDN.
 
 ## Contribute
 

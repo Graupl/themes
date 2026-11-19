@@ -28,7 +28,6 @@
         --graupl-font-weight-normal: 400;
         --graupl-font-weight-bold: 750;
         --graupl-transition-duration-fast: 150ms;
-        --graupl-transition-duration-default: 250ms;
         --graupl-transition-duration-slow: 300ms;
         --graupl-transition-timing-function: ease;
         --graupl-primary: #2063df;
@@ -149,8 +148,8 @@
         --graupl-input-border-color: light-dark(var(--graupl-secondary--600),
                         var(--graupl-secondary--400));
         --graupl-card-hover-transform: none;
-        --graupl-accordion-item-border-color: light-dark(var(--graupl-secondary--300),
-                        var(--graupl-secondary--700));
+        --graupl-accordion-item-border-color: light-dark(var(--graupl-secondary--600),
+                        var(--graupl-secondary--400));
         --graupl-tabs-tab-list-padding: var(--graupl-spacer-0);
         --graupl-tabs-tab-list-margin: var(--graupl-spacer-0) var(--graupl-spacer-0) var(--graupl-spacer-3);
         --graupl-tabs-tab-list-gap: var(--graupl-spacer-2);
@@ -398,7 +397,6 @@ main>section>h2::after {
 @media (prefers-reduced-motion: reduce) {
         :root {
                 --graupl-transition-duration-fast: 0ms;
-                --graupl-transition-duration-default: 0ms;
                 --graupl-transition-duration-slow: 0ms;
         }
 }

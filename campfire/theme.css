@@ -2,27 +2,28 @@
 :root {
   /* Base values remain available for direct references throughout the theme. */
   --graupl-spacer: 1rem;
-  --graupl-spacer-0: calc(0 * var(--graupl-spacer));
-  --graupl-spacer-1: calc(0.125 * var(--graupl-spacer));
-  --graupl-spacer-2: calc(0.25 * var(--graupl-spacer));
-  --graupl-spacer-3: calc(0.5 * var(--graupl-spacer));
-  --graupl-spacer-4: calc(0.75 * var(--graupl-spacer));
-  --graupl-spacer-5: calc(1 * var(--graupl-spacer));
-  --graupl-spacer-6: calc(1.5 * var(--graupl-spacer));
-  --graupl-spacer-7: calc(2 * var(--graupl-spacer));
-  --graupl-spacer-8: calc(3 * var(--graupl-spacer));
-  --graupl-spacer-9: calc(5 * var(--graupl-spacer));
-  --graupl-spacer-10: calc(10 * var(--graupl-spacer));
+  /* stylelint-disable-next-line length-zero-no-unit -- Keep the scale in rem. */
+  --graupl-spacer-0: 0rem;
+  --graupl-spacer-1: 0.125rem;
+  --graupl-spacer-2: 0.25rem;
+  --graupl-spacer-3: 0.5rem;
+  --graupl-spacer-4: 0.75rem;
+  --graupl-spacer-5: 1rem;
+  --graupl-spacer-6: 1.5rem;
+  --graupl-spacer-7: 2rem;
+  --graupl-spacer-8: 3rem;
+  --graupl-spacer-9: 5rem;
+  --graupl-spacer-10: 10rem;
   --graupl-base-font-size: 1rem;
-  --graupl-font-size-xs: calc(0.694 * var(--graupl-base-font-size));
-  --graupl-font-size-sm: calc(0.833 * var(--graupl-base-font-size));
-  --graupl-font-size-base: calc(1 * var(--graupl-base-font-size));
-  --graupl-font-size-lg: calc(1.2 * var(--graupl-base-font-size));
-  --graupl-font-size-xl: calc(1.44 * var(--graupl-base-font-size));
-  --graupl-font-size-2xl: calc(1.728 * var(--graupl-base-font-size));
-  --graupl-font-size-3xl: calc(2.074 * var(--graupl-base-font-size));
-  --graupl-font-size-4xl: calc(2.488 * var(--graupl-base-font-size));
-  --graupl-font-size-5xl: calc(2.986 * var(--graupl-base-font-size));
+  --graupl-font-size-xs: 0.694rem;
+  --graupl-font-size-sm: 0.833rem;
+  --graupl-font-size-base: 1rem;
+  --graupl-font-size-lg: 1.2rem;
+  --graupl-font-size-xl: 1.44rem;
+  --graupl-font-size-2xl: 1.728rem;
+  --graupl-font-size-3xl: 2.074rem;
+  --graupl-font-size-4xl: 2.488rem;
+  --graupl-font-size-5xl: 2.986rem;
   --graupl-font-weight-light: 300;
   --graupl-font-weight-normal: 400;
   --graupl-font-weight-bold: 700;
