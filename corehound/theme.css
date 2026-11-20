@@ -1,0 +1,325 @@
+/* CORE Hound. CSS-only theme for @graupl/graupl 1.0.0-beta.60. */
+:root {
+  /* Base values remain available for direct references throughout the theme. */
+  --graupl-spacer: 1rem;
+  /* stylelint-disable-next-line length-zero-no-unit -- Keep the base scale consistently typed as lengths. */
+  --graupl-spacer-0: 0rem;
+  --graupl-spacer-1: 0.125rem;
+  --graupl-spacer-2: 0.25rem;
+  --graupl-spacer-3: 0.5rem;
+  --graupl-spacer-4: 0.75rem;
+  --graupl-spacer-5: 1rem;
+  --graupl-spacer-6: 1.5rem;
+  --graupl-spacer-7: 2rem;
+  --graupl-spacer-8: 3rem;
+  --graupl-spacer-9: 5rem;
+  --graupl-spacer-10: 10rem;
+  --graupl-base-font-size: 1rem;
+  --graupl-font-size-xs: 0.694rem;
+  --graupl-font-size-sm: 0.833rem;
+  --graupl-font-size-base: 1rem;
+  --graupl-font-size-lg: 1.2rem;
+  --graupl-font-size-xl: 1.44rem;
+  --graupl-font-size-2xl: 1.728rem;
+  --graupl-font-size-3xl: 2.074rem;
+  --graupl-font-size-4xl: 2.488rem;
+  --graupl-font-size-5xl: 2.986rem;
+  --graupl-font-weight-light: 300;
+  --graupl-font-weight-normal: 400;
+  --graupl-font-weight-bold: 750;
+  --graupl-transition-duration-fast: 150ms;
+  --graupl-transition-duration-slow: 300ms;
+  --graupl-transition-timing-function: ease;
+
+  /* Houndy's violet, gold, and blue palettes. */
+  --graupl-primary: var(--graupl-primary--500);
+  --graupl-primary--100: hsl(265deg 90% 95%);
+  --graupl-primary--200: hsl(265deg 100% 90%);
+  --graupl-primary--300: hsl(265deg 100% 80%);
+  --graupl-primary--400: hsl(265deg 90% 70%);
+  --graupl-primary--500: hsl(265deg 80% 55%);
+  --graupl-primary--600: hsl(265deg 75% 45%);
+  --graupl-primary--700: hsl(265deg 90% 30%);
+  --graupl-primary--800: hsl(265deg 90% 20%);
+  --graupl-primary--900: hsl(265deg 95% 10%);
+  --graupl-secondary: var(--graupl-secondary--500);
+  --graupl-secondary--100: hsl(50deg 90% 95%);
+  --graupl-secondary--200: hsl(50deg 100% 90%);
+  --graupl-secondary--300: hsl(50deg 100% 80%);
+  --graupl-secondary--400: hsl(50deg 90% 70%);
+  --graupl-secondary--500: hsl(50deg 80% 55%);
+  --graupl-secondary--600: hsl(50deg 75% 45%);
+  --graupl-secondary--700: hsl(50deg 90% 30%);
+  --graupl-secondary--800: hsl(50deg 90% 20%);
+  --graupl-secondary--900: hsl(50deg 95% 10%);
+  --graupl-tertiary: var(--graupl-tertiary--500);
+  --graupl-tertiary--100: hsl(225deg 90% 95%);
+  --graupl-tertiary--200: hsl(225deg 100% 90%);
+  --graupl-tertiary--300: hsl(225deg 100% 80%);
+  --graupl-tertiary--400: hsl(225deg 90% 70%);
+  --graupl-tertiary--500: hsl(225deg 80% 55%);
+  --graupl-tertiary--600: hsl(225deg 75% 45%);
+  --graupl-tertiary--700: hsl(225deg 90% 30%);
+  --graupl-tertiary--800: hsl(225deg 90% 20%);
+  --graupl-tertiary--900: hsl(225deg 95% 10%);
+  --core-paper: var(--graupl-primary--100);
+  --core-ink: var(--graupl-primary--900);
+  --core-surface: light-dark(
+    color-mix(in srgb, var(--graupl-primary--100) 40%, #fff),
+    color-mix(
+      in srgb,
+      var(--graupl-primary--800) 55%,
+      var(--graupl-primary--900)
+    )
+  );
+  --core-muted: light-dark(#57476d, var(--graupl-primary--300));
+  --core-rule: light-dark(#7e619b, #a687c4);
+  --core-accent: light-dark(
+    var(--graupl-primary--700),
+    var(--graupl-primary--300)
+  );
+  --core-gold: light-dark(
+    var(--graupl-secondary--800),
+    var(--graupl-secondary--300)
+  );
+  --core-editorial-font: georgia, "Times New Roman", serif;
+  --core-focus-layer: 3;
+  --graupl-root-background: light-dark(var(--core-paper), var(--core-ink));
+  --graupl-root-color: light-dark(var(--core-ink), var(--core-paper));
+  --graupl-root-font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --graupl-root-font-size: 1rem;
+  --graupl-root-line-height: 1.65;
+  --graupl-heading-font-family: var(--graupl-root-font-family);
+  --graupl-heading-font-weight: var(--graupl-font-weight-bold);
+  --graupl-heading-line-height: 1.08;
+  --graupl-heading-letter-spacing: -0.035em;
+  --graupl-h1-font-size: clamp(2.488rem, 7vw, 5.5rem);
+  --graupl-h2-font-size: clamp(2.074rem, 4vw, 3.5rem);
+  --graupl-h3-font-size: var(--graupl-font-size-xl);
+  --graupl-border-width: 1px;
+  --graupl-border-radius: 0.25rem;
+  --graupl-content-max-width: 76rem;
+  --graupl-container-content-max-width: 76rem;
+  --graupl-link-color: var(--core-accent);
+  --graupl-link-hover-color: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-link-visited-color: var(--core-accent);
+  --graupl-link-text-decoration: underline;
+  --graupl-link-text-decoration-thickness: 1px;
+  --graupl-link-hover-text-decoration-thickness: 3px;
+  --graupl-button-border-radius: var(--graupl-border-radius);
+  --graupl-button-padding: var(--graupl-spacer-4) var(--graupl-spacer-6);
+  --graupl-button-min-height: 48px;
+  --graupl-button-color: var(--graupl-root-color);
+  --graupl-button-border-color: var(--core-rule);
+  --graupl-button-hover-color: var(--graupl-root-background);
+  --graupl-button-hover-background: var(--graupl-root-color);
+  --graupl-button-hover-transform: none;
+  --graupl-button-active-transform: none;
+  --graupl-card-background: var(--core-surface);
+  --graupl-card-border-color: var(--core-rule);
+  --graupl-card-border-radius: var(--graupl-border-radius);
+  --graupl-card-content-padding: var(--graupl-spacer-7) var(--graupl-spacer-8);
+  --graupl-card-content-gap: var(--graupl-spacer-6);
+  --graupl-card-header-padding: var(--graupl-spacer-0);
+  --graupl-card-body-padding: var(--graupl-spacer-0);
+  --graupl-card-footer-padding: var(--graupl-spacer-6) var(--graupl-spacer-0)
+    var(--graupl-spacer-0);
+  --graupl-card-title-font-size: var(--graupl-font-size-xl);
+  --graupl-card-title-font-weight: var(--graupl-font-weight-bold);
+  --graupl-card-hover-transform: none;
+  --graupl-table-cell-padding: var(--graupl-spacer-5) var(--graupl-spacer-6);
+  --graupl-table-header-padding: var(--graupl-spacer-5) var(--graupl-spacer-6);
+  --graupl-navigation-branding-padding: var(--graupl-spacer-5)
+    var(--graupl-spacer-0);
+  --graupl-navigation-background: var(--graupl-root-background);
+  --graupl-navigation-branding-font-weight: var(--graupl-font-weight-bold);
+  --graupl-navigation-branding-font-size: var(--graupl-font-size-xl);
+  --graupl-navigation-toggle-border-width: 0;
+  --graupl-navigation-toggle-min-width: 48px;
+  --graupl-navigation-toggle-min-height: 48px;
+  --graupl-navigation-toggle-hover-background: var(--core-surface);
+  --graupl-navigation-toggle-hover-color: var(--graupl-root-color);
+  --graupl-menu-link-padding: var(--graupl-spacer-5) var(--graupl-spacer-6);
+  --graupl-menu-gap: var(--graupl-spacer-4);
+  --graupl-submenu-gap: var(--graupl-spacer-3);
+  --graupl-alert-padding: var(--graupl-spacer-6);
+  --graupl-alert-gap: var(--graupl-spacer-3);
+  --graupl-alert-title-font-size: var(--graupl-font-size-lg);
+  --graupl-alert-title-font-weight: var(--graupl-font-weight-bold);
+  --graupl-badge-padding: var(--graupl-spacer-2) var(--graupl-spacer-4);
+  --graupl-badge-border-radius: var(--graupl-border-radius);
+  --graupl-breadcrumb-gap: var(--graupl-spacer-3);
+  --graupl-breadcrumb-link-color: var(--core-accent);
+  --graupl-breadcrumb-link-visited-color: var(--core-accent);
+  --graupl-accordion-gap: var(--graupl-spacer-4);
+  --graupl-accordion-item-background: var(--core-surface);
+  --graupl-accordion-item-border-color: var(--core-rule);
+  --graupl-accordion-item-border-radius: var(--graupl-border-radius);
+  --graupl-accordion-item-title-font-size: var(--graupl-font-size-base);
+  --graupl-accordion-item-toggle-padding: var(--graupl-spacer-6)
+    var(--graupl-spacer-7);
+  --graupl-accordion-item-body-padding: var(--graupl-spacer-3)
+    var(--graupl-spacer-7) var(--graupl-spacer-7);
+  --graupl-tabs-tab-list-padding: var(--graupl-spacer-0);
+  --graupl-tabs-tab-list-margin: var(--graupl-spacer-0) var(--graupl-spacer-0)
+    var(--graupl-spacer-3);
+  --graupl-tabs-tab-list-gap: var(--graupl-spacer-3);
+  --graupl-tabs-tab-list-border-width: 0;
+  --graupl-tabs-tab-toggle-padding: var(--graupl-spacer-4)
+    var(--graupl-spacer-5);
+  --graupl-tabs-tab-toggle-border-radius: var(--graupl-border-radius);
+  --graupl-tabs-tab-toggle-selected-background: var(--core-accent);
+  --graupl-tabs-tab-toggle-selected-color: light-dark(
+    #fff,
+    var(--graupl-primary--900)
+  );
+  --graupl-tabs-tab-content-background: var(--core-surface);
+  --graupl-tabs-tab-content-border-color: var(--core-rule);
+  --graupl-tabs-tab-content-padding: var(--graupl-spacer-7);
+  --graupl-tabs-tab-content-border-radius: var(--graupl-border-radius);
+  --graupl-disclosure-content-border-width: 0 0 0 3px;
+  --graupl-disclosure-content-border-radius: 0;
+  --graupl-disclosure-content-border-color: var(--core-gold);
+  --graupl-disclosure-content-padding: var(--graupl-spacer-3)
+    var(--graupl-spacer-6);
+  --graupl-tooltip-description-width: min(17rem, 65vw);
+  --graupl-tooltip-description-padding: var(--graupl-spacer-3)
+    var(--graupl-spacer-4);
+  --graupl-tooltip-description-background: var(--core-surface);
+  --graupl-tooltip-description-color: var(--graupl-root-color);
+  --graupl-tooltip-description-font-size: var(--graupl-font-size-sm);
+  --graupl-carousel-item-container-aspect-ratio: auto;
+  --graupl-carousel-control-background: var(--core-surface);
+  --graupl-carousel-control-border-color: var(--core-rule);
+  --graupl-carousel-control-hover-background: var(--core-accent);
+  --graupl-carousel-control-hover-color: light-dark(#fff, var(--core-ink));
+  --graupl-input-padding: var(--graupl-spacer-5) var(--graupl-spacer-6);
+  --graupl-input-border-radius: var(--graupl-border-radius);
+  --graupl-input-border-color: var(--core-rule);
+  --graupl-input-background: var(--core-surface);
+  --graupl-input-color: var(--graupl-root-color);
+  --graupl-label-disabled-color: var(--core-muted);
+  --graupl-focus-width: 3px;
+  --graupl-focus-outline-width: 3px;
+  --graupl-focus-outline-style: solid;
+  --graupl-focus-outline-offset: 0;
+  --graupl-focus-outline-color: var(--core-accent);
+}
+
+/* Keep internal padding comfortable on small screens without crowding text. */
+@media (width <=40rem) {
+  :root {
+    --graupl-alert-padding: var(--graupl-spacer-5);
+    --graupl-card-content-padding: var(--graupl-spacer-6);
+    --graupl-menu-link-padding: var(--graupl-spacer-4) var(--graupl-spacer-5);
+    --graupl-accordion-item-toggle-padding: var(--graupl-spacer-6);
+    --graupl-accordion-item-body-padding: var(--graupl-spacer-3)
+      var(--graupl-spacer-6) var(--graupl-spacer-6);
+    --graupl-tabs-tab-content-padding: var(--graupl-spacer-6);
+    --graupl-table-cell-padding: var(--graupl-spacer-4) var(--graupl-spacer-3);
+    --graupl-table-header-padding: var(--graupl-spacer-4) var(--graupl-spacer-3);
+  }
+}
+
+/* Primary actions need local aliases because Graupl assigns its variants here. */
+.button.primary {
+  --graupl-button-background: var(--core-accent);
+  --graupl-button-color: light-dark(#fff, var(--graupl-primary--900));
+  --graupl-button-hover-background: light-dark(
+    var(--graupl-primary--800),
+    var(--graupl-primary--200)
+  );
+  --graupl-button-hover-color: light-dark(#fff, var(--graupl-primary--900));
+}
+
+.button.secondary {
+  --graupl-button-hover-background: light-dark(
+    var(--graupl-secondary--800),
+    var(--graupl-secondary--300)
+  );
+}
+
+.accordion-item-header {
+  --graupl-button-border-radius: var(--graupl-accordion-item-border-radius);
+}
+
+.accordion-item-toggle {
+  column-gap: var(--graupl-spacer-3);
+}
+
+.accordion-item-toggle[aria-expanded="true"] {
+  --graupl-button-border-radius: var(--graupl-accordion-item-border-radius)
+    var(--graupl-accordion-item-border-radius) 0 0;
+}
+
+:focus-visible,
+.focus {
+  z-index: var(--core-focus-layer);
+  isolation: isolate;
+}
+
+[role="tab"][aria-selected="true"] {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.25em;
+}
+
+/* Graupl's controls grid exposes track dimensions, but not track spacing. */
+.carousel-control-container {
+  column-gap: var(--graupl-spacer-3);
+}
+
+/* Decorative journal accents; no component API controls these pseudo-elements. */
+.core-kicker {
+  color: var(--core-gold);
+  font-family: var(--core-editorial-font);
+  font-style: italic;
+}
+
+.core-section-heading::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-block-end: var(--graupl-spacer-5);
+  background: var(--core-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --graupl-transition-duration-fast: 0ms;
+    --graupl-transition-duration-slow: 0ms;
+    --graupl-button-transition-reduced-motion: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --core-rule: var(--graupl-root-color);
+    --graupl-border-width: 2px;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --core-accent: LinkText;
+    --core-gold: CanvasText;
+    --core-rule: CanvasText;
+    --graupl-focus-outline-color: Highlight;
+    --graupl-tabs-tab-toggle-selected-background: Canvas;
+    --graupl-tabs-tab-toggle-selected-color: CanvasText;
+  }
+}
+
+/* Follow the OS unless the application explicitly selects a Graupl mode. */
+:root:not(.light-mode, .dark-mode) {
+  --graupl-color-scheme: light dark;
+}
+
+.menu-link[aria-current="page"] {
+  --graupl-menu-link-text-decoration: underline;
+  --graupl-menu-link-text-decoration-thickness: 3px;
+}

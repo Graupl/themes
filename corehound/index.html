@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="CORE Hound, a Graupl theme inspired by the CORE Guild in World of Warcraft."
+    />
+    <title>CORE Hound | Graupl theme</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Graupl/graupl@v1.0.0-beta.60/dist/css/graupl.css"
+    />
+    <link rel="stylesheet" href="theme.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/accessible-menu@5.0.0-beta.7/dist/disclosure-menu.iife.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/Graupl/graupl@v1.0.0-beta.60/dist/js/graupl.js"
+    ></script>
+    <script>
+      // Follow Graupl's demo: use its mode classes and remember the choice.
+      (() => {
+        const storageKey = "corehound-appearance";
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
+        let mode = "system";
+        try {
+          const saved = window.localStorage.getItem(storageKey);
+          if (["system", "light", "dark"].includes(saved)) mode = saved;
+        } catch {
+          // The switch still works when browser storage is unavailable.
+        }
+        let control;
+        const resolvedMode = () =>
+          mode === "system" ? (preference.matches ? "dark" : "light") : mode;
+        const applyMode = () => {
+          const resolved = resolvedMode();
+          document.documentElement.classList.remove("light-mode", "dark-mode");
+          document.documentElement.classList.add(`${resolved}-mode`);
+          if (control) {
+            control.textContent =
+              resolved === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode";
+          }
+        };
+        applyMode();
+        preference.addEventListener("change", applyMode);
+        document.addEventListener("DOMContentLoaded", () => {
+          control = document.getElementById("appearance");
+          applyMode();
+          control.addEventListener("click", () => {
+            mode = resolvedMode() === "light" ? "dark" : "light";
+            applyMode();
+            try {
+              window.localStorage.setItem(storageKey, mode);
+            } catch {
+              // A blocked save does not prevent changing the current mode.
+            }
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a
+        href="#main"
+        class="visually-hidden focusable display-inline-block my-3"
+        >Skip to content</a
+      >
+      <header class="pb-5 position-relative z-1">
+        <nav
+          class="navigation"
+          aria-label="Main navigation"
+          data-graupl-menu-type="DisclosureMenu"
+          data-graupl-menu-options='{"menuLinksSelector": ".menu-link"}'
+        >
+          <a class="navigation-branding" href="index.html"
+            >CORE HOUND / Graupl</a
+          >
+          <button
+            type="button"
+            class="navigation-toggle"
+            aria-label="Toggle navigation"
+          ></button>
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#foundations">Foundations</a>
+            </li>
+            <li class="menu-item submenu-item">
+              <button
+                type="button"
+                class="menu-link button link submenu-toggle"
+              >
+                Components
+              </button>
+              <ul class="submenu">
+                <li class="menu-item">
+                  <a class="menu-link" href="#cards">Cards and lists</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#forms">Forms and tables</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#interactions"
+                    >Interactive components</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <button
+                id="appearance"
+                type="button"
+                class="menu-link button link"
+              >
+                Switch to dark mode
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <noscript
+          ><p>
+            Enable JavaScript to change appearance and use the interactive
+            components.
+          </p></noscript
+        >
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="py-8" aria-labelledby="intro-title">
+          <div class="flex-columns g-7 align-items-center">
+            <div class="col-12 md:col-8">
+              <p class="text-sm core-kicker">Inspired by CORE Guild</p>
+              <h1 id="intro-title">CORE Hound</h1>
+              <p class="text-lg">
+                A violet, gold, and blue Graupl theme inspired by the CORE Guild
+                in World of Warcraft.
+              </p>
+              <div class="display-flex flex-wrap g-3 mt-6">
+                <a class="button primary" href="#foundations"
+                  >Explore the library</a
+                ><a class="button secondary" href="theme.css" download
+                  >Download theme CSS</a
+                >
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="badge tertiary">GUILD NOTES</span>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title">CORE Guild</h2>
+                    <p>
+                      CORE is the World of Warcraft guild of the CORE Podcast,
+                      The Instance Podcast, and Frogpants Network.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="https://coreguild.gg/">Visit CORE Guild</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="foundations"
+          class="py-8"
+          aria-labelledby="foundations-title"
+        >
+          <p class="text-sm text-primary-700">01 / FOUNDATIONS</p>
+          <h2 class="core-section-heading" id="foundations-title">
+            CORE Hound colours
+          </h2>
+          <p>
+            Violet is the primary colour, gold is secondary, and blue is
+            tertiary. Each uses Graupl's nine-shade palette.
+          </p>
+          <div class="flex-columns g-5 my-6">
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-primary-200 text-primary-900 border-radius">
+                <h3>Violet</h3>
+                <p>The primary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-primary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div
+                class="p-6 bg-secondary-200 text-secondary-900 border-radius"
+              >
+                <h3>Gold</h3>
+                <p>The secondary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-secondary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-tertiary-200 text-tertiary-900 border-radius">
+                <h3>Blue</h3>
+                <p>The tertiary palette</p>
+                <div class="display-flex flex-wrap g-2">
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">100</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">200</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">300</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">400</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">500</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">600</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">700</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">800</span>
+                  </div>
+                  <div class="display-flex flex-col g-1 align-items-center">
+                    <span
+                      class="bg-tertiary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><span class="text-sm">900</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-columns g-7">
+            <div class="col-12 md:col-6">
+              <h3>Type with a clear hierarchy</h3>
+              <p class="text-h2">Notes from the guild hall</p>
+              <p>
+                Read the raid event post before heading to the entrance.
+                <strong>Strong text</strong> adds emphasis,
+                <em>italics</em> mark a change in voice, and
+                <a href="#cards">links stay underlined</a>.
+              </p>
+              <small
+                >Small text for supporting details. Essential instructions stay
+                in the body.</small
+              >
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Buttons and badges</h3>
+              <p>
+                These buttons link to working examples further down the page.
+              </p>
+              <div class="display-flex flex-wrap g-3 mb-5">
+                <a class="button primary" href="#forms">Primary</a
+                ><a class="button secondary" href="#cards">Secondary</a
+                ><a class="button tertiary" href="#interactions">Tertiary</a
+                ><button class="button" type="button" disabled>
+                  Unavailable
+                </button>
+              </div>
+              <div class="display-flex flex-wrap g-3">
+                <span class="badge primary">Raid night</span
+                ><span class="badge secondary">Keys available</span
+                ><span class="badge tertiary">Guild gathering</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="cards" class="py-8" aria-labelledby="cards-title">
+          <p class="text-sm text-primary-700">02 / CONTENT</p>
+          <h2 class="core-section-heading" id="cards-title">
+            Guild activities
+          </h2>
+          <p>Cards, lists, breadcrumbs, and messages share the same palette.</p>
+          <nav aria-label="Example breadcrumb" class="my-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#main">CORE Hound</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#cards">Guild activities</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                Raid preparation
+              </li>
+            </ol>
+          </nav>
+          <div class="flex-columns g-5">
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-primary-700">01</span>
+                    <p class="text-sm">GUILD ACTIVITY</p>
+                    <h3 class="card-title">Raid night</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Read the raid event post before you sign up.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the guild notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-secondary-700">02</span>
+                    <p class="text-sm">GUILD ACTIVITY</p>
+                    <h3 class="card-title">Mythic+ keys</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Share your key level and the role you can fill.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the guild notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-tertiary-700">03</span>
+                    <p class="text-sm">GUILD ACTIVITY</p>
+                    <h3 class="card-title">Guild gathering</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Check the event notes for a meeting point.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the guild notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="flex-columns g-6 mt-7">
+            <div class="col-12 md:col-6">
+              <h3>Raid supplies</h3>
+              <ul class="list" role="list">
+                <li class="list-item">Flasks</li>
+                <li class="list-item">Feast</li>
+                <li class="list-item">Repair gold</li>
+              </ul>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Guild notice</h3>
+              <div class="alert tertiary">
+                <div class="alert-header">
+                  <p class="alert-title">Check your raid signup</p>
+                </div>
+                <div class="alert-body">
+                  <p>
+                    Read the raid event post before heading to the entrance.
+                    Bring flasks, food, and repair gold.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="alert-dismisser"
+                  aria-label="Dismiss raid signup reminder"
+                >
+                  ×
+                </button>
+              </div>
+              <p>
+                <small
+                  >This is a dismissible example. Reload the page to restore
+                  it.</small
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="forms" class="py-8" aria-labelledby="forms-title">
+          <p class="text-sm text-primary-700">03 / INPUT AND DATA</p>
+          <h2 class="core-section-heading" id="forms-title">
+            Sample guild signup
+          </h2>
+          <p>
+            A sample signup for guild activities. These fields demonstrate
+            Graupl's controls and do not send or save your information.
+          </p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <div>
+                <div class="input-group mb-5">
+                  <label for="character-name">Character name</label
+                  ><input
+                    id="character-name"
+                    type="text"
+                    placeholder="Your character name"
+                    aria-describedby="trip-help"
+                  /><small id="trip-help" class="help-text"
+                    >Use the name your group will see in game.</small
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="route">Guild activity</label
+                  ><select id="route">
+                    <option>Raid night</option>
+                    <option>Mythic+ keys</option>
+                    <option>Guild gathering</option>
+                  </select>
+                </div>
+                <div class="input-group mb-5">
+                  <label for="notes">Group notes</label
+                  ><textarea
+                    id="notes"
+                    rows="3"
+                    placeholder="What would your group like to know?"
+                  ></textarea>
+                </div>
+                <fieldset class="mb-5">
+                  <legend>Role</legend>
+                  <div class="input-group left">
+                    <input
+                      type="radio"
+                      id="role-tank"
+                      name="role"
+                      checked
+                    /><label for="role-tank">Tank</label>
+                  </div>
+                  <div class="input-group left">
+                    <input type="radio" id="role-healer" name="role" /><label
+                      for="role-healer"
+                      >Healer</label
+                    >
+                  </div>
+                  <div class="input-group left">
+                    <input type="radio" id="role-damage" name="role" />
+                    <label for="role-damage">Damage</label>
+                  </div>
+                </fieldset>
+                <div class="input-group left mb-5">
+                  <input type="checkbox" id="map-copy" /><label for="map-copy"
+                    >Bring a feast</label
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="distance">Group size</label
+                  ><input
+                    type="range"
+                    id="distance"
+                    min="1"
+                    max="15"
+                    value="6"
+                  /><small class="help-text"
+                    >Choose a group size from 1 to 15.</small
+                  >
+                </div>
+                <p>
+                  <small>Reload this page to reset the example fields.</small>
+                </p>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3 id="corehound-table-title">Guild activity comparison</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="corehound-table-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
+                  <caption>
+                    Sample guild activities
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Activity</th>
+                      <th scope="col">Typical length</th>
+                      <th scope="col">Group size</th>
+                      <th scope="col">Meet at</th>
+                      <th scope="col">Preparation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Raid night</th>
+                      <td>2 hours</td>
+                      <td>Raid group</td>
+                      <td>Summoning stone</td>
+                      <td>Read the event notes.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mythic+ keys</th>
+                      <td>45 minutes</td>
+                      <td>5 players</td>
+                      <td>Dungeon entrance</td>
+                      <td>Share your key level.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Guild gathering</th>
+                      <td>1 hour</td>
+                      <td>Open group</td>
+                      <td>Guild meeting point</td>
+                      <td>Check the meeting point.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="input-group mt-7">
+                <label for="locked-field">Unavailable field</label
+                ><input
+                  type="text"
+                  id="locked-field"
+                  disabled
+                  value="Signups are closed"
+                /><small class="help-text">Disabled control appearance.</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="interactions"
+          class="py-8"
+          aria-labelledby="interactions-title"
+        >
+          <p class="text-sm text-primary-700">04 / INTERACTION</p>
+          <h2 class="core-section-heading" id="interactions-title">
+            Guild event notes
+          </h2>
+          <p>Graupl's generators handle every interaction below.</p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <h3>Guild questions</h3>
+              <div
+                class="accordion"
+                data-graupl-accordion-options='{"optionalKeySupport":true}'
+              >
+                <div class="accordion-item show">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="true"
+                      >
+                        Where do I find guild events?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>Read the guild event posts for signup details.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Where do I find raid logs?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>Open the Logs menu on the CORE Guild site.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Where can I learn about joining?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Read the
+                        <a href="https://coreguild.gg/faq">CORE Guild FAQ</a>
+                        for current joining instructions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Event preparation</h3>
+              <div class="tabs">
+                <div
+                  class="tab-list"
+                  role="tablist"
+                  aria-label="Event preparation"
+                >
+                  <button class="tab-toggle" type="button" aria-selected="true">
+                    Raid</button
+                  ><button class="tab-toggle" type="button">Keys</button
+                  ><button class="tab-toggle" type="button">Gathering</button>
+                </div>
+                <div class="tab-content show" tabindex="0">
+                  <h4>Raid night</h4>
+                  <p>
+                    Repair your gear and check the event notes for supplies.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Mythic+ keys</h4>
+                  <p>
+                    Tell the group which key you have and which role you can
+                    play.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Guild gathering</h4>
+                  <p>
+                    Check the event notes for a meeting point and bring your
+                    character along.
+                  </p>
+                </div>
+              </div>
+              <h3 class="mt-7">Supplies and reminders</h3>
+              <button
+                class="disclosure-toggle"
+                type="button"
+                data-graupl-disclosure-target="access-notes"
+                aria-controls="access-notes"
+                aria-expanded="false"
+              >
+                Raid preparation notes
+              </button>
+              <div>
+                <div class="disclosure hide" id="access-notes">
+                  <div class="disclosure-content" inert>
+                    <p>
+                      Check the event notes and bring the supplies your group
+                      needs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="display-flex align-items-center g-3 mt-5">
+                <div
+                  class="tooltip"
+                  data-graupl-tooltip-options='{"expandOnFocus":true,"hoverType":"on"}'
+                >
+                  <span class="tooltip-description hide"
+                    >Check the event notes before you pack your bags.</span
+                  ><button
+                    class="tooltip-toggle"
+                    type="button"
+                    aria-label="Raid supplies reminder"
+                  ></button>
+                </div>
+                <span>Raid supplies reminder</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-8">Guild activities preview</h3>
+          <p>
+            The carousel starts paused. Use the next and previous buttons to
+            explore.
+          </p>
+          <section
+            class="carousel mt-5"
+            aria-label="Guild activities preview"
+            data-graupl-carousel-options='{"autoplay":false}'
+          >
+            <div class="carousel-control-container">
+              <button
+                type="button"
+                class="carousel-control autoplay play"
+                aria-label="Start slide rotation"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control previous"
+                aria-label="Previous slide"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control next"
+                aria-label="Next slide"
+              ></button>
+            </div>
+            <div class="carousel-item-container">
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-primary-100 text-primary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Raid night"
+              >
+                <p class="text-sm">ENTRY 1 OF 3</p>
+                <h4 class="text-h2">Raid night</h4>
+                <p>Read the event notes before you sign up.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-secondary-100 text-secondary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Mythic+ keys"
+                inert
+              >
+                <p class="text-sm">ENTRY 2 OF 3</p>
+                <h4 class="text-h2">Mythic+ keys</h4>
+                <p>Share your key level and the role you can fill.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-tertiary-100 text-tertiary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Guild gathering"
+                inert
+              >
+                <p class="text-sm">ENTRY 3 OF 3</p>
+                <h4 class="text-h2">Guild gathering</h4>
+                <p>Check the event notes for a meeting point.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="py-8" aria-labelledby="about-title">
+          <h2 class="core-section-heading" id="about-title">
+            About CORE Hound
+          </h2>
+          <p>
+            This preview uses Graupl 1.0.0-beta.60. The signup fields and
+            activity details are examples.
+          </p>
+          <p>Load <code>theme.css</code> after Graupl's stylesheet.</p>
+          <p>
+            Remove the theme stylesheet to use base Graupl with the same markup
+            and interactions.
+          </p>
+          <div class="display-flex flex-wrap g-3">
+            <a class="button primary" href="theme.css" download
+              >Download the theme</a
+            ><a class="button tertiary" href="https://graupl.dev"
+              >Read Graupl's docs</a
+            >
+          </div>
+        </section>
+      </main>
+      <footer class="py-7">
+        <p>CORE Hound · Built with Graupl and Accessible Menu.</p>
+        <a href="#main">Back to top</a>
+        <nav class="mt-5" aria-label="Other themes">
+          <h2 class="text-h3">Explore the other themes</h2>
+          <ul class="display-flex flex-wrap g-3 list-style-none">
+            <li><a href="../afterhours/index.html">After Hours</a></li>
+            <li><a href="../blueprint/index.html">Blueprint</a></li>
+            <li><a href="../campfire/index.html">Campfire</a></li>
+            <li><a href="../civic/index.html">Civic</a></li>
+            <li><a href="../commonplace/index.html">Commonplace</a></li>
+            <li>
+              <a href="../corehound/index.html" aria-current="page"
+                >CORE Hound</a
+              >
+            </li>
+            <li><a href="../crt/index.html">CRT</a></li>
+            <li><a href="../fieldwork/index.html">Fieldwork</a></li>
+            <li><a href="../folio/index.html">Folio</a></li>
+            <li><a href="../forma/index.html">Forma</a></li>
+            <li><a href="../gilt/index.html">Gilt</a></li>
+            <li><a href="../glasshouse/index.html">Glasshouse</a></li>
+            <li><a href="../default/index.html">Graupl defaults</a></li>
+            <li><a href="../helm/index.html">Helm</a></li>
+            <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
+            <li><a href="../kickstart/index.html">Kickstart</a></li>
+            <li><a href="../lumen/index.html">Lumen</a></li>
+            <li><a href="../reference/index.html">Reference</a></li>
+            <li><a href="../signal/index.html">Signal</a></li>
+            <li><a href="../sugar/index.html">Sugar</a></li>
+            <li><a href="../tidepool/index.html">Tidepool</a></li>
+            <li><a href="../waymark/index.html">Waymark</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
