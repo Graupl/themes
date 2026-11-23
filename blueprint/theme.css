@@ -42,10 +42,7 @@
   --theme-size-12: calc(12 * var(--graupl-spacer));
   --theme-size-17: calc(17 * var(--graupl-spacer));
   --theme-size-76: calc(76 * var(--graupl-spacer));
-  --graupl-h1-color: light-dark(
-    var(--graupl-primary--800),
-    var(--graupl-primary--200)
-  );
+  --graupl-h1-color: var(--graupl-theme-active--primary--800);
   --theme-font-size-1-55: calc(1.55 * var(--graupl-base-font-size));
   --theme-font-size-2: calc(2 * var(--graupl-base-font-size));
   --theme-font-size-3: calc(3 * var(--graupl-base-font-size));
@@ -82,14 +79,8 @@
   --graupl-tertiary--700: #15574f;
   --graupl-tertiary--800: #123d37;
   --graupl-tertiary--900: #102722;
-  --graupl-root-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--primary--100);
+  --graupl-root-color: var(--graupl-theme-active--secondary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
@@ -121,10 +112,7 @@
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 1px;
-  --graupl-card-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
+  --graupl-card-background: var(--graupl-theme-active--secondary--100);
   --graupl-card-border-color: light-dark(
     var(--graupl-primary--600),
     var(--graupl-primary--300)
@@ -174,10 +162,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -195,11 +180,11 @@ main > section:first-child {
   background-image:
     linear-gradient(
       90deg,
-      light-dark(var(--graupl-primary--200), var(--graupl-primary--800)) 1px,
+      var(--graupl-theme-active--primary--200) 1px,
       transparent 1px
     ),
     linear-gradient(
-      light-dark(var(--graupl-primary--200), var(--graupl-primary--800)) 1px,
+      var(--graupl-theme-active--primary--200) 1px,
       transparent 1px
     );
   background-size: var(--graupl-spacer-7) var(--graupl-spacer-7);
@@ -218,7 +203,7 @@ main h1::before {
   margin-block-end: var(--theme-size-1-25);
   background: repeating-linear-gradient(
     90deg,
-    light-dark(var(--graupl-primary--700), var(--graupl-primary--300)) 0 1px,
+    var(--graupl-theme-active--primary--700) 0 1px,
     transparent 1px var(--graupl-spacer-3)
   );
   pointer-events: none;

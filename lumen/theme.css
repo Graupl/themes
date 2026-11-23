@@ -63,14 +63,8 @@
   --graupl-tertiary--700: #1b5661;
   --graupl-tertiary--800: #173c45;
   --graupl-tertiary--900: #11262d;
-  --graupl-root-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--secondary--100);
+  --graupl-root-color: var(--graupl-theme-active--secondary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
@@ -106,12 +100,9 @@
   --graupl-card-background: linear-gradient(
     145deg,
     light-dark(var(--graupl-primary--100), var(--graupl-secondary--800)),
-    light-dark(var(--graupl-secondary--100), var(--graupl-secondary--900))
+    var(--graupl-theme-active--secondary--100)
   );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-secondary--300),
-    var(--graupl-secondary--700)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--secondary--300);
   --graupl-card-border-top-left-radius: 2rem;
   --graupl-card-border-top-right-radius: 2rem;
   --graupl-card-border-bottom-right-radius: 2rem;
@@ -156,10 +147,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -207,13 +195,11 @@ main > section > h2 {
 }
 
 main > section + section {
-  border-block-start: 1px solid
-    light-dark(var(--graupl-secondary--300), var(--graupl-secondary--700));
+  border-block-start: 1px solid var(--graupl-theme-active--secondary--300);
 }
 
 .navigation {
-  border-block-end: 1px solid
-    light-dark(var(--graupl-secondary--300), var(--graupl-secondary--700));
+  border-block-end: 1px solid var(--graupl-theme-active--secondary--300);
 }
 
 @media (forced-colors: active) {

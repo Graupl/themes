@@ -71,10 +71,7 @@
   --graupl-tertiary--700: #84251c;
   --graupl-tertiary--800: #5e201b;
   --graupl-tertiary--900: #381815;
-  --graupl-root-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
+  --graupl-root-background: var(--graupl-theme-active--secondary--100);
   --graupl-root-color: light-dark(
     var(--graupl-secondary--800),
     var(--graupl-secondary--100)
@@ -114,10 +111,7 @@
     var(--graupl-secondary--100),
     var(--graupl-secondary--800)
   );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-secondary--300),
-    var(--graupl-secondary--700)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--secondary--300);
   --graupl-card-border-top-left-radius: 0;
   --graupl-card-border-top-right-radius: 0;
   --graupl-card-border-bottom-right-radius: 0;
@@ -167,10 +161,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -200,10 +191,7 @@ main > section > h2::after {
 
 article.card {
   --graupl-card-border-top-width: 0.4rem;
-  --graupl-card-border-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--primary--700);
 }
 
 .card-footer {

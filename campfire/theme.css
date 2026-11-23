@@ -63,14 +63,8 @@
   --graupl-tertiary--700: #5a4c31;
   --graupl-tertiary--800: #3f3525;
   --graupl-tertiary--900: #29231a;
-  --graupl-root-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-tertiary--900),
-    var(--graupl-tertiary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--tertiary--100);
+  --graupl-root-color: var(--graupl-theme-active--tertiary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
@@ -103,10 +97,7 @@
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 1px;
-  --graupl-card-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
+  --graupl-card-background: var(--graupl-theme-active--tertiary--100);
   --graupl-card-border-color: light-dark(
     var(--graupl-primary--600),
     var(--graupl-primary--300)
@@ -156,10 +147,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
   --graupl-link-text-decoration: underline;
   --graupl-link-hover-text-decoration: underline;
   --graupl-link-focus-text-decoration: underline;
@@ -185,14 +173,12 @@ main h1 {
 }
 
 .navigation-branding {
-  border: 3px double
-    light-dark(var(--graupl-primary--700), var(--graupl-primary--300));
+  border: 3px double var(--graupl-theme-active--primary--700);
   border-radius: 0.7rem;
 }
 
 main > section + section {
-  border-block-start: 2px solid
-    light-dark(var(--graupl-tertiary--400), var(--graupl-tertiary--600));
+  border-block-start: 2px solid var(--graupl-theme-active--tertiary--400);
 }
 
 main > section > h2::before {

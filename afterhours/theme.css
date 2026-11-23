@@ -102,10 +102,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 
   /* Component defaults use the existing theme palettes. */
   --graupl-root-font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -122,25 +119,20 @@
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-accordion-item-toggle-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
+  --graupl-accordion-item-toggle-color: var(
+    --graupl-theme-active--secondary--900
   );
-  --graupl-accordion-item-toggle-hover-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
+  --graupl-accordion-item-toggle-hover-background: var(
+    --graupl-theme-active--primary--100
   );
-  --graupl-accordion-item-toggle-hover-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
+  --graupl-accordion-item-toggle-hover-color: var(
+    --graupl-theme-active--primary--900
   );
-  --graupl-accordion-item-toggle-focus-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
+  --graupl-accordion-item-toggle-focus-background: var(
+    --graupl-theme-active--primary--100
   );
-  --graupl-accordion-item-toggle-focus-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
+  --graupl-accordion-item-toggle-focus-color: var(
+    --graupl-theme-active--primary--900
   );
   --graupl-accordion-item-toggle-padding: var(--theme-size-1-1)
     var(--theme-size-1-25);
@@ -155,26 +147,17 @@
     var(--graupl-secondary--900)
   );
   --graupl-badge-padding: var(--theme-size-0-35) var(--theme-size-0-65);
-  --graupl-input-border-color: light-dark(
-    var(--graupl-secondary--600),
-    var(--graupl-secondary--400)
-  );
+  --graupl-input-border-color: var(--graupl-theme-active--secondary--600);
   --graupl-input-background: light-dark(
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-input-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-input-color: var(--graupl-theme-active--secondary--900);
   --graupl-root-background: light-dark(
     var(--graupl-secondary--100),
     var(--graupl-primary--900)
   );
-  --graupl-root-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-root-color: var(--graupl-theme-active--secondary--900);
   --graupl-heading-font-family: georgia, "Times New Roman", serif;
   --graupl-heading-font-weight: var(--graupl-font-weight-normal);
   --graupl-heading-line-height: 1.08;
@@ -186,10 +169,7 @@
     var(--theme-font-size-5-8)
   );
   --graupl-h1-font-weight: var(--graupl-font-weight-normal);
-  --graupl-h1-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-h1-color: var(--graupl-theme-active--primary--700);
   --graupl-h2-font-size: clamp(
     var(--theme-font-size-2-1),
     4vw,
@@ -203,10 +183,7 @@
     var(--graupl-primary--100),
     var(--graupl-primary--800)
   );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-tertiary--600),
-    var(--graupl-tertiary--400)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--tertiary--600);
   --graupl-card-border-bottom-width: var(--theme-size-0-35);
   --graupl-card-content-padding: var(--theme-size-1-75);
   --graupl-menu-link-border-radius: 100vmax;
@@ -217,47 +194,31 @@
   --graupl-accordion-item-title-font-size: calc(
     1.25 * var(--graupl-base-font-size)
   );
-  --graupl-accordion-item-border-color: light-dark(
-    var(--graupl-tertiary--600),
-    var(--graupl-tertiary--400)
+  --graupl-accordion-item-border-color: var(
+    --graupl-theme-active--tertiary--600
   );
   --graupl-tabs-tab-toggle-border-radius: var(--graupl-spacer-5)
     var(--graupl-spacer-5) 0 0;
   --graupl-tabs-tab-content-border-radius: 0 0 var(--graupl-spacer-5)
     var(--graupl-spacer-5);
-  --graupl-tabs-tab-toggle-selected-background: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
+  --graupl-tabs-tab-toggle-selected-background: var(
+    --graupl-theme-active--primary--700
   );
-  --graupl-tabs-tab-toggle-selected-color: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
+  --graupl-tabs-tab-toggle-selected-color: var(
+    --graupl-theme-active--primary--100
   );
-  --graupl-tabs-tab-content-border-color: light-dark(
-    var(--graupl-tertiary--600),
-    var(--graupl-tertiary--400)
+  --graupl-tabs-tab-content-border-color: var(
+    --graupl-theme-active--tertiary--600
   );
   --graupl-alert-border-radius: var(--graupl-spacer-5);
   --graupl-badge-border-radius: 100vmax;
   --graupl-input-border-radius: var(--theme-size-0-65);
   --graupl-navigation-background: var(--graupl-root-background);
   --graupl-button-border-width: 2px;
-  --graupl-menu-link-hover-background: light-dark(
-    var(--graupl-primary--200),
-    var(--graupl-primary--800)
-  );
-  --graupl-menu-link-hover-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
-  --graupl-menu-link-focus-background: light-dark(
-    var(--graupl-primary--200),
-    var(--graupl-primary--800)
-  );
-  --graupl-menu-link-focus-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
+  --graupl-menu-link-hover-background: var(--graupl-theme-active--primary--200);
+  --graupl-menu-link-hover-color: var(--graupl-theme-active--primary--900);
+  --graupl-menu-link-focus-background: var(--graupl-theme-active--primary--200);
+  --graupl-menu-link-focus-color: var(--graupl-theme-active--primary--900);
   --graupl-card-border-top-left-radius: var(--graupl-spacer-6);
   --graupl-card-border-top-right-radius: var(--graupl-spacer-6);
   --graupl-card-border-bottom-right-radius: var(--graupl-spacer-6);
@@ -329,125 +290,79 @@
 }
 
 .button.secondary {
-  --graupl-button-background: light-dark(
-    var(--graupl-secondary--600),
-    var(--graupl-secondary--400)
-  );
+  --graupl-button-background: var(--graupl-theme-active--secondary--600);
   --graupl-button-color: light-dark(
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-button-border-color: light-dark(
-    var(--graupl-secondary--600),
-    var(--graupl-secondary--400)
-  );
-  --graupl-button-visited-background: light-dark(
-    var(--graupl-secondary--600),
-    var(--graupl-secondary--400)
+  --graupl-button-border-color: var(--graupl-theme-active--secondary--600);
+  --graupl-button-visited-background: var(
+    --graupl-theme-active--secondary--600
   );
   --graupl-button-visited-color: light-dark(
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-button-hover-background: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
-  );
+  --graupl-button-hover-background: var(--graupl-theme-active--secondary--700);
   --graupl-button-hover-color: light-dark(
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-button-hover-border-color: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
+  --graupl-button-hover-border-color: var(
+    --graupl-theme-active--secondary--700
   );
-  --graupl-button-focus-background: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
-  );
+  --graupl-button-focus-background: var(--graupl-theme-active--secondary--700);
   --graupl-button-focus-color: light-dark(
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-button-focus-border-color: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
+  --graupl-button-focus-border-color: var(
+    --graupl-theme-active--secondary--700
   );
-  --graupl-button-active-background: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
-  );
+  --graupl-button-active-background: var(--graupl-theme-active--secondary--700);
   --graupl-button-active-color: light-dark(
     var(--theme-white),
     var(--graupl-secondary--900)
   );
-  --graupl-button-active-border-color: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
+  --graupl-button-active-border-color: var(
+    --graupl-theme-active--secondary--700
   );
 }
 
 .button.tertiary {
   --graupl-button-background: transparent;
-  --graupl-button-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
-  --graupl-button-border-color: light-dark(
-    var(--graupl-tertiary--600),
-    var(--graupl-tertiary--400)
-  );
+  --graupl-button-color: var(--graupl-theme-active--tertiary--700);
+  --graupl-button-border-color: var(--graupl-theme-active--tertiary--600);
   --graupl-button-visited-background: transparent;
-  --graupl-button-visited-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
-  --graupl-button-hover-background: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
+  --graupl-button-visited-color: var(--graupl-theme-active--tertiary--700);
+  --graupl-button-hover-background: var(--graupl-theme-active--tertiary--700);
   --graupl-button-hover-color: light-dark(
     var(--theme-white),
     var(--graupl-tertiary--900)
   );
-  --graupl-button-hover-border-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
-  --graupl-button-focus-background: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
+  --graupl-button-hover-border-color: var(--graupl-theme-active--tertiary--700);
+  --graupl-button-focus-background: var(--graupl-theme-active--tertiary--700);
   --graupl-button-focus-color: light-dark(
     var(--theme-white),
     var(--graupl-tertiary--900)
   );
-  --graupl-button-focus-border-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
-  --graupl-button-active-background: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
+  --graupl-button-focus-border-color: var(--graupl-theme-active--tertiary--700);
+  --graupl-button-active-background: var(--graupl-theme-active--tertiary--700);
   --graupl-button-active-color: light-dark(
     var(--theme-white),
     var(--graupl-tertiary--900)
   );
-  --graupl-button-active-border-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
+  --graupl-button-active-border-color: var(
+    --graupl-theme-active--tertiary--700
   );
 }
 
 .accordion-item-toggle[aria-expanded="true"] {
-  --graupl-accordion-item-toggle-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
+  --graupl-accordion-item-toggle-background: var(
+    --graupl-theme-active--primary--100
   );
-  --graupl-accordion-item-toggle-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
+  --graupl-accordion-item-toggle-color: var(
+    --graupl-theme-active--primary--700
   );
 }
 

@@ -74,18 +74,15 @@
   );
   --core-muted: light-dark(#57476d, var(--graupl-primary--300));
   --core-rule: light-dark(#7e619b, #a687c4);
-  --core-accent: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --core-accent: var(--graupl-theme-active--primary--700);
   --core-gold: light-dark(
     var(--graupl-secondary--800),
     var(--graupl-secondary--300)
   );
   --core-editorial-font: georgia, "Times New Roman", serif;
   --core-focus-layer: 3;
-  --graupl-root-background: light-dark(var(--core-paper), var(--core-ink));
-  --graupl-root-color: light-dark(var(--core-ink), var(--core-paper));
+  --graupl-root-background: var(--graupl-theme-active--primary--100);
+  --graupl-root-color: var(--graupl-theme-active--primary--900);
   --graupl-root-font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   --graupl-root-font-size: 1rem;
   --graupl-root-line-height: 1.65;
@@ -101,10 +98,7 @@
   --graupl-content-max-width: 76rem;
   --graupl-container-content-max-width: 76rem;
   --graupl-link-color: var(--core-accent);
-  --graupl-link-hover-color: light-dark(
-    var(--graupl-primary--800),
-    var(--graupl-primary--200)
-  );
+  --graupl-link-hover-color: var(--graupl-theme-active--primary--800);
   --graupl-link-visited-color: var(--core-accent);
   --graupl-link-text-decoration: underline;
   --graupl-link-text-decoration-thickness: 1px;
@@ -206,7 +200,90 @@
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-offset: 0;
+  --graupl-navigation-shelf-min-width: 0;
+  --graupl-navigation-shelf-max-width: min(
+    20rem,
+    calc(100vw - var(--graupl-spacer-9))
+  );
   --graupl-focus-outline-color: var(--core-accent);
+}
+
+/* The shelf uses a dark surface so the guild's gold stays readable in both modes. */
+.navigation-shelf {
+  --graupl-navigation-shelf-closed-display: none;
+  --graupl-navigation-shelf-background: var(--core-ink);
+  --graupl-navigation-shelf-color: var(--core-paper);
+  --graupl-navigation-shelf-button-border-color: var(--core-rule);
+  --graupl-navigation-shelf-side-toggle-spacer: var(--graupl-spacer-3);
+  --graupl-navigation-shelf-button-disabled-color: var(--graupl-primary--300);
+  --graupl-heading-color: var(--core-paper);
+  --graupl-link-color: var(--core-paper);
+  --graupl-link-visited-color: var(--core-paper);
+  --graupl-link-hover-color: var(--graupl-secondary--100);
+  --graupl-link-focus-color: var(--graupl-secondary--100);
+  --graupl-link-active-color: var(--graupl-secondary--100);
+  --graupl-link-min-height: 48px;
+  --graupl-link-padding: var(--graupl-spacer-3) var(--graupl-spacer-4);
+  --graupl-focus-outline-color: var(--graupl-secondary--100);
+  --graupl-icon-spacer: var(--graupl-spacer-3);
+
+  /* CORE Guild's social icon gradient, using the same four palette stops. */
+  --core-shelf-icon-gold: linear-gradient(
+    45deg,
+    var(--graupl-secondary--200),
+    var(--graupl-secondary--700),
+    var(--graupl-secondary--100),
+    var(--graupl-secondary--500)
+  );
+}
+
+/* Leave an edge for the shelf to detect a pointer when hover is enabled. */
+.navigation-shelf.hoverable {
+  --graupl-navigation-shelf-closed-display: grid;
+  --graupl-navigation-shelf-closed-width: var(--graupl-spacer-4);
+}
+
+.navigation-shelf.hoverable.hide > * {
+  display: none;
+}
+
+.navigation-shelf-toggle {
+  --graupl-button-padding: var(--graupl-spacer-3);
+}
+
+/* Keep the Guild button on the side opposite the open shelf. */
+.shelf-aware.left-side .navigation-shelf-toggle {
+  margin-inline-start: auto;
+}
+
+/* The social icon masks come from images/icons in CORE Guild's Houndy theme. */
+.core-shelf-bluesky {
+  --graupl-icon: url("icons/bluesky.svg");
+}
+
+.core-shelf-discord {
+  --graupl-icon: url("icons/discord.svg");
+}
+
+.core-shelf-youtube {
+  --graupl-icon: url("icons/youtube.svg");
+}
+
+.navigation-shelf .icon-before::before {
+  background-image: var(--core-shelf-icon-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-shelf {
+    --graupl-navigation-shelf-transition-reduced-motion: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .navigation-shelf {
+    --graupl-focus-outline-color: Highlight;
+    --graupl-icon-display: none;
+  }
 }
 
 /* Keep internal padding comfortable on small screens without crowding text. */
@@ -228,10 +305,7 @@
 .button.primary {
   --graupl-button-background: var(--core-accent);
   --graupl-button-color: light-dark(#fff, var(--graupl-primary--900));
-  --graupl-button-hover-background: light-dark(
-    var(--graupl-primary--800),
-    var(--graupl-primary--200)
-  );
+  --graupl-button-hover-background: var(--graupl-theme-active--primary--800);
   --graupl-button-hover-color: light-dark(#fff, var(--graupl-primary--900));
 }
 

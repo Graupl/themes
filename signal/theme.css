@@ -64,14 +64,8 @@
   --graupl-tertiary--700: #494d44;
   --graupl-tertiary--800: #30352c;
   --graupl-tertiary--900: #1a2018;
-  --graupl-root-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-tertiary--900),
-    var(--graupl-tertiary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--tertiary--100);
+  --graupl-root-color: var(--graupl-theme-active--tertiary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
@@ -104,14 +98,8 @@
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 2px;
-  --graupl-card-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
+  --graupl-card-background: var(--graupl-theme-active--tertiary--100);
+  --graupl-card-border-color: var(--graupl-theme-active--tertiary--700);
   --graupl-card-border-top-left-radius: 0;
   --graupl-card-border-top-right-radius: 0;
   --graupl-card-border-bottom-right-radius: 0;
@@ -163,10 +151,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -176,8 +161,7 @@
 
 /* Labels and rules are decoration, not component behaviour. */
 .navigation {
-  border-block: 2px solid
-    light-dark(var(--graupl-tertiary--900), var(--graupl-tertiary--100));
+  border-block: 2px solid var(--graupl-theme-active--tertiary--900);
 }
 
 .navigation-branding {
@@ -213,20 +197,17 @@ main > section:first-child::after {
     135deg,
     light-dark(var(--graupl-secondary--500), var(--graupl-secondary--300)) 0
       0.6rem,
-    light-dark(var(--graupl-tertiary--900), var(--graupl-tertiary--100)) 0.6rem
-      1.2rem
+    var(--graupl-theme-active--tertiary--900) 0.6rem 1.2rem
   );
   pointer-events: none;
 }
 
 main > section + section {
-  border-block-start: 2px solid
-    light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300));
+  border-block-start: 2px solid var(--graupl-theme-active--tertiary--700);
 }
 
 .card-header {
-  border-block-end: 2px solid
-    light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300));
+  border-block-end: 2px solid var(--graupl-theme-active--tertiary--700);
 }
 
 article.card {

@@ -71,22 +71,13 @@
   --graupl-tertiary--700: #294674;
   --graupl-tertiary--800: #20334e;
   --graupl-tertiary--900: #152231;
-  --graupl-root-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--secondary--100);
+  --graupl-root-color: var(--graupl-theme-active--secondary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
   --graupl-root-line-height: 1.6;
-  --graupl-heading-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-heading-color: var(--graupl-theme-active--primary--700);
 
   /* prettier-ignore */
   --graupl-heading-font-family: "Arial Narrow", "Liberation Sans Narrow", arial, sans-serif;
@@ -118,10 +109,7 @@
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 1px;
   --graupl-card-background: var(--graupl-root-background);
-  --graupl-card-border-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--primary--700);
   --graupl-card-border-top-left-radius: 4rem;
   --graupl-card-border-top-right-radius: 0;
   --graupl-card-border-bottom-right-radius: 0;
@@ -139,14 +127,8 @@
     var(--graupl-primary--300),
     var(--graupl-primary--800)
   );
-  --graupl-navigation-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
-  --graupl-navigation-branding-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
+  --graupl-navigation-color: var(--graupl-theme-active--primary--900);
+  --graupl-navigation-branding-color: var(--graupl-theme-active--primary--900);
   --graupl-menu-link-border-radius: 100vmax;
   --graupl-navigation-branding-font-weight: var(--graupl-font-weight-bold);
   --graupl-navigation-branding-font-size: calc(
@@ -186,10 +168,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -215,17 +194,11 @@
 }
 
 .col-12:nth-child(2) > .card.h-full {
-  --graupl-card-border-color: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--secondary--700);
 }
 
 .col-12:nth-child(3) > .card.h-full {
-  --graupl-card-border-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
+  --graupl-card-border-color: var(--graupl-theme-active--tertiary--700);
 }
 
 /* Empty, in-flow bands add LCARS segmentation without covering text or focus. */
@@ -239,25 +212,22 @@ main > section > h2::after {
   border-radius: 100vmax;
   background: linear-gradient(
     to right,
-    light-dark(var(--graupl-primary--700), var(--graupl-primary--300)) 0 54%,
+    var(--graupl-theme-active--primary--700) 0 54%,
     transparent 54% 55%,
-    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300)) 55%
-      81%,
+    var(--graupl-theme-active--secondary--700) 55% 81%,
     transparent 81% 82%,
-    light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300)) 82%
+    var(--graupl-theme-active--tertiary--700) 82%
   );
   pointer-events: none;
 }
 
 .navigation {
   border-radius: 0 0 2.5rem;
-  border-inline-start: 0.75rem solid
-    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300));
+  border-inline-start: 0.75rem solid var(--graupl-theme-active--secondary--700);
 }
 
 .card-footer {
-  border-block-start: 0.3rem solid
-    light-dark(var(--graupl-tertiary--700), var(--graupl-tertiary--300));
+  border-block-start: 0.3rem solid var(--graupl-theme-active--tertiary--700);
 }
 
 @media (forced-colors: active) {

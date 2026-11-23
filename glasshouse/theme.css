@@ -63,22 +63,13 @@
   --graupl-tertiary--700: #733e29;
   --graupl-tertiary--800: #4f2b1f;
   --graupl-tertiary--900: #321c15;
-  --graupl-root-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--secondary--100);
+  --graupl-root-color: var(--graupl-theme-active--secondary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
   --graupl-root-line-height: 1.6;
-  --graupl-heading-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-heading-color: var(--graupl-theme-active--primary--700);
 
   /* prettier-ignore */
   --graupl-heading-font-family: georgia, "Times New Roman", serif;
@@ -109,14 +100,8 @@
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 1px;
-  --graupl-card-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
-  );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-card-background: var(--graupl-theme-active--primary--100);
+  --graupl-card-border-color: var(--graupl-theme-active--primary--700);
   --graupl-card-border-top-left-radius: 3rem;
   --graupl-card-border-top-right-radius: 0.75rem;
   --graupl-card-border-bottom-right-radius: 3rem;
@@ -135,14 +120,8 @@
     var(--graupl-primary--300),
     var(--graupl-primary--800)
   );
-  --graupl-navigation-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
-  --graupl-navigation-branding-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
+  --graupl-navigation-color: var(--graupl-theme-active--primary--900);
+  --graupl-navigation-branding-color: var(--graupl-theme-active--primary--900);
   --graupl-menu-link-border-radius: 100vmax;
   --graupl-navigation-branding-font-weight: var(--graupl-font-weight-bold);
   --graupl-navigation-branding-font-size: calc(
@@ -182,10 +161,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
   --graupl-link-text-decoration: underline;
   --graupl-link-hover-text-decoration: underline;
   --graupl-link-focus-text-decoration: underline;
@@ -206,30 +182,22 @@ main > section > h2::after {
   height: 1rem;
   margin-block: var(--graupl-spacer-5) var(--graupl-spacer-6);
   border-radius: 100% 0;
-  background: light-dark(
-    var(--graupl-primary--600),
-    var(--graupl-primary--400)
-  );
+  background: var(--graupl-theme-active--primary--600);
   pointer-events: none;
 }
 
 .navigation {
   padding: calc(0.4 * var(--graupl-spacer)) calc(0.8 * var(--graupl-spacer));
-  border-block: 1px solid
-    light-dark(var(--graupl-primary--600), var(--graupl-primary--400));
+  border-block: 1px solid var(--graupl-theme-active--primary--600);
   border-radius: 2rem 0;
 }
 
 .card-header {
-  border-block-end: 1px solid
-    light-dark(var(--graupl-primary--300), var(--graupl-primary--700));
+  border-block-end: 1px solid var(--graupl-theme-active--primary--300);
 }
 
 .col-12:nth-child(2) > .card.h-full {
-  --graupl-card-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
+  --graupl-card-background: var(--graupl-theme-active--secondary--100);
   --graupl-card-border-color: light-dark(
     var(--graupl-secondary--500),
     var(--graupl-secondary--400)
@@ -237,10 +205,7 @@ main > section > h2::after {
 }
 
 .col-12:nth-child(3) > .card.h-full {
-  --graupl-card-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
+  --graupl-card-background: var(--graupl-theme-active--tertiary--100);
   --graupl-card-border-color: light-dark(
     var(--graupl-tertiary--500),
     var(--graupl-tertiary--400)

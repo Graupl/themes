@@ -12,7 +12,20 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/Graupl/graupl@v1.0.0-beta.60/dist/css/graupl.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@graupl/icons@1.0.0-beta.60/dist/css/icon.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@graupl/navigation-shelf@1.0.0-beta.60/dist/css/navigation-shelf.css"
+    />
     <link rel="stylesheet" href="theme.css" />
+    <script type="module">
+      import generateNavigationShelf from "https://cdn.jsdelivr.net/npm/@graupl/navigation-shelf@1.0.0-beta.60/dist/js/generator/navigation-shelf.es.js";
+
+      generateNavigationShelf();
+    </script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/accessible-menu@5.0.0-beta.7/dist/disclosure-menu.iife.js"
@@ -72,7 +85,7 @@
         class="visually-hidden focusable display-inline-block my-3"
         >Skip to content</a
       >
-      <header class="pb-5 position-relative z-1">
+      <header class="pb-5 position-relative z-1 shelf-aware">
         <nav
           class="navigation"
           aria-label="Main navigation"
@@ -123,6 +136,97 @@
             </li>
           </ul>
         </nav>
+        <div class="display-flex">
+          <button
+            type="button"
+            class="button navigation-shelf-toggle"
+            aria-label="Guild shelf"
+            aria-expanded="false"
+            aria-controls="guild-shelf"
+          >
+            Guild
+          </button>
+        </div>
+        <nav
+          id="guild-shelf"
+          class="navigation-shelf right-side hide"
+          aria-labelledby="guild-shelf-title"
+          data-graupl-navigation-shelf-options='{"side":"right"}'
+        >
+          <div class="navigation-shelf-header p-5">
+            <h2 id="guild-shelf-title" class="text-h3 mb-0">
+              CORE Guild links
+            </h2>
+          </div>
+          <div class="navigation-shelf-content overflow-y-auto px-5 pt-2 pb-5">
+            <ul class="list-style-none m-0 p-0">
+              <li>
+                <a
+                  class="button link justify-content-start w-full"
+                  href="https://coreguild.gg/about"
+                  >About the guild</a
+                >
+              </li>
+              <li>
+                <a
+                  class="button link justify-content-start w-full"
+                  href="https://coreguild.gg/faq"
+                  >Guild FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  class="button link justify-content-start w-full"
+                  href="https://coreguild.gg/logs"
+                  >Guild logs</a
+                >
+              </li>
+              <li>
+                <a
+                  class="button link justify-content-start w-full icon-before core-shelf-bluesky"
+                  href="https://bsky.app/profile/coreguild.gg"
+                  >Bluesky</a
+                >
+              </li>
+              <li>
+                <a
+                  class="button link justify-content-start w-full icon-before core-shelf-discord"
+                  href="https://discord.gg/coreguild"
+                  >Discord</a
+                >
+              </li>
+              <li>
+                <a
+                  class="button link justify-content-start w-full icon-before core-shelf-youtube"
+                  href="https://www.youtube.com/@TheCOREGuild"
+                  >YouTube</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="navigation-shelf-footer px-5 pt-2 pb-5">
+            <button
+              type="button"
+              class="button navigation-shelf-lock-toggle justify-content-start w-full"
+              aria-pressed="false"
+            >
+              Pin shelf
+            </button>
+            <button
+              type="button"
+              class="button navigation-shelf-hover-toggle justify-content-start w-full"
+              aria-pressed="false"
+            >
+              Open on hover
+            </button>
+            <button
+              type="button"
+              class="button navigation-shelf-side-toggle justify-content-start w-full"
+            >
+              Swap sides
+            </button>
+          </div>
+        </nav>
         <noscript
           ><p>
             Enable JavaScript to change appearance and use the interactive
@@ -130,7 +234,7 @@
           </p></noscript
         >
       </header>
-      <main id="main" tabindex="-1">
+      <main id="main" class="shelf-aware" tabindex="-1">
         <section class="py-8" aria-labelledby="intro-title">
           <div class="flex-columns g-7 align-items-center">
             <div class="col-12 md:col-8">
@@ -901,8 +1005,8 @@
             About CORE Hound
           </h2>
           <p>
-            This preview uses Graupl 1.0.0-beta.60. The signup fields and
-            activity details are examples.
+            This preview uses Graupl, Navigation Shelf, and Icons at
+            1.0.0-beta.60. The signup fields and activity details are examples.
           </p>
           <p>Load <code>theme.css</code> after Graupl's stylesheet.</p>
           <p>
@@ -918,8 +1022,8 @@
           </div>
         </section>
       </main>
-      <footer class="py-7">
-        <p>CORE Hound · Built with Graupl and Accessible Menu.</p>
+      <footer class="py-7 shelf-aware">
+        <p>CORE Hound · Built with Graupl</p>
         <a href="#main">Back to top</a>
         <nav class="mt-5" aria-label="Other themes">
           <h2 class="text-h3">Explore the other themes</h2>
@@ -937,7 +1041,6 @@
             <li><a href="../crt/index.html">CRT</a></li>
             <li><a href="../fieldwork/index.html">Fieldwork</a></li>
             <li><a href="../folio/index.html">Folio</a></li>
-            <li><a href="../forma/index.html">Forma</a></li>
             <li><a href="../gilt/index.html">Gilt</a></li>
             <li><a href="../glasshouse/index.html">Glasshouse</a></li>
             <li><a href="../default/index.html">Graupl defaults</a></li>
@@ -945,8 +1048,10 @@
             <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
             <li><a href="../kickstart/index.html">Kickstart</a></li>
             <li><a href="../lumen/index.html">Lumen</a></li>
+            <li><a href="../neon-coast/index.html">Neon Coast</a></li>
             <li><a href="../reference/index.html">Reference</a></li>
             <li><a href="../signal/index.html">Signal</a></li>
+            <li><a href="../sleet/index.html">Sleet</a></li>
             <li><a href="../sugar/index.html">Sugar</a></li>
             <li><a href="../tidepool/index.html">Tidepool</a></li>
             <li><a href="../waymark/index.html">Waymark</a></li>

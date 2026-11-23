@@ -20,9 +20,11 @@ If an alias for `--graupl-spacer-5` resolves on `:root`, changing only `--graupl
 
 ## Colour modes
 
-The pinned CSS uses `.light-mode` and `.dark-mode` to set `color-scheme`. It uses `light-dark()` in palette fallback chains so the same declaration can resolve differently in each mode. Those fallbacks use palette shades such as `--graupl-primary--100`. Check whether the affected rule reads the raw shade or a mapped property such as `--graupl-theme-active--primary--100`. Test the result with both mode classes through the existing preview controls.
+The pinned CSS uses `.light-mode` and `.dark-mode` to set `color-scheme`. Raw shades such as `--graupl-primary--100` define the palette and stay fixed when the mode changes. The `--graupl-theme-active--*` properties map that palette to the active theme and colour mode.
 
-With no mapped override, the default theme uses `--graupl-primary--100` for mapped shade 100 in light mode and `--graupl-primary--900` in dark mode. The fallbacks are `#e6eeff` and `#001233`, respectively. In the `.default-theme` rule, `--graupl-theme-active--primary--100` checks `--graupl-theme-default--primary--100` before using those palette shades. Set the raw palette shades when the change should apply wherever Graupl uses them. Check the component's own fallback chain before overriding a mapped shade.
+With no mapped override, `var(--graupl-theme-active--primary--100)` uses `--graupl-primary--100` in light mode and `--graupl-primary--900` in dark mode. The pinned default fallbacks are `#e6eeff` and `#001233`, respectively. Use that active property in place of `light-dark(var(--graupl-primary--100), var(--graupl-primary--900))` when the styling should follow the active palette. Keep `light-dark()` for a pair the palette does not map, such as a custom light-mode border colour paired with a shade from a different palette in dark mode.
+
+In the pinned `.default-theme` rule, `--graupl-theme-active--primary--100` checks `--graupl-theme-default--primary--100` before falling back to the raw shades. Set the raw shades when defining the palette. Check the component's fallback chain and verify the computed colour in both modes through the preview controls.
 
 ## Typography
 
@@ -53,7 +55,7 @@ For `.button`, Graupl sets `--graupl-button-transition` in `@media (prefers-redu
 ## Fieldwork preview and component setup
 
 - Fieldwork loaded its authored CSS after Graupl. It set existing `--graupl-primary`, `--graupl-secondary`, and `--graupl-tertiary` values and numbered shades `--100` through `--900`. It used root properties such as `--graupl-root-background`, `--graupl-root-color`, `--graupl-heading-font-family`, and `--graupl-button-border-radius` after checking the compiled CSS.
-- In that version, Graupl maps its theme colours to the opposite numbered raw shade in dark mode using `light-dark()`. The raw `--graupl-primary--100` value itself does not change. Inspect the mode implementation and computed colours before assigning values. Fieldwork also used `light-dark()` for selected semantic properties.
+- Fieldwork sets `--graupl-root-background` to `var(--graupl-theme-active--secondary--100)` so the page background follows the secondary palette in both modes.
 - Fieldwork sets `--graupl-button-border-radius` on `.accordion-item-toggle` to match the item corners. When expanded, it squares the lower corners so the toggle meets its content. Ordinary buttons keep the rounded value declared at the root. Decorative CSS should keep focus visible and controls usable.
 - Graupl's component generators initialize existing elements. For example, the beta.58 accordion generator selects `.accordion` by default, uses `@drupal/once`, and creates an Accordion instance. It accepts `options`, `context`, and `selector`. Inspect the target version and component documentation before using them. Use the initialization settings for the preview you are editing.
 - The Fieldwork preview loads Accessible Menu separately for its navigation. Check each preview for its navigation dependencies and configuration.

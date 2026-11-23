@@ -73,14 +73,8 @@
   --graupl-tertiary--700: #81155e;
   --graupl-tertiary--800: #591343;
   --graupl-tertiary--900: #350e29;
-  --graupl-root-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-secondary--900),
-    var(--graupl-secondary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--secondary--100);
+  --graupl-root-color: var(--graupl-theme-active--secondary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
@@ -113,14 +107,8 @@
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 2px;
-  --graupl-card-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
-  );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-card-background: var(--graupl-theme-active--primary--100);
+  --graupl-card-border-color: var(--graupl-theme-active--primary--700);
   --graupl-card-border-top-left-radius: 2.5rem;
   --graupl-card-border-top-right-radius: 0;
   --graupl-card-border-bottom-right-radius: 2.5rem;
@@ -166,10 +154,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -213,8 +198,7 @@ main > section > h2::before {
 }
 
 .navigation {
-  border-block-end: 3px solid
-    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300));
+  border-block-end: 3px solid var(--graupl-theme-active--secondary--700);
 }
 
 .card-header {
@@ -278,6 +262,5 @@ main > section + section {
 .button.primary:not(:focus-visible),
 .button.secondary:not(:focus-visible),
 .button.tertiary:not(:focus-visible) {
-  box-shadow: 0.2rem 0.2rem 0
-    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300));
+  box-shadow: 0.2rem 0.2rem 0 var(--graupl-theme-active--secondary--700);
 }

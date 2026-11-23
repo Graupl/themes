@@ -63,22 +63,13 @@
   --graupl-tertiary--700: #552e7e;
   --graupl-tertiary--800: #391f56;
   --graupl-tertiary--900: #251339;
-  --graupl-root-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
-  --graupl-root-color: light-dark(
-    var(--graupl-tertiary--900),
-    var(--graupl-tertiary--100)
-  );
+  --graupl-root-background: var(--graupl-theme-active--tertiary--100);
+  --graupl-root-color: var(--graupl-theme-active--tertiary--900);
   --graupl-root-font-family:
     ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
     sans-serif;
   --graupl-root-line-height: 1.6;
-  --graupl-heading-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-heading-color: var(--graupl-theme-active--primary--700);
 
   /* prettier-ignore */
   --graupl-heading-font-family: ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
@@ -109,14 +100,8 @@
   --graupl-button-min-height: 48px;
   --graupl-button-active-transform: none;
   --graupl-link-text-decoration-thickness: 1px;
-  --graupl-card-background: light-dark(
-    var(--graupl-primary--100),
-    var(--graupl-primary--900)
-  );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-card-background: var(--graupl-theme-active--primary--100);
+  --graupl-card-border-color: var(--graupl-theme-active--primary--700);
   --graupl-card-border-top-left-radius: 2.5rem;
   --graupl-card-border-top-right-radius: 2.5rem;
   --graupl-card-border-bottom-right-radius: 2.5rem;
@@ -134,14 +119,8 @@
     var(--graupl-primary--300),
     var(--graupl-primary--800)
   );
-  --graupl-navigation-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
-  --graupl-navigation-branding-color: light-dark(
-    var(--graupl-primary--900),
-    var(--graupl-primary--100)
-  );
+  --graupl-navigation-color: var(--graupl-theme-active--primary--900);
+  --graupl-navigation-branding-color: var(--graupl-theme-active--primary--900);
   --graupl-menu-link-border-radius: 100vmax;
   --graupl-navigation-branding-font-weight: var(--graupl-font-weight-bold);
   --graupl-navigation-branding-font-size: calc(
@@ -181,10 +160,7 @@
   --graupl-focus-outline-style: solid;
   --graupl-focus-outline-width: 3px;
   --graupl-focus-outline-offset: 3px;
-  --graupl-focus-outline-color: light-dark(
-    var(--graupl-primary--700),
-    var(--graupl-primary--300)
-  );
+  --graupl-focus-outline-color: var(--graupl-theme-active--primary--700);
 }
 
 /* Keep the accordion header's lower edge flush with its expanded content. */
@@ -194,39 +170,24 @@
 
 /* Each card keeps Graupl's layout; existing properties choose its flavour. */
 .col-12:nth-child(2) > .card.h-full {
-  --graupl-card-background: light-dark(
-    var(--graupl-secondary--100),
-    var(--graupl-secondary--900)
-  );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-secondary--700),
-    var(--graupl-secondary--300)
-  );
+  --graupl-card-background: var(--graupl-theme-active--secondary--100);
+  --graupl-card-border-color: var(--graupl-theme-active--secondary--700);
 }
 
 .col-12:nth-child(3) > .card.h-full {
-  --graupl-card-background: light-dark(
-    var(--graupl-tertiary--100),
-    var(--graupl-tertiary--900)
-  );
-  --graupl-card-border-color: light-dark(
-    var(--graupl-tertiary--700),
-    var(--graupl-tertiary--300)
-  );
+  --graupl-card-background: var(--graupl-theme-active--tertiary--100);
+  --graupl-card-border-color: var(--graupl-theme-active--tertiary--700);
 }
 
 .card {
-  box-shadow: 0 0.5rem 0
-    light-dark(var(--graupl-tertiary--300), var(--graupl-tertiary--700));
+  box-shadow: 0 0.5rem 0 var(--graupl-theme-active--tertiary--300);
 }
 
 .navigation {
   padding: var(--graupl-spacer-3) var(--graupl-spacer-5);
-  border: 2px solid
-    light-dark(var(--graupl-primary--700), var(--graupl-primary--300));
+  border: 2px solid var(--graupl-theme-active--primary--700);
   border-radius: 2rem;
-  box-shadow: 0 0.4rem 0
-    light-dark(var(--graupl-secondary--300), var(--graupl-secondary--700));
+  box-shadow: 0 0.4rem 0 var(--graupl-theme-active--secondary--300);
 }
 
 /* Empty scallops stay in flow and carry no information. */
@@ -238,7 +199,7 @@ main > section > h2::after {
   margin-block: var(--graupl-spacer-5) var(--graupl-spacer-6);
   background: radial-gradient(
       circle at 50% 0,
-      light-dark(var(--graupl-primary--400), var(--graupl-primary--600)) 0 65%,
+      var(--graupl-theme-active--primary--400) 0 65%,
       transparent 68%
     )
     0 0 / 2rem 1rem repeat-x;
@@ -254,16 +215,14 @@ main > section > h2::after {
   border-radius: 100vmax;
   background: repeating-linear-gradient(
     110deg,
-    light-dark(var(--graupl-secondary--700), var(--graupl-secondary--300)) 0
-      0.4rem,
+    var(--graupl-theme-active--secondary--700) 0 0.4rem,
     transparent 0.4rem 0.7rem
   );
   pointer-events: none;
 }
 
 .card-footer {
-  border-block-start: 2px dotted
-    light-dark(var(--graupl-primary--600), var(--graupl-primary--400));
+  border-block-start: 2px dotted var(--graupl-theme-active--primary--600);
 }
 
 @media (forced-colors: active) {
