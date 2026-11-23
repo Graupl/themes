@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Neon Coast, a sunset and nightlife theme."
+    />
+    <title>Neon Coast | Graupl theme</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Graupl/graupl@v1.0.0-beta.61/dist/css/graupl.css"
+    />
+    <link rel="stylesheet" href="theme.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/accessible-menu@5.0.0-beta.7/dist/disclosure-menu.iife.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/Graupl/graupl@v1.0.0-beta.61/dist/js/graupl.js"
+    ></script>
+    <script>
+      // Follow Graupl's demo: use its mode classes and remember the choice.
+      (() => {
+        const storageKey = "neon-coast-appearance";
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
+        let mode = "system";
+        try {
+          const saved = window.localStorage.getItem(storageKey);
+          if (["system", "light", "dark"].includes(saved)) mode = saved;
+        } catch {
+          // The switch still works when browser storage is unavailable.
+        }
+        let control;
+        const resolvedMode = () =>
+          mode === "system" ? (preference.matches ? "dark" : "light") : mode;
+        const applyMode = () => {
+          const resolved = resolvedMode();
+          document.documentElement.classList.remove("light-mode", "dark-mode");
+          document.documentElement.classList.add(`${resolved}-mode`);
+          if (control) {
+            control.textContent =
+              resolved === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode";
+          }
+        };
+        applyMode();
+        preference.addEventListener("change", applyMode);
+        document.addEventListener("DOMContentLoaded", () => {
+          control = document.getElementById("appearance");
+          applyMode();
+          control.addEventListener("click", () => {
+            mode = resolvedMode() === "light" ? "dark" : "light";
+            applyMode();
+            try {
+              window.localStorage.setItem(storageKey, mode);
+            } catch {
+              // A blocked save does not prevent changing the current mode.
+            }
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a
+        href="#main"
+        class="visually-hidden focusable display-inline-block my-3"
+        >Skip to content</a
+      >
+      <header class="pb-5 position-relative z-1">
+        <nav
+          class="navigation"
+          aria-label="Main navigation"
+          data-graupl-menu-type="DisclosureMenu"
+          data-graupl-menu-options='{"menuLinksSelector":".menu-link"}'
+        >
+          <a class="navigation-branding" href="index.html"
+            >NEON COAST / Graupl</a
+          >
+          <button
+            type="button"
+            class="navigation-toggle"
+            aria-label="Toggle navigation"
+          ></button>
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="menu-link" href="#foundations">Foundations</a>
+            </li>
+            <li class="menu-item submenu-item">
+              <button
+                type="button"
+                class="menu-link button link submenu-toggle"
+              >
+                Components
+              </button>
+              <ul class="submenu">
+                <li class="menu-item">
+                  <a class="menu-link" href="#cards">Cards and lists</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#forms">Forms and tables</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="#interactions"
+                    >Interactive components</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <button
+                id="appearance"
+                type="button"
+                class="menu-link button link"
+              >
+                Switch to dark mode
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <noscript
+          ><p>
+            Enable JavaScript to change appearance and use the interactive
+            components.
+          </p></noscript
+        >
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="py-8" aria-labelledby="intro-title">
+          <div class="flex-columns g-7 align-items-center">
+            <div class="col-12 md:col-8">
+              <p class="text-sm text-primary-700">COASTAL CITY GUIDE</p>
+              <h1 id="intro-title">Neon Coast</h1>
+              <p class="text-lg">
+                Catch the last of the sunlight at the pier, then follow the
+                music down the waterfront.
+              </p>
+              <div class="display-flex flex-wrap g-3 mt-6">
+                <a class="button primary" href="#foundations"
+                  >Explore the library</a
+                ><a class="button secondary" href="theme.css" download
+                  >Download theme CSS</a
+                >
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="badge tertiary">WATERFRONT GUIDE</span>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title">After the sun goes down</h2>
+                    <p>
+                      Start at the pier, get something to eat at the marina
+                      market, and catch the late set on the roof.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">See the evening stops</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="foundations"
+          class="py-8"
+          aria-labelledby="foundations-title"
+        >
+          <p class="text-sm text-primary-700">01 / FOUNDATIONS</p>
+          <h2 id="foundations-title">The sunset palette</h2>
+          <p>
+            Pink neon, marina teal, and sunset orange. Each palette has nine
+            shades, and the swatches follow the current colour mode.
+          </p>
+          <div class="flex-columns g-5 my-6">
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-primary-200 text-primary-900 border-radius">
+                <h3>Neon pink</h3>
+                <p>Primary · #c83176</p>
+                <div
+                  class="display-flex flex-wrap g-2"
+                  role="group"
+                  aria-label="Primary shades"
+                >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>100</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>200</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>300</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>400</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>500</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>600</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>700</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>800</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-primary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>900</small></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div
+                class="p-6 bg-secondary-200 text-secondary-900 border-radius"
+              >
+                <h3>Marina teal</h3>
+                <p>Secondary · #178b89</p>
+                <div
+                  class="display-flex flex-wrap g-2"
+                  role="group"
+                  aria-label="Secondary shades"
+                >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>100</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>200</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>300</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>400</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>500</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>600</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>700</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>800</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-secondary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>900</small></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-4">
+              <div class="p-6 bg-tertiary-200 text-tertiary-900 border-radius">
+                <h3>Sunset orange</h3>
+                <p>Tertiary · #df7826</p>
+                <div
+                  class="display-flex flex-wrap g-2"
+                  role="group"
+                  aria-label="Tertiary shades"
+                >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-100 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>100</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-200 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>200</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-300 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>300</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-400 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>400</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-500 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>500</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-600 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>600</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-700 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>700</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-800 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>800</small></span
+                  >
+                  <span class="display-inline-block text-center"
+                    ><span
+                      class="display-block bg-tertiary-900 w-6 h-6 border-radius"
+                      aria-hidden="true"
+                    ></span
+                    ><small>900</small></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-columns g-7">
+            <div class="col-12 md:col-6">
+              <h3>Type with a clear hierarchy</h3>
+              <p class="text-h2">A night on the waterfront</p>
+              <p>
+                Start at the pier while there is still light, then walk to the
+                marina for dinner.
+                <strong>Strong text</strong> adds emphasis,
+                <em>italics</em> mark a change in voice, and
+                <a href="#cards">links stay underlined</a>.
+              </p>
+              <small
+                >Small text for supporting details. Essential instructions stay
+                in the body.</small
+              >
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Buttons and badges</h3>
+              <p>
+                These buttons link to working examples further down the page.
+              </p>
+              <div class="display-flex flex-wrap g-3 mb-5">
+                <a class="button primary" href="#forms">Primary</a
+                ><a class="button secondary" href="#cards">Secondary</a
+                ><a class="button tertiary" href="#interactions">Tertiary</a
+                ><button class="button" type="button" disabled>
+                  Unavailable
+                </button>
+              </div>
+              <div class="display-flex flex-wrap g-3">
+                <span class="badge primary">Pier open</span
+                ><span class="badge secondary">Market open</span
+                ><span class="badge tertiary">Late set announced</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="cards" class="py-8" aria-labelledby="cards-title">
+          <p class="text-sm text-primary-700">02 / CONTENT</p>
+          <h2 id="cards-title">Waterfront guide</h2>
+          <p>Cards, lists, breadcrumbs, and messages share the same palette.</p>
+          <nav aria-label="Example breadcrumb" class="my-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#main">Neon Coast</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="breadcrumb-link" href="#cards">Waterfront guide</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">Evening stops</li>
+            </ol>
+          </nav>
+          <div class="flex-columns g-5">
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-primary-700">01</span>
+                    <p class="text-sm">EVENING STOP</p>
+                    <h3 class="card-title">Sunset Pier</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Walk out to the end of the pier to watch the lights come
+                      on across the bay.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the venue notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-secondary-700">02</span>
+                    <p class="text-sm">EVENING STOP</p>
+                    <h3 class="card-title">Marina Market</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Pick up dinner from the food stalls beside the docks.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the venue notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 md:col-4">
+              <article class="card h-full">
+                <div class="card-content">
+                  <div class="card-header">
+                    <span class="text-h1 text-tertiary-700">03</span>
+                    <p class="text-sm">EVENING STOP</p>
+                    <h3 class="card-title">Rooftop Radio</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Stay for the late set. The rooftop entrance is on the side
+                      street.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#interactions">Read the venue notes</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="flex-columns g-6 mt-7">
+            <div class="col-12 md:col-6">
+              <h3>Night out checklist</h3>
+              <ul class="list" role="list">
+                <li class="list-item">Water bottle</li>
+                <li class="list-item">Transit pass</li>
+                <li class="list-item">Portable charger</li>
+              </ul>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Waterfront notice</h3>
+              <div class="alert tertiary">
+                <div class="alert-header">
+                  <p class="alert-title">East pier entrance closed</p>
+                </div>
+                <div class="alert-body">
+                  <p>
+                    The east gate is closed for repairs. Use the entrance beside
+                    the ferry stop.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="alert-dismisser"
+                  aria-label="Dismiss pier entrance notice"
+                >
+                  ×
+                </button>
+              </div>
+              <p>
+                <small
+                  >This is a dismissible example. Reload the page to restore
+                  it.</small
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="forms" class="py-8" aria-labelledby="forms-title">
+          <p class="text-sm text-primary-700">03 / INPUT AND DATA</p>
+          <h2 id="forms-title">Plan an evening out</h2>
+          <p>
+            A sample planner for an evening on the waterfront. These fields
+            demonstrate Graupl's controls and do not send or save your
+            information.
+          </p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <div>
+                <div class="input-group mb-5">
+                  <label for="trip-name">Group name</label
+                  ><input
+                    id="trip-name"
+                    type="text"
+                    placeholder="Friday waterfront crew"
+                    aria-describedby="trip-help"
+                  /><small id="trip-help" class="help-text"
+                    >Choose a name you will recognise in your notes.</small
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="route">First stop</label
+                  ><select id="route">
+                    <option>Sunset Pier</option>
+                    <option>Marina Market</option>
+                    <option>Rooftop Radio</option>
+                  </select>
+                </div>
+                <div class="input-group mb-5">
+                  <label for="notes">Evening notes</label
+                  ><textarea
+                    id="notes"
+                    rows="3"
+                    placeholder="Which stops are you planning to visit?"
+                  ></textarea>
+                </div>
+                <fieldset class="mb-5">
+                  <legend>Start time</legend>
+                  <div class="input-group left">
+                    <input
+                      type="radio"
+                      id="pace-easy"
+                      name="pace"
+                      checked
+                    /><label for="pace-easy">Sunset</label>
+                  </div>
+                  <div class="input-group left">
+                    <input type="radio" id="pace-steady" name="pace" /><label
+                      for="pace-steady"
+                      >After dark</label
+                    >
+                  </div>
+                </fieldset>
+                <div class="input-group left mb-5">
+                  <input type="checkbox" id="map-copy" /><label for="map-copy"
+                    >Bring a transit pass</label
+                  >
+                </div>
+                <div class="input-group mb-5">
+                  <label for="distance">Walking distance</label
+                  ><input
+                    type="range"
+                    id="distance"
+                    min="1"
+                    max="15"
+                    value="6"
+                  /><small class="help-text"
+                    >Between 1 and 15 kilometres.</small
+                  >
+                </div>
+                <p>
+                  <small>Reload this page to reset the example fields.</small>
+                </p>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3 id="evening-routes-title">Evening route comparison</h3>
+              <div
+                class="responsive-table"
+                role="region"
+                aria-labelledby="evening-routes-title"
+                tabindex="0"
+              >
+                <table class="primary striped-rows min-w-full">
+                  <caption>
+                    Waterfront walking routes
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Route</th>
+                      <th scope="col">Distance</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Start point</th>
+                      <th scope="col">Evening access</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Sunset Pier</th>
+                      <td>6 km</td>
+                      <td>2 hours</td>
+                      <td>Ferry stop</td>
+                      <td>Use the west entrance.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Marina Market</th>
+                      <td>12 km</td>
+                      <td>4 hours</td>
+                      <td>Marina gate</td>
+                      <td>Follow the signs to the food stalls.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Rooftop Radio</th>
+                      <td>3 km</td>
+                      <td>1 hour</td>
+                      <td>Side street</td>
+                      <td>Take the lift from street level.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="input-group mt-7">
+                <label for="locked-field">Unavailable field</label
+                ><input
+                  type="text"
+                  id="locked-field"
+                  disabled
+                  value="Online bookings are closed"
+                /><small class="help-text">Disabled control appearance.</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="interactions"
+          class="py-8"
+          aria-labelledby="interactions-title"
+        >
+          <p class="text-sm text-primary-700">04 / INTERACTION</p>
+          <h2 id="interactions-title">Venue notes and evening stops</h2>
+          <p>Graupl's generators handle every interaction below.</p>
+          <div class="flex-columns g-7 mt-6">
+            <div class="col-12 md:col-6">
+              <h3>Before heading out</h3>
+              <div
+                class="accordion"
+                data-graupl-accordion-options='{"optionalKeySupport":true}'
+              >
+                <div class="accordion-item show">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="true"
+                      >
+                        What should I bring?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Bring water and a transit pass. Keep your phone charged
+                        for the trip home.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        Where do we meet?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Meet beside the ferry stop at the west entrance to
+                        Sunset Pier.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item hide">
+                  <div class="accordion-item-header">
+                    <h4 class="accordion-item-title">
+                      <button
+                        type="button"
+                        class="accordion-item-toggle"
+                        aria-expanded="false"
+                      >
+                        How do we get home?
+                      </button>
+                    </h4>
+                  </div>
+                  <div class="accordion-item-content">
+                    <div class="accordion-item-body">
+                      <p>
+                        Check the departure board for the last ferry before
+                        heading to the rooftop.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <h3>Venue notes</h3>
+              <div class="tabs">
+                <div class="tab-list" role="tablist" aria-label="Venue notes">
+                  <button class="tab-toggle" type="button" aria-selected="true">
+                    Sunset Pier</button
+                  ><button class="tab-toggle" type="button">Market</button
+                  ><button class="tab-toggle" type="button">Rooftop</button>
+                </div>
+                <div class="tab-content show" tabindex="0">
+                  <h4>Sunset Pier</h4>
+                  <p>
+                    Follow the boardwalk to the west gate. The east entrance is
+                    closed.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Marina Market</h4>
+                  <p>
+                    The food stalls sit between the marina gate and the docks.
+                  </p>
+                </div>
+                <div class="tab-content" tabindex="0">
+                  <h4>Rooftop Radio</h4>
+                  <p>
+                    Use the side entrance to reach the rooftop. The lift is just
+                    inside.
+                  </p>
+                </div>
+              </div>
+              <h3 class="mt-7">Getting home</h3>
+              <button
+                class="disclosure-toggle"
+                type="button"
+                data-graupl-disclosure-target="access-notes"
+                aria-controls="access-notes"
+                aria-expanded="false"
+              >
+                Late ferry details
+              </button>
+              <div>
+                <div class="disclosure hide" id="access-notes">
+                  <div class="disclosure-content" inert>
+                    <p>
+                      The ferry leaves from the west end of the pier. Check the
+                      board for the last departure.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="display-flex align-items-center g-3 mt-5">
+                <div
+                  class="tooltip"
+                  data-graupl-tooltip-options='{"expandOnFocus":true,"hoverType":"on"}'
+                >
+                  <span class="tooltip-description hide"
+                    >The departure board is beside the west gate.</span
+                  ><button
+                    class="tooltip-toggle"
+                    type="button"
+                    aria-label="Last ferry information"
+                  ></button>
+                </div>
+                <span>Last ferry information</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-8">Three stops after dark</h3>
+          <p>
+            The carousel starts paused. Use the next and previous buttons to
+            explore.
+          </p>
+          <section
+            class="carousel mt-5"
+            aria-label="Three stops after dark"
+            data-graupl-carousel-options='{"autoplay":false}'
+          >
+            <div class="carousel-control-container">
+              <button
+                type="button"
+                class="carousel-control autoplay play"
+                aria-label="Start slide rotation"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control previous"
+                aria-label="Previous slide"
+              ></button
+              ><button
+                type="button"
+                class="carousel-control next"
+                aria-label="Next slide"
+              ></button>
+            </div>
+            <div class="carousel-item-container">
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-primary-100 text-primary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Sunset Pier"
+              >
+                <p class="text-sm">STOP 1 OF 3</p>
+                <h4 class="text-h2">Sunset Pier</h4>
+                <p>Watch the sun drop behind the high-rises across the bay.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-secondary-100 text-secondary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Marina Market"
+                inert
+              >
+                <p class="text-sm">STOP 2 OF 3</p>
+                <h4 class="text-h2">Marina Market</h4>
+                <p>Follow the lights along the docks to the food stalls.</p>
+              </div>
+              <div
+                class="carousel-item px-7 pt-9 pb-8 bg-tertiary-100 text-tertiary-900"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Rooftop Radio"
+                inert
+              >
+                <p class="text-sm">STOP 3 OF 3</p>
+                <h4 class="text-h2">Rooftop Radio</h4>
+                <p>Take the lift up for the last set of the night.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="py-8" aria-labelledby="about-title">
+          <h2 id="about-title">About Neon Coast</h2>
+          <p>
+            Neon Coast uses all thirteen Graupl core components, plus its
+            buttons, links, forms, tables, typography, and layout utilities.
+            Icons and navigation shelf are not included.
+          </p>
+          <p>
+            Keep <code>theme.css</code> after Graupl's stylesheet. Existing
+            <code>--graupl-*</code> properties do most of the work on
+            <code>:root</code>. Scoped properties refine component variants. A
+            few decorative rules add accents without changing the markup. The
+            only custom script controls appearance, not components.
+          </p>
+          <p>
+            Remove the theme stylesheet to use base Graupl with the same markup
+            and interactions.
+          </p>
+          <div class="display-flex flex-wrap g-3">
+            <a class="button primary" href="theme.css" download
+              >Download the theme</a
+            ><a class="button tertiary" href="https://graupl.dev"
+              >Read Graupl's docs</a
+            >
+          </div>
+        </section>
+      </main>
+      <footer class="py-7">
+        <p>Neon Coast · Built with Graupl</p>
+        <a href="#main">Back to top</a>
+        <nav class="mt-5" aria-label="Other themes">
+          <h2 class="text-h3">Explore the other themes</h2>
+          <ul class="display-flex flex-wrap g-3 list-style-none">
+            <li><a href="../afterhours/index.html">After Hours</a></li>
+            <li><a href="../blueprint/index.html">Blueprint</a></li>
+            <li><a href="../campfire/index.html">Campfire</a></li>
+            <li><a href="../civic/index.html">Civic</a></li>
+            <li><a href="../commonplace/index.html">Commonplace</a></li>
+            <li><a href="../corehound/index.html">CORE Hound</a></li>
+            <li><a href="../crt/index.html">CRT</a></li>
+            <li><a href="../fieldwork/index.html">Fieldwork</a></li>
+            <li><a href="../folio/index.html">Folio</a></li>
+            <li><a href="../gilt/index.html">Gilt</a></li>
+            <li><a href="../glasshouse/index.html">Glasshouse</a></li>
+            <li><a href="../default/index.html">Graupl defaults</a></li>
+            <li><a href="../helm/index.html">Helm</a></li>
+            <li><a href="../hyperdrive/index.html">Hyperdrive</a></li>
+            <li><a href="../kickstart/index.html">Kickstart</a></li>
+            <li><a href="../lumen/index.html">Lumen</a></li>
+            <li>
+              <a href="../neon-coast/index.html" aria-current="page"
+                >Neon Coast</a
+              >
+            </li>
+            <li><a href="../reference/index.html">Reference</a></li>
+            <li><a href="../signal/index.html">Signal</a></li>
+            <li><a href="../sleet/index.html">Sleet</a></li>
+            <li><a href="../sugar/index.html">Sugar</a></li>
+            <li><a href="../tidepool/index.html">Tidepool</a></li>
+            <li><a href="../waymark/index.html">Waymark</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
