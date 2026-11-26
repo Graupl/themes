@@ -22,6 +22,7 @@ Always read and apply [the Unslop skill](skills/unslop/SKILL.md) when working on
 - Keep theme styling CSS-only and usable with Graupl's documented markup. Preserve its component semantics and behavior. Previews can use Graupl's existing components and documented generators.
 - When Graupl's docs load theme copy from this repository, keep each optional `exampleCopy.js` beside its `theme.css`. Export a default object containing only the copy keys the theme overrides. Graupl's docs own the winter defaults, the example markup, and the loader. The catalog supplies sample content for the docs previews.
 - Prefer existing Graupl custom properties at the widest scope that gives the intended result. Check the target revision and the computed cascade before narrowing the scope or adding a direct CSS override.
+- Before assigning one custom property to another, check whether the second falls back to the first on the same element. That creates a cycle.
 - Use Graupl's existing colour-mode mechanism and verify contrast, keyboard focus, responsive layout, reduced motion, and the other applicable checks in the theme skill. Use [WCAG 2.2](https://www.w3.org/TR/WCAG22/) for accessibility requirements and the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) and [WAI-ARIA](https://www.w3.org/TR/wai-aria/) to verify relevant preview markup and interactions.
 - Record the Graupl version or revision checked, how you verified the affected styles and states, and any limits on those checks. Report framework defects in the project that owns the component.
 
